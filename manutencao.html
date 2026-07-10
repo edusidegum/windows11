@@ -3,38 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://raw.githubusercontent.com/edusidegum/menu/main/scripts/bloco-incluir.js" defer></script>
-  <script src="https://raw.githubusercontent.com/edusidegum/menu/main/scripts/bloco-protecao.js" defer></script>
-  <title>Manutenção Preventiva — Windows 11</title>
-  <meta name="description" content="Guia completo com 8 passos de manutenção preventiva do Windows 11: CHKDSK, SFC, DISM, limpeza, boot repair e redefinição de rede.">
-  <meta name="author" content="Eduardo Sidegum">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-  <link rel="canonical" href="https://edusidegum.github.io/windows11/manutencao.html">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Manutenção Preventiva — Windows 11">
-  <meta property="og:description" content="Guia completo com 8 passos de manutenção preventiva do Windows 11: CHKDSK, SFC, DISM, limpeza, boot repair e redefinição de rede.">
-  <meta property="og:url" content="https://edusidegum.github.io/windows11/manutencao.html">
-  <meta property="og:image" content="https://edusidegum.github.io/windows11/assets/img/og-image.jpg">
-  <meta property="og:locale" content="pt_BR">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Manutenção Preventiva — Windows 11">
-  <meta name="twitter:description" content="Guia completo com 8 passos de manutenção preventiva do Windows 11: CHKDSK, SFC, DISM, limpeza, boot repair e redefinição de rede.">
-  <meta name="twitter:image" content="https://edusidegum.github.io/windows11/assets/img/og-image.jpg">
-  <link rel="preload" as="style" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    /* Classes que não existem no style.css */
-    .passo-card { display: flex; flex-direction: column; }
-    .passo-card .passo-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .passo-card .passo-numero { font-weight: 700; font-size: 1.5rem; color: #2563eb; }
-    .passo-card .passo-icone { font-size: 1.5rem; }
-    .passo-card .passo-titulo { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
-    .passo-card .passo-descricao { font-size: 0.9rem; color: #555; margin-bottom: 8px; }
-    .passo-card .passo-tempo { font-size: 0.8rem; color: #888; margin-top: 8px; align-self: flex-start; background: #f0f4f8; padding: 2px 8px; border-radius: 4px; }
-    .passo-comando { background: #1e293b; color: #e2e8f0; font-family: monospace; padding: 8px 12px; border-radius: 6px; overflow-x: auto; }
-  </style>
+  <title>Manutenção | Windows 11 Maintenance Hub</title>
+  <meta name="description" content="Guia completo de manutenção para Windows 11 - 8 passos essenciais, scripts, checklist e painel de formatação.">
+  <meta name="author" content="Edu Sidegum">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://edusidegum.github.io/menu/scripts/bloco-incluir.js" defer></script>
+  <script src="https://edusidegum.github.io/menu/scripts/bloco-protecao.js" defer></script>
 </head>
 <body>
+
+  <!-- HEADER LOCAL -->
   <div class="top-header" style="padding: 0 5%; height: 64px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-bottom: 2px solid #1e3a5f;">
     <div>
       <span style="font-size: 1.25rem; font-weight: 700; color: #e2e8f0;">Windows 11 🛡️</span>
@@ -48,217 +26,180 @@
       <a href="configuracoes.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Privacidade</a>
       <a href="FAQ_Microsoft.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">FAQ</a>
     </nav>
-    <a href="dashboard.html" style="display: inline-flex; align-items: center; gap: 4px; padding: 8px 18px; border: 1px solid #1e3a5f; border-radius: 8px; color: #94a3b8; font-size: 0.85rem; text-decoration: none; transition: all 0.2s;">← Voltar</a>
   </div>
-  <main>
-    <section class="hero-section">
-      <h1>🛡️ Manutenção Preventiva do Windows 11</h1>
-      <p>Antes de formatar, siga este guia. Muitos problemas podem ser corrigidos sem perder seus arquivos.</p>
-      <a href="#download" class="btn btn-primary">📥 Baixar Script Completo (.bat)</a>
-    </section>
-    <section>
-      <h2 class="section-title">8 Passos de Manutenção</h2>
-      <div class="grid-2">
-        <article class="card passo-card">
-          <div class="passo-header">
-            <span class="passo-numero">1</span>
-            <span class="passo-icone">🛡️</span>
-          </div>
-          <h3 class="passo-titulo">CHKDSK — Verificação de disco</h3>
-          <p class="passo-descricao">Verifica e repara erros no disco rígido. Pode ser demorado.</p>
-          <div class="code-block passo-comando">chkdsk C: /f /r /x</div>
-          <span class="passo-tempo">30-60 min</span>
-        </article>
-        <article class="card passo-card">
-          <div class="passo-header">
-            <span class="passo-numero">2</span>
-            <span class="passo-icone">🔧</span>
-          </div>
-          <h3 class="passo-titulo">SFC — Verificador de arquivos do sistema</h3>
-          <p class="passo-descricao">Verifica a integridade de arquivos protegidos do Windows.</p>
-          <div class="code-block passo-comando">sfc /scannow</div>
-          <span class="passo-tempo">10-30 min</span>
-        </article>
-        <article class="card passo-card">
-          <div class="passo-header">
-            <span class="passo-numero">3</span>
-            <span class="passo-icone">⚙️</span>
-          </div>
-          <h3 class="passo-titulo">DISM — Reparo da imagem do Windows</h3>
-          <p class="passo-descricao">Prepara e repara a imagem do sistema.</p>
-          <div class="code-block passo-comando">DISM /Online /Cleanup-Image /RestoreHealth</div>
-          <span class="passo-tempo">15-30 min</span>
-        </article>
-        <article class="card passo-card">
-          <div class="passo-header">
-            <span class="passo-numero">4</span>
-            <span class="passo-icone">🧹</span>
-          </div>
-          <h3 class="passo-titulo">Limpeza de Temporários</h3>
-          <p class="passo-descricao">Remove arquivos temporários do sistema e do usuário.</p>
-          <div class="code-block passo-comando">del /q /f /s %TEMP%\*</div>
-          <span class="passo-tempo">1 min</span>
-        </article>
-        <article class="card passo-card">
-          <div class="passo-header">
-            <span class="passo-numero">5</span>
-            <span class="passo-icone">🗑️</span>
-          </div>
-          <h3 class="passo-titulo">CleanMgr — Limpeza profunda</h3>
-          <p class="passo-descricao">Ferramenta interna de limpeza de disco.</p>
-          <div class="code-block passo-comando">cleanmgr /sagerun:1</div>
-          <span class="passo-tempo">5-10 min</span>
-        </article>
-        <article class="card passo-card">
-          <div class="passo-header">
-            <span class="passo-numero">6</span>
-            <span class="passo-icone">🔄</span>
-          </div>
-          <h3 class="passo-titulo">Boot Repair — Reparo de inicialização</h3>
-          <p class="passo-descricao">Repara problemas de boot e MBR.</p>
-          <div class="code-block passo-comando">bootrec /fixboot & bootrec /fixmbr</div>
-          <span class="passo-tempo">2 min</span>
-        </article>
-        <article class="card passo-card">
-          <div class="passo-header">
-            <span class="passo-numero">7</span>
-            <span class="passo-icone">⚡</span>
-          </div>
-          <h3 class="passo-titulo">Desfragmentação — HDD</h3>
-          <p class="passo-descricao">Otimiza a disposição dos dados no disco (apenas HDD).</p>
-          <div class="code-block passo-comando">defrag C: /O</div>
-          <span class="passo-tempo">10-30 min</span>
-        </article>
-        <article class="card passo-card">
-          <div class="passo-header">
-            <span class="passo-numero">8</span>
-            <span class="passo-icone">🌐</span>
-          </div>
-          <h3 class="passo-titulo">Redefinição de Rede</h3>
-          <p class="passo-descricao">Reseta pilha de rede e DNS.</p>
-          <div class="code-block passo-comando">ipconfig /flushdns & netsh winsock reset</div>
-          <span class="passo-tempo">1 min</span>
-        </article>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 60px 5%; text-align: center;">
+    <h1 style="color: #e2e8f0; font-size: 2.5rem; margin-bottom: 16px;">Manutenção do Windows 11</h1>
+    <p style="color: #94a3b8; font-size: 1.1rem; max-width: 700px; margin: 0 auto 24px;">Siga os 8 passos essenciais para manter seu sistema otimizado, seguro e estável.</p>
+    <span style="color: #2563eb; font-size: 1rem; font-weight: 600;">🔧 Aprenda, investigue e valide cada etapa.</span>
+  </section>
+
+  <!-- 8 PASSOS EM GRID -->
+  <section style="padding: 40px 5%; max-width: 1200px; margin: 0 auto;">
+    <h2 style="color: #e2e8f0; text-align: center; font-size: 1.8rem; margin-bottom: 32px;">8 Passos de Manutenção</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+
+      <div style="background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 12px;">🔄</div>
+        <h3 style="color: #e2e8f0; font-size: 1.1rem; margin: 0;">1. Windows Update</h3>
+        <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 8px;">Verifique e instale todas as atualizações disponíveis do sistema.</p>
       </div>
-    </section>
-    <section>
-      <h2 class="section-title">Vídeo Tutorial</h2>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" frameborder="0" allowfullscreen></iframe>
+
+      <div style="background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 12px;">🧹</div>
+        <h3 style="color: #e2e8f0; font-size: 1.1rem; margin: 0;">2. Limpeza de Disco</h3>
+        <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 8px;">Remova arquivos temporários e desnecessários do sistema.</p>
       </div>
-    </section>
-    <section id="download">
-      <h2 class="section-title">📥 Script Automático de Manutenção</h2>
-      <div class="alert-warning">
-        <strong>Atenção:</strong> Execute como Administrador. O script automatiza os 8 passos.
+
+      <div style="background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 12px;">⚡</div>
+        <h3 style="color: #e2e8f0; font-size: 1.1rem; margin: 0;">3. Otimizar Discos</h3>
+        <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 8px;">Desfragmente HDDs e otimize TRIM em SSDs.</p>
       </div>
-      <button class="btn btn-primary" onclick="downloadScript()">Baixar Script (.bat)</button>
-    </section>
-    <section>
-      <h2 class="section-title">Checklist de Manutenção</h2>
-      <div id="checklist">
-        <label class="checklist-item"><input type="checkbox" data-step="1"> CHKDSK</label>
-        <label class="checklist-item"><input type="checkbox" data-step="2"> SFC</label>
-        <label class="checklist-item"><input type="checkbox" data-step="3"> DISM</label>
-        <label class="checklist-item"><input type="checkbox" data-step="4"> Limpeza Temporários</label>
-        <label class="checklist-item"><input type="checkbox" data-step="5"> CleanMgr</label>
-        <label class="checklist-item"><input type="checkbox" data-step="6"> Boot Repair</label>
-        <label class="checklist-item"><input type="checkbox" data-step="7"> Desfragmentação</label>
-        <label class="checklist-item"><input type="checkbox" data-step="8"> Redefinição de Rede</label>
+
+      <div style="background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 12px;">🛠️</div>
+        <h3 style="color: #e2e8f0; font-size: 1.1rem; margin: 0;">4. SFC /scannow</h3>
+        <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 8px;">Verifique e repare arquivos de sistema corrompidos.</p>
       </div>
-      <button class="btn" onclick="clearChecklist()">Limpar Progresso</button>
-    </section>
-    <section>
-      <h2 class="section-title">🚨 Quando Formatar?</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>🖥️ Tela Azul</h3>
-          <p>Erros frequentes com parada crítica que não são resolvidos com a manutenção básica.</p>
-        </div>
-        <div class="card">
-          <h3>🐢 Lentidão Extrema</h3>
-          <p>Sistema muito lento mesmo após limpeza e desfragmentação.</p>
-        </div>
-        <div class="card">
-          <h3>🔒 Malware Persistente</h3>
-          <p>Infecções que não são removidas por antivírus ou ferramentas de remoção.</p>
-        </div>
-        <div class="card">
-          <h3>⚠️ Erros de Atualização</h3>
-          <p>Windows Update falha constantemente e não pode ser reparado com DISM/SFC.</p>
-        </div>
+
+      <div style="background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 12px;">📦</div>
+        <h3 style="color: #e2e8f0; font-size: 1.1rem; margin: 0;">5. DISM</h3>
+        <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 8px;">Restaure a imagem do Windows e corrija o repositório.</p>
       </div>
-    </section>
-  </main>
-  <div id="footer"></div>
-  <div style="text-align:center;padding:20px;font-size:0.9rem;color:#94a3b8;background:#0f172a;">
-    Desenvolvido em 2026 por <a href="https://edusidegum.github.io/edusidegum/sobre.html" style="color:#2563eb;">e_Sid</a>
-  </div>
-  <div id="cookies"></div>
-  <div id="ga4-gtm"></div>
+
+      <div style="background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 12px;">🚀</div>
+        <h3 style="color: #e2e8f0; font-size: 1.1rem; margin: 0;">6. Inicialização</h3>
+        <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 8px;">Gerencie programas que iniciam com o sistema.</p>
+      </div>
+
+      <div style="background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 12px;">🦠</div>
+        <h3 style="color: #e2e8f0; font-size: 1.1rem; margin: 0;">7. Verificar Malware</h3>
+        <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 8px;">Execute o Windows Defender ou antivírus confiável.</p>
+      </div>
+
+      <div style="background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 12px;">💾</div>
+        <h3 style="color: #e2e8f0; font-size: 1.1rem; margin: 0;">8. Backup</h3>
+        <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 8px;">Crie ponto de restauração e faça backup dos dados.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VÍDEO -->
+  <section style="padding: 40px 5%; max-width: 800px; margin: 0 auto;">
+    <h2 style="color: #e2e8f0; text-align: center; font-size: 1.8rem; margin-bottom: 24px;">Vídeo de Manutenção</h2>
+    <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid #1e3a5f;">
+      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/_34GTJKnWNo" title="Vídeo de Manutenção" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD SCRIPT .BAT -->
+  <section style="padding: 40px 5%; max-width: 800px; margin: 0 auto;">
+    <div style="background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 32px; text-align: center;">
+      <div style="background: rgba(234, 179, 8, 0.15); border: 1px solid #eab308; border-radius: 8px; padding: 12px; margin-bottom: 20px; color: #facc15; font-size: 0.9rem;">
+        ⚠️ Atenção: Este script executa comandos de manutenção. Leia as instruções antes de usar.
+      </div>
+      <button id="downloadBatBtn" style="background: #2563eb; color: #fff; border: none; padding: 14px 28px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s;">
+        📥 Baixar Script de Manutenção (.bat)
+      </button>
+    </div>
+  </section>
+
   <script>
-    function downloadScript() {
-      var batContent = '@echo off\r\n';
-      batContent += 'REM Script de Manutenção Preventiva Windows 11\r\n';
-      batContent += 'REM Verificando administrador...\r\n';
-      batContent += 'net session >nul 2>&1\r\n';
-      batContent += 'if %errorLevel% neq 0 (\r\n';
-      batContent += '  echo Este script deve ser executado como Administrador.\r\n';
-      batContent += '  pause\r\n';
-      batContent += '  exit /b\r\n';
-      batContent += ')\r\n';
-      batContent += 'echo Executando CHKDSK...\r\n';
-      batContent += 'chkdsk C: /f /r /x\r\n';
-      batContent += 'echo Executando SFC...\r\n';
-      batContent += 'sfc /scannow\r\n';
-      batContent += 'echo Executando DISM...\r\n';
-      batContent += 'DISM /Online /Cleanup-Image /RestoreHealth\r\n';
-      batContent += 'echo Limpando temporários...\r\n';
-      batContent += 'del /q /f /s %TEMP%\\*\r\n';
-      batContent += 'echo Executando CleanMgr...\r\n';
-      batContent += 'cleanmgr /sagerun:1\r\n';
-      batContent += 'echo Reparando boot...\r\n';
-      batContent += 'bootrec /fixboot\r\n';
-      batContent += 'bootrec /fixmbr\r\n';
-      batContent += 'echo Desfragmentando...\r\n';
-      batContent += 'defrag C: /O\r\n';
-      batContent += 'echo Redefinindo rede...\r\n';
-      batContent += 'ipconfig /flushdns\r\n';
-      batContent += 'netsh winsock reset\r\n';
-      batContent += 'echo Concluído!\r\n';
-      batContent += 'pause\r\n';
-      var blob = new Blob([batContent], {type: 'application/bat'});
+    document.getElementById('downloadBatBtn').addEventListener('click', function() {
+      var batContent = `@echo off
+chcp 65001 >nul
+echo ====================================
+echo   Windows 11 Maintenance Script
+echo ====================================
+echo.
+echo Executando limpeza de arquivos temporarios...
+del /q /f /s %TEMP%\*.* >nul 2>&1
+echo Limpeza concluida.
+echo.
+echo Verificando integridade do sistema...
+sfc /scannow
+echo.
+echo Restaurando imagem do Windows...
+DISM /Online /Cleanup-Image /RestoreHealth
+echo.
+echo Otimizacao concluida.
+echo Pressione qualquer tecla para sair.
+pause >nul`;
+
+      var blob = new Blob([batContent], { type: 'application/x-bat' });
       var url = URL.createObjectURL(blob);
       var a = document.createElement('a');
       a.href = url;
-      a.download = 'manutencao_preventiva.bat';
+      a.download = 'manutencao_windows11.bat';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-      var checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
-      checkboxes.forEach(function(cb) {
-        var step = cb.getAttribute('data-step');
-        if (localStorage.getItem('passo_' + step)) {
-          cb.checked = true;
-        }
-        cb.addEventListener('change', function() {
-          if (this.checked) {
-            localStorage.setItem('passo_' + step, 'true');
-          } else {
-            localStorage.removeItem('passo_' + step);
-          }
-        });
-      });
     });
-    function clearChecklist() {
-      localStorage.clear();
-      document.querySelectorAll('#checklist input[type="checkbox"]').forEach(function(cb) {
-        cb.checked = false;
-      });
-    }
   </script>
+
+  <!-- CHECKLIST -->
+  <section style="padding: 40px 5%; max-width: 800px; margin: 0 auto;">
+    <h2 style="color: #e2e8f0; text-align: center; font-size: 1.8rem; margin-bottom: 24px;">Checklist de Manutenção</h2>
+    <div style="background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px;">
+      <ul style="list-style: none; padding: 0; margin: 0; color: #e2e8f0; font-size: 0.95rem; line-height: 2;">
+        <li>☑️ Windows Update atualizado</li>
+        <li>☑️ Limpeza de disco executada</li>
+        <li>☑️ Discos otimizados (SSD/HDD)</li>
+        <li>☑️ SFC /scannow sem erros</li>
+        <li>☑️ DISM /RestoreHealth concluído</li>
+        <li>☑️ Inicialização revisada</li>
+        <li>☑️ Verificação de malware concluída</li>
+        <li>☑️ Backup e ponto de restauração criados</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PAINEL FORMATAR -->
+  <section style="padding: 40px 5%; max-width: 800px; margin: 0 auto;">
+    <h2 style="color: #e2e8f0; text-align: center; font-size: 1.8rem; margin-bottom: 24px;">Painel Formatar</h2>
+    <div style="background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 32px;">
+      <div style="background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; border-radius: 8px; padding: 12px; margin-bottom: 20px; color: #f87171; font-size: 0.9rem; text-align: center;">
+        ⚠️ A formatação apaga todos os dados. Faça backup completo antes de prosseguir.
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+        <div style="background: #0f172a; border: 1px solid #1e3a5f; border-radius: 8px; padding: 16px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">💿</div>
+          <h4 style="color: #e2e8f0; margin: 0 0 8px;">Mídia de Instalação</h4>
+          <p style="color: #94a3b8; font-size: 0.8rem; margin: 0;">Crie pendrive bootável via ferramenta oficial da Microsoft.</p>
+        </div>
+        <div style="background: #0f172a; border: 1px solid #1e3a5f; border-radius: 8px; padding: 16px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">🔑</div>
+          <h4 style="color: #e2e8f0; margin: 0 0 8px;">Chave do Windows</h4>
+          <p style="color: #94a3b8; font-size: 0.8rem; margin: 0;">Anote a chave do produto ou vincule à conta Microsoft.</p>
+        </div>
+        <div style="background: #0f172a; border: 1px solid #1e3a5f; border-radius: 8px; padding: 16px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">🗂️</div>
+          <h4 style="color: #e2e8f0; margin: 0 0 8px;">Backup de Dados</h4>
+          <p style="color: #94a3b8; font-size: 0.8rem; margin: 0;">Salve arquivos pessoais em HD externo ou nuvem.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER INCLUDE -->
+  <div id="footer"></div>
+
+  <!-- AUTORIDADE -->
+  <div style="text-align:center;padding:16px;background:#0f172a;border-top:1px solid #1e3a5f;color:#94a3b8;font-size:0.85rem;">
+    <a href="https://edusidegum.github.io/edusidegum/sobre.html" style="color:#60a5fa;text-decoration:none;">Desenvolvido em 2026 por e_Sid</a>
+  </div>
+
+  <!-- TRACKING -->
+  <div id="cookies"></div>
+  <div id="ga4-gtm"></div>
+
 </body>
 </html>
