@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Windows 11 Maintenance Hub</title>
+  <meta name="description" content="Centro de aprendizado técnico para manutenção preventiva do Windows 11. Acesse módulos de manutenção, drivers, softwares, privacidade e FAQ.">
+  <meta name="author" content="Eduardo Sidegum">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="googlebot" content="index, follow">
+  <meta name="bingbot" content="index, follow">
+  <link rel="canonical" href="https://edusidegum.github.io/windows11/dashboard.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dashboard — Windows 11 Maintenance Hub">
+  <meta property="og:description" content="Centro de aprendizado técnico para manutenção preventiva do Windows 11. Acesse módulos de manutenção, drivers, softwares, privacidade e FAQ.">
+  <meta property="og:url" content="https://edusidegum.github.io/windows11/dashboard.html">
+  <meta property="og:image" content="https://edusidegum.github.io/windows11/assets/img/og-default.webp">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#2563eb">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://edusidegum.github.io/windows11/#person",
+        "name": "Eduardo Sidegum",
+        "jobTitle": "Analista de Suporte Técnico"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://edusidegum.github.io/windows11/#website",
+        "url": "https://edusidegum.github.io/windows11/",
+        "publisher": { "@id": "https://edusidegum.github.io/windows11/#person" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://edusidegum.github.io/windows11/dashboard.html",
+        "url": "https://edusidegum.github.io/windows11/dashboard.html",
+        "inLanguage": "pt-BR",
+        "isPartOf": { "@id": "https://edusidegum.github.io/windows11/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://edusidegum.github.io/windows11/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Dashboard",
+            "item": "https://edusidegum.github.io/windows11/dashboard.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script src="https://edusidegum.github.io/menu/scripts/bloco-incluir.js" defer></script>
+  <script src="https://edusidegum.github.io/menu/scripts/bloco-protecao.js" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .top-header { background: #0f172a; border-bottom: 1px solid #1e3a5f; }
+    .top-header nav { display: flex; justify-content: center; gap: 2rem; padding: 1rem; }
+    .top-header nav a { color: #94a3b8; text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+    .top-header nav a:hover, .top-header nav a.active { color: #60a5fa; }
+    .hero { background: linear-gradient(135deg, #0f172a, #1e293b); text-align: center; padding: 4rem 1rem; color: #e2e8f0; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 1rem; color: #94a3b8; }
+    .hero-tagline { font-size: 0.95rem; color: #60a5fa; font-style: italic; }
+    .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; padding: 2rem 5%; max-width: 1200px; margin: 0 auto; }
+    .module-card { background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 1.5rem; text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
+    .module-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(37,99,235,0.15); }
+    .module-card .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .module-card h3 { color: #e2e8f0; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .module-card p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1rem; }
+    .module-card a { color: #60a5fa; text-decoration: none; font-weight: 600; }
+    .module-card a:hover { text-decoration: underline; }
+    .methodology { padding: 2rem 5%; max-width: 1200px; margin: 0 auto; }
+    .methodology h2 { text-align: center; color: #e2e8f0; margin-bottom: 2rem; }
+    .methodology-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .methodology-card { background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 1.5rem; text-align: center; }
+    .methodology-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .methodology-card h3 { color: #e2e8f0; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .methodology-card p { color: #94a3b8; font-size: 0.9rem; }
+    .video-section { padding: 2rem 5%; max-width: 800px; margin: 0 auto; }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .faq-box { background: #1e293b; border: 2px solid #2563eb; border-radius: 12px; padding: 32px; margin: 40px auto; max-width: 600px; text-align: center; }
+    .faq-box h3 { color: #e2e8f0; font-size: 1.3rem; margin: 0 0 8px; }
+    .faq-box p { color: #94a3b8; font-size: 0.95rem; margin: 0 0 20px; }
+    .faq-box a { display: inline-block; background: #2563eb; color: #fff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.2s; }
+    .faq-box a:hover { background: #1d4ed8; }
+    .authority { text-align: center; padding: 16px; background: #0f172a; border-top: 1px solid #1e3a5f; color: #94a3b8; font-size: 0.85rem; }
+    .authority a { color: #60a5fa; text-decoration: none; }
+    .authority a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="manutencao.html">Manutenção</a>
+      <a href="drivers.html">Drivers</a>
+      <a href="softwares.html">Softwares</a>
+      <a href="configuracoes.html">Configurações</a>
+      <a href="FAQ_Microsoft.html">FAQ</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>🧠 Centro de Aprendizado Técnico</h1>
+    <p>Domine a manutenção, drivers, softwares e privacidade do Windows 11 com guias práticos e atualizados.</p>
+    <div class="hero-tagline">Baseado em mais de 15 anos de suporte técnico Windows.</div>
+  </section>
+
+  <section class="modules-grid">
+    <div class="module-card">
+      <div class="icon">🛡️</div>
+      <h3>Manutenção Preventiva</h3>
+      <p>Rotinas e ferramentas para manter seu sistema otimizado.</p>
+      <a href="manutencao.html">Acessar →</a>
+    </div>
+    <div class="module-card">
+      <div class="icon">🔍</div>
+      <h3>Investigação de Drivers</h3>
+      <p>Identifique e resolva problemas de drivers com método.</p>
+      <a href="drivers.html">Acessar →</a>
+    </div>
+    <div class="module-card">
+      <div class="icon">📦</div>
+      <h3>Curadoria de Software</h3>
+      <p>Seleção de aplicativos essenciais e seguros.</p>
+      <a href="softwares.html">Acessar →</a>
+    </div>
+    <div class="module-card">
+      <div class="icon">🔐</div>
+      <h3>Privacidade e Configurações</h3>
+      <p>Ajustes para proteger seus dados e personalizar o sistema.</p>
+      <a href="configuracoes.html">Acessar →</a>
+    </div>
+    <div class="module-card">
+      <div class="icon">📋</div>
+      <h3>FAQ Microsoft</h3>
+      <p>Respostas oficiais para dúvidas comuns sobre o Windows 11.</p>
+      <a href="FAQ_Microsoft.html">Acessar →</a>
+    </div>
+  </section>
+
+  <section class="methodology">
+    <h2>Metodologia de Aprendizado</h2>
+    <div class="methodology-grid">
+      <div class="methodology-card">
+        <div class="icon">🎯</div>
+        <h3>Aprenda o Método</h3>
+        <p>Não entregamos links prontos. Ensinamos você a encontrar a solução oficial.</p>
+      </div>
+      <div class="methodology-card">
+        <div class="icon">🔬</div>
+        <h3>Seja o Investigador</h3>
+        <p>Use ferramentas como msinfo32 e dxdiag para mapear seu hardware.</p>
+      </div>
+      <div class="methodology-card">
+        <div class="icon">✅</div>
+        <h3>Valide a Origem</h3>
+        <p>Domínios oficiais, assinatura digital e documentação primária.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <h2 style="text-align:center;color:#e2e8f0;margin-bottom:1.5rem;">Vídeo Introdutório</h2>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Windows 11 Maintenance Hub - Introdução" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <div class="faq-box">
+    <div style="font-size: 3rem; margin-bottom: 12px;">📋</div>
+    <h3>Tem dúvidas sobre o Windows 11?</h3>
+    <p>Consulte nossa FAQ com recursos oficiais da Microsoft. Suporte, atualizações e ferramentas de reparo.</p>
+    <a href="FAQ_Microsoft.html">📖 Acessar FAQ →</a>
+  </div>
+
+  <div id="footer"></div>
+
+  <div class="authority">
+    <a href="https://edusidegum.github.io/edusidegum/sobre.html">Desenvolvido em 2026 por e_Sid</a>
+  </div>
+
+  <div id="cookies"></div>
+  <div id="ga4-gtm"></div>
+</body>
+</html>
