@@ -4,48 +4,99 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Script de injeção compartilhado (defer = não bloqueante) -->
-  <script src="assets/js/bloco-incluir.js" defer></script>
-  <script src="assets/js/bloco-protecao.js" defer></script>
+  <!-- Scripts Core (defer) -->
+  <script src="https://raw.githubusercontent.com/edusidegum/menu/main/scripts/bloco-incluir.js" defer></script>
+  <script src="https://raw.githubusercontent.com/edusidegum/menu/main/scripts/bloco-protecao.js" defer></script>
 
-  <title>Curadoria de Software — Seleção Consciente | Windows 11 Maintenance Hub</title>
-  <meta name="description" content="Aprenda a escolher softwares com segurança: critérios, tutorial de assinatura digital, tabela recomendado vs evitar, onde baixar e checklist consciente.">
+  <title>Curadoria de Software — Windows 11</title>
+  <meta name="description" content="Aprenda a escolher software seguro para Windows 11. Critérios de seleção, assinatura digital e fontes oficiais de download.">
   <meta name="author" content="Eduardo Sidegum">
 
-  <!-- Proteção de conteúdo -->
-  <meta name="protecao-copia" content="ativado">
-
-  <!-- Robots -->
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://edusidegum.github.io/windows11/softwares.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Curadoria de Software — Seleção Consciente | Windows 11 Maintenance Hub">
-  <meta property="og:description" content="Aprenda a escolher softwares com segurança: critérios, tutorial de assinatura digital, tabela recomendado vs evitar, onde baixar e checklist consciente.">
+  <meta property="og:title" content="Curadoria de Software — Windows 11">
+  <meta property="og:description" content="Aprenda a escolher software seguro para Windows 11. Critérios de seleção, assinatura digital e fontes oficiais de download.">
   <meta property="og:url" content="https://edusidegum.github.io/windows11/softwares.html">
-  <meta property="og:image" content="https://edusidegum.github.io/windows11/img/og-softwares.webp">
+  <meta property="og:image" content="https://edusidegum.github.io/windows11/assets/img/og-softwares.webp">
   <meta property="og:locale" content="pt_BR">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Curadoria de Software — Seleção Consciente | Windows 11 Maintenance Hub">
-  <meta name="twitter:description" content="Aprenda a escolher softwares com segurança: critérios, tutorial de assinatura digital, tabela recomendado vs evitar, onde baixar e checklist consciente.">
-  <meta name="twitter:image" content="https://edusidegum.github.io/windows11/img/og-softwares.webp">
-
-  <!-- Preload da imagem LCP -->
-  <link rel="preload" as="image" href="https://edusidegum.github.io/windows11/img/hero-softwares.webp">
+  <meta name="twitter:title" content="Curadoria de Software — Windows 11">
+  <meta name="twitter:description" content="Aprenda a escolher software seguro para Windows 11. Critérios de seleção, assinatura digital e fontes oficiais de download.">
+  <meta name="twitter:image" content="https://edusidegum.github.io/windows11/assets/img/og-softwares.webp">
 
   <!-- CSS -->
-  <link rel="preload" as="style" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- Fontes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <!-- CSS específico para classes exclusivas desta página -->
+  <style>
+    .tutorial-passos {
+      counter-reset: passo;
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+    .tutorial-passos li {
+      counter-increment: passo;
+      padding: 14px 18px 14px 56px;
+      position: relative;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      transition: background 0.2s;
+    }
+    .tutorial-passos li:hover {
+      background: #f1f5f9;
+    }
+    .tutorial-passos li::before {
+      content: counter(passo);
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      background: #2563eb;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .checklist-consciente {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .checklist-consciente li {
+      padding: 10px 16px 10px 40px;
+      position: relative;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .checklist-consciente li:last-child {
+      border-bottom: none;
+    }
+    .checklist-consciente li::before {
+      content: "✅";
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+    }
+  </style>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -56,7 +107,7 @@
         "@type": "Person",
         "@id": "https://edusidegum.github.io/windows11/#person",
         "name": "Eduardo Sidegum",
-        "jobTitle": "Curador de Software"
+        "jobTitle": "Analista de Sistemas"
       },
       {
         "@type": "WebSite",
@@ -65,13 +116,21 @@
         "publisher": { "@id": "https://edusidegum.github.io/windows11/#person" }
       },
       {
+        "@type": "WebPage",
+        "@id": "https://edusidegum.github.io/windows11/softwares.html",
+        "url": "https://edusidegum.github.io/windows11/softwares.html",
+        "name": "Curadoria de Software — Windows 11",
+        "description": "Aprenda a escolher software seguro para Windows 11. Critérios de seleção, assinatura digital e fontes oficiais de download.",
+        "isPartOf": { "@id": "https://edusidegum.github.io/windows11/#website" }
+      },
+      {
         "@type": "BreadcrumbList",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
-            "name": "Home",
-            "item": "https://edusidegum.github.io/windows11/"
+            "name": "Dashboard",
+            "item": "https://edusidegum.github.io/windows11/dashboard.html"
           },
           {
             "@type": "ListItem",
@@ -84,256 +143,177 @@
     ]
   }
   </script>
-
-  <!-- CSS crítico inline -->
-  <style>
-    .sticky-header {
-      position: fixed; top: 0; left: 0; width: 100%;
-      background: #1a1a1a; z-index: 1000; text-align: center;
-      padding: 12px 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .sticky-header a { color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; letter-spacing: 0.5px; }
-    .header-spacer { height: 56px; }
-    body { font-family: 'Open Sans', Arial, Helvetica, sans-serif; }
-    h1, h2, h3 { font-family: 'Montserrat', Arial Black, sans-serif; }
-    .hero { text-align: center; padding: 60px 16px 40px; background: linear-gradient(180deg, #f8f9fa 0%, #fff 100%); }
-    .hero h1 { font-size: 2rem; color: #0d0d0d; margin-bottom: 12px; }
-    .hero p { font-size: 1.1rem; color: #555; max-width: 640px; margin: 0 auto 24px; }
-    .card { background: #fff; border-radius: 12px; padding: 24px; margin: 16px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .btn { display: inline-block; background: #0078d4; color: #fff; padding: 12px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; }
-    .btn:hover { background: #106ebe; }
-    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-    th { background: #0078d4; color: #fff; }
-    .checklist { list-style: none; padding: 0; }
-    .checklist li { padding: 8px 0; padding-left: 28px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="%230078d4"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat; background-size: 20px; }
-    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 20px 0; }
-    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-    .site-footer { background: #0d0d0d; color: #d6d6d6; padding: 40px 5% 20px; margin-top: 60px; }
-    .footer-wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; max-width: 960px; margin: 0 auto; }
-    .footer-wrap a { color: #78BE20; text-decoration: none; }
-    .footer-wrap a:hover { text-decoration: underline; }
-    .disclaimer { font-size: 0.78rem; color: #777; line-height: 1.5; padding: 14px 18px; background: #f9f9f9; border: 1px solid #eee; border-radius: 8px; margin: 16px 0; }
-    @media (max-width: 700px) {
-      .hero h1 { font-size: 1.5rem; }
-      .sticky-header { flex-direction: column; padding: 8px; }
-      .sticky-header nav { margin-top: 8px; }
-    }
-  </style>
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  <!-- End Google Tag Manager -->
 </head>
 <body>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<!-- Header local com navegação -->
-<header class="sticky-header" role="banner" aria-label="Barra de navegação principal">
-  <a href="https://edusidegum.github.io/windows11/" aria-label="Página inicial" style="display:flex;align-items:center;gap:8px;">
-    <img src="img/logo-windows11.webp" alt="Windows 11 Maintenance Hub" width="40" height="40" loading="eager" fetchpriority="high">
-    <span style="color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;">Win11 Hub</span>
-  </a>
-  <nav aria-label="Menu principal">
-    <a href="https://edusidegum.github.io/windows11/" style="margin:0 10px;">Home</a>
-    <a href="softwares.html" style="margin:0 10px;color:#78BE20;">Softwares</a>
-    <a href="https://edusidegum.github.io/windows11/contato.html" style="margin:0 10px;">Contato</a>
-  </nav>
-</header>
-<div class="header-spacer"></div>
-
-<main>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <img src="img/hero-softwares.webp" alt="Ilustração de curadoria de software" width="800" height="400" fetchpriority="high" decoding="async" style="max-width:100%;height:auto;margin-bottom:20px;border-radius:12px;">
-    <h1>📦 Curadoria de Software — Seleção Consciente</h1>
-    <p>Escolher um software vai muito além de baixar o primeiro link do Google. Aprenda a identificar fontes confiáveis, verificar assinaturas digitais e evitar armadilhas.</p>
-  </section>
-
-  <!-- Critérios de Escolha (3 cards) -->
-  <section class="container" style="padding:40px 16px;">
-    <h2>Critérios de Escolha</h2>
-    <div class="grid-3">
-      <div class="card">
-        <h3>🔗 Site Oficial</h3>
-        <p>Baixe sempre do site do desenvolvedor ou de fontes oficiais. Desconfie de URLs estranhas e redirecionamentos.</p>
-      </div>
-      <div class="card">
-        <h3>🔏 Assinatura Digital</h3>
-        <p>Verifique se o instalador possui assinatura digital válida. No Windows, clique com o botão direito > Propriedades > Assinaturas Digitais.</p>
-      </div>
-      <div class="card">
-        <h3>⭐ Reputação</h3>
-        <p>Pesquise avaliações em sites como Reddit, Reclame Aqui e fóruns especializados. Desconfie de notas perfeitas com poucos reviews.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tutorial Assinatura Digital -->
-  <section class="container" style="padding:0 16px 40px;">
-    <h2>🔍 Tutorial: Como Verificar a Assinatura Digital</h2>
-    <ol style="line-height:1.8;">
-      <li>Baixe o instalador do software.</li>
-      <li>Clique com o botão direito no arquivo e selecione <strong>Propriedades</strong>.</li>
-      <li>Vá até a aba <strong>Assinaturas Digitais</strong>.</li>
-      <li>Verifique se há uma entrada com o nome do desenvolvedor e status <strong>“Válido”</strong>.</li>
-      <li>Clique em <strong>Detalhes</strong> para confirmar que o certificado não expirou e foi emitido por uma autoridade confiável.</li>
-      <li>Se a assinatura estiver ausente ou inválida, <strong>não execute o arquivo</strong>.</li>
-    </ol>
-    <div class="disclaimer">
-      <strong>Dica:</strong> Mantenha o Windows e o antivírus sempre atualizados. Mesmo com assinatura válida, softwares legítimos podem ser usados para fins maliciosos (ex: ransomware disfarçado).
-    </div>
-  </section>
-
-  <!-- Tabela: Recomendado vs Evitar -->
-  <section class="container" style="padding:0 16px 40px;">
-    <h2>📊 Recomendado vs Evitar</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Característica</th>
-          <th>✅ Recomendado</th>
-          <th>❌ Evitar</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Fonte de download</td>
-          <td>Site oficial, Microsoft Store, GitHub oficial</td>
-          <td>Sites de terceiros, links patrocinados, torrents</td>
-        </tr>
-        <tr>
-          <td>Assinatura digital</td>
-          <td>Presente e válida</td>
-          <td>Ausente, expirada ou de editor desconhecido</td>
-        </tr>
-        <tr>
-          <td>Reputação</td>
-          <td>Comentários positivos em fóruns confiáveis</td>
-          <td>Denúncias de malware, bloatware ou spam</td>
-        </tr>
-        <tr>
-          <td>Atualizações</td>
-          <td>Atualizado nos últimos 6 meses</td>
-          <td>Abandonado há mais de 2 anos</td>
-        </tr>
-        <tr>
-          <td>Permissões</td>
-          <td>Solicita apenas o necessário</td>
-          <td>Pede acesso a dados desnecessários (câmera, contatos)</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- Onde baixar com segurança -->
-  <section class="container" style="padding:0 16px 40px;">
-    <h2>📥 Onde Baixar com Segurança</h2>
-    <div class="grid-3">
-      <div class="card">
-        <h3>🛒 Microsoft Store</h3>
-        <p>Aplicativos revisados pela Microsoft. Menor risco, mas nem todos os softwares estão disponíveis.</p>
-        <a href="https://apps.microsoft.com" target="_blank" rel="noopener" class="btn">Acessar Store</a>
-      </div>
-      <div class="card">
-        <h3>🌐 Site Oficial</h3>
-        <p>Sempre a fonte mais confiável. Verifique o domínio (ex: .com, .org, .gov) e evite URLs enganosas.</p>
-        <a href="#" class="btn" onclick="alert('Exemplo: www.exemplo.com.br')">Ver Exemplo</a>
-      </div>
-      <div class="card">
-        <h3>🐙 GitHub</h3>
-        <p>Repositórios oficiais de desenvolvedores. Verifique o número de estrelas, forks e se o projeto é mantido.</p>
-        <a href="https://github.com" target="_blank" rel="noopener" class="btn">Explorar GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Vídeo YouTube -->
-  <section class="container" style="padding:0 16px 40px;">
-    <h2>🎥 Assista ao Tutorial</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Tutorial de Curadoria de Software" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-    </div>
-  </section>
-
-  <!-- Checklist de escolha consciente -->
-  <section class="container" style="padding:0 16px 40px;">
-    <h2>✅ Checklist de Escolha Consciente</h2>
-    <ul class="checklist">
-      <li>Baixei de uma fonte oficial ou confiável?</li>
-      <li>Verifiquei a assinatura digital do instalador?</li>
-      <li>Pesquisei a reputação do software em fóruns?</li>
-      <li>Li os termos de uso e permissões solicitadas?</li>
-      <li>O software é atualizado regularmente?</li>
-      <li>Tenho um backup antes de instalar?</li>
-    </ul>
-    <p style="margin-top:20px;">Se respondeu “sim” para todos, pode prosseguir com confiança. Se alguma resposta foi “não”, reavalie antes de instalar.</p>
-  </section>
-
-</main>
-
-<!-- Footer via include central (bloco-incluir.js) + conteúdo adicional -->
-<footer class="site-footer" role="contentinfo">
-  <div class="footer-wrap">
+  <!-- HEADER LOCAL -->
+  <div class="top-header" style="padding: 0 5%; height: 64px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-bottom: 2px solid #1e3a5f;">
     <div>
-      <div style="font-weight:600;color:#fff;margin-bottom:4px;">Eduardo Sidegum</div>
-      <div>Curador de Software • Windows 11 Maintenance Hub</div>
-      <div style="font-size:.78rem;margin-top:4px;color:#999;">
-        Este site é mantido por um entusiasta de tecnologia e não representa a Microsoft Corporation.
-      </div>
-      <div style="font-size:.78rem;margin-top:6px;">
-        © <span id="ano-atual"></span> — Todos os direitos reservados.
-      </div>
-      <div style="font-size:.78rem;margin-top:6px;">
-        Desenvolvido em 10/07/2026
-      </div>
+      <span style="font-size: 1.25rem; font-weight: 700; color: #e2e8f0;">Windows 11 🛡️</span>
+      <span style="font-size: 0.8rem; color: #94a3b8; margin-left: 8px;">Centro de Aprendizado</span>
     </div>
-    <div style="text-align:right;">
-      <a href="https://edusidegum.github.io/windows11/">Home</a><br>
-      <a href="softwares.html">Curadoria de Software</a><br>
-      <a href="https://edusidegum.github.io/windows11/politicadeprivacidade.html">Política de Privacidade</a><br>
-      <a href="https://edusidegum.github.io/windows11/termosdeuso.html">Termos de Uso</a><br>
-      <a href="https://wa.me/5551999663200?text=Vim_da_Pagina_Softwares" target="_blank" rel="noopener">💬 WhatsApp</a>
-    </div>
+    <nav style="display: flex; gap: 24px; align-items: center;">
+      <a href="dashboard.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Dashboard</a>
+      <a href="manutencao.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Manutenção</a>
+      <a href="drivers.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Drivers</a>
+      <a href="softwares.html" style="color: #2563eb; font-size: 0.9rem; text-decoration: none; border-bottom: 2px solid #2563eb; padding-bottom: 2px;">Softwares</a>
+      <a href="configuracoes.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Privacidade</a>
+      <a href="FAQ_Microsoft.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">FAQ</a>
+    </nav>
+    <a href="dashboard.html" style="display: inline-flex; align-items: center; gap: 4px; padding: 8px 18px; border: 1px solid #1e3a5f; border-radius: 8px; color: #94a3b8; font-size: 0.85rem; text-decoration: none; transition: all 0.2s;">← Voltar</a>
   </div>
-  <div class="container" style="margin-top:20px;">
-    <div class="disclaimer">
-      <strong>Link de Autoridade:</strong> <a href="https://edusidegum.github.io/windows11/" style="color:#0078d4;">Windows 11 Maintenance Hub</a> — Curadoria independente para uma experiência digital mais segura.
-    </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" style="text-align: center; padding: 60px 5% 40px; background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);">
+    <h1 style="font-size: 2rem; color: #0f172a; margin-bottom: 12px;">📦 Curadoria de Software — Seleção Consciente</h1>
+    <p style="font-size: 1.1rem; color: #475569; max-width: 680px; margin: 0 auto; line-height: 1.6;">
+      Antes de instalar qualquer programa, aprenda a validar a origem. Um software seguro começa com uma escolha consciente.
+    </p>
+  </section>
+
+  <main style="max-width: 960px; margin: 0 auto; padding: 0 5% 60px;">
+
+    <!-- SEÇÃO 1: CRITÉRIOS DE ESCOLHA -->
+    <section style="margin-bottom: 48px;">
+      <h2 class="section-title" style="font-size: 1.5rem; color: #0f172a; margin-bottom: 24px; border-left: 4px solid #2563eb; padding-left: 16px;">🔍 Critérios de Escolha</h2>
+      <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+        <div class="card" style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          <div style="font-size: 2rem; margin-bottom: 12px;">🔗</div>
+          <h3 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 8px;">Site Oficial do Desenvolvedor</h3>
+          <p style="color: #475569; font-size: 0.9rem; line-height: 1.5;">Baixe sempre do domínio oficial (.com, .org, .gov). Cuidado com sites genéricos que imitam páginas conhecidas.</p>
+        </div>
+        <div class="card" style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          <div style="font-size: 2rem; margin-bottom: 12px;">🔏</div>
+          <h3 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 8px;">Assinatura Digital Verificada</h3>
+          <p style="color: #475569; font-size: 0.9rem; line-height: 1.5;">No Windows, clique com botão direito no instalador → Propriedades → Assinaturas Digitais. Se aparecer "Esta assinatura digital é válida", o arquivo é legítimo.</p>
+        </div>
+        <div class="card" style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          <div style="font-size: 2rem; margin-bottom: 12px;">⭐</div>
+          <h3 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 8px;">Reputação do Desenvolvedor</h3>
+          <p style="color: #475569; font-size: 0.9rem; line-height: 1.5;">Pesquise o nome do desenvolvedor. Empresas estabelecidas têm histórico, canais de suporte e comunidade ativa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2: TUTORIAL — COMO VERIFICAR ASSINATURA DIGITAL -->
+    <section style="margin-bottom: 48px;">
+      <h2 class="section-title" style="font-size: 1.5rem; color: #0f172a; margin-bottom: 24px; border-left: 4px solid #2563eb; padding-left: 16px;">📖 Tutorial — Como Verificar Assinatura Digital</h2>
+      <ol class="tutorial-passos">
+        <li>Baixe o instalador do software</li>
+        <li>Clique com botão direito → Propriedades</li>
+        <li>Aba "Assinaturas Digitais"</li>
+        <li>Selecione a assinatura na lista</li>
+        <li>Clique em "Detalhes" — verifique status "Válido"</li>
+        <li>Se ausente ou inválida, não execute o arquivo</li>
+      </ol>
+    </section>
+
+    <!-- SEÇÃO 3: TABELA — RECOMENDADO VS EVITAR -->
+    <section style="margin-bottom: 48px;">
+      <h2 class="section-title" style="font-size: 1.5rem; color: #0f172a; margin-bottom: 24px; border-left: 4px solid #2563eb; padding-left: 16px;">📊 Recomendado vs Evitar</h2>
+      <div class="table-responsive" style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+          <thead>
+            <tr style="background: #1e293b; color: #e2e8f0;">
+              <th style="padding: 12px 16px; text-align: left; border: 1px solid #334155;">Característica</th>
+              <th style="padding: 12px 16px; text-align: left; border: 1px solid #334155;">✅ Recomendado</th>
+              <th style="padding: 12px 16px; text-align: left; border: 1px solid #334155;">❌ Evitar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0; font-weight: 600;">Fonte de download</td>
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0;">Site oficial, Microsoft Store</td>
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0;">Sites de terceiros, torrents</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0; font-weight: 600;">Assinatura digital</td>
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0;">Presente e válida</td>
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0;">Ausente ou expirada</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0; font-weight: 600;">Reputação</td>
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0;">Avaliações positivas em fóruns</td>
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0;">Denúncias de malware/bloatware</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0; font-weight: 600;">Atualizações</td>
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0;">Atualizado nos últimos 6 meses</td>
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0;">Abandonado há +2 anos</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0; font-weight: 600;">Permissões</td>
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0;">Solicita apenas o necessário</td>
+              <td style="padding: 12px 16px; border: 1px solid #e2e8f0;">Acesso a dados desnecessários</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4: ONDE BAIXAR COM SEGURANÇA -->
+    <section style="margin-bottom: 48px;">
+      <h2 class="section-title" style="font-size: 1.5rem; color: #0f172a; margin-bottom: 24px; border-left: 4px solid #2563eb; padding-left: 16px;">🛡️ Onde Baixar com Segurança</h2>
+      <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+        <div class="card" style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          <div style="font-size: 2rem; margin-bottom: 12px;">🛒</div>
+          <h3 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 8px;">Microsoft Store</h3>
+          <p style="color: #475569; font-size: 0.9rem; line-height: 1.5;">Aplicativos revisados pela Microsoft</p>
+        </div>
+        <div class="card" style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          <div style="font-size: 2rem; margin-bottom: 12px;">🌐</div>
+          <h3 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 8px;">Site Oficial</h3>
+          <p style="color: #475569; font-size: 0.9rem; line-height: 1.5;">Sempre a fonte mais confiável</p>
+        </div>
+        <div class="card" style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          <div style="font-size: 2rem; margin-bottom: 12px;">🐙</div>
+          <h3 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 8px;">GitHub</h3>
+          <p style="color: #475569; font-size: 0.9rem; line-height: 1.5;">Repositórios oficiais (verificar estrelas e commits)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 5: VÍDEO TUTORIAL -->
+    <section style="margin-bottom: 48px;">
+      <h2 class="section-title" style="font-size: 1.5rem; color: #0f172a; margin-bottom: 24px; border-left: 4px solid #2563eb; padding-left: 16px;">🎬 Vídeo Tutorial</h2>
+      <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <iframe src="https://www.youtube.com/embed/_34GTJKnWNo"
+                title="Vídeo tutorial sobre curadoria de software"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 6: CHECKLIST DE ESCOLHA CONSCIENTE -->
+    <section style="margin-bottom: 48px;">
+      <h2 class="section-title" style="font-size: 1.5rem; color: #0f172a; margin-bottom: 24px; border-left: 4px solid #2563eb; padding-left: 16px;">✅ Checklist de Escolha Consciente</h2>
+      <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+        <ul class="checklist-consciente">
+          <li>Baixei de fonte oficial?</li>
+          <li>Verifiquei assinatura digital?</li>
+          <li>Pesquisei reputação?</li>
+          <li>Li permissões solicitadas?</li>
+          <li>Software atualizado regularmente?</li>
+          <li>Fiz backup antes de instalar?</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER VIA INCLUDE -->
+  <div id="footer"></div>
+
+  <!-- AUTORIDADE -->
+  <div style="text-align: center; padding: 20px 5%; font-size: 0.85rem; color: #94a3b8; border-top: 1px solid #e2e8f0;">
+    Desenvolvido em 2026 por <a href="https://edusidegum.github.io/edusidegum/sobre.html" style="color: #2563eb; text-decoration: none;">e_Sid</a>
   </div>
-</footer>
 
-<script>
-  // Atualizar ano automaticamente
-  document.getElementById('ano-atual').textContent = new Date().getFullYear();
-
-  // Cookie consent simples (pode ser substituído pelo bloco-cookies.js)
-  if (!localStorage.getItem('cookieConsent')) {
-    const banner = document.createElement('div');
-    banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;color:#fff;padding:16px;text-align:center;z-index:9999;font-size:0.9rem;';
-    banner.innerHTML = 'Este site usa cookies para melhorar sua experiência. <a href="politicadeprivacidade.html" style="color:#78BE20;">Saiba mais</a>. <button id="acceptCookies" style="background:#78BE20;color:#000;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;margin-left:10px;">Aceitar</button> <button id="declineCookies" style="background:#555;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;margin-left:5px;">Recusar</button>';
-    document.body.appendChild(banner);
-    document.getElementById('acceptCookies').onclick = function() {
-      localStorage.setItem('cookieConsent', 'accepted');
-      banner.remove();
-    };
-    document.getElementById('declineCookies').onclick = function() {
-      localStorage.setItem('cookieConsent', 'declined');
-      banner.remove();
-    };
-  }
-</script>
+  <!-- TRACKING -->
+  <div id="cookies"></div>
+  <div id="ga4-gtm"></div>
 
 </body>
 </html>
