@@ -3,202 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📋 FAQ — Suporte Oficial Microsoft | Windows 11</title>
-  <meta name="description" content="FAQ oficial Microsoft Windows 11 com recursos oficiais: suporte, atualizações, drivers e ferramenta de reparo. Fonte primária de solução de problemas.">
-  <meta name="author" content="Eduardo">
+
+  <!-- Scripts Core -->
+  <script src="https://raw.githubusercontent.com/edusidegum/menu/main/scripts/bloco-incluir.js" defer></script>
+  <script src="https://raw.githubusercontent.com/edusidegum/menu/main/scripts/bloco-protecao.js" defer></script>
+
+  <title>FAQ Microsoft — Suporte Oficial | Windows 11</title>
+  <meta name="description" content="Recursos oficiais da Microsoft para suporte, atualizações, drivers e ferramentas de reparo do Windows 11. Fonte primária de solução de problemas.">
+  <meta name="author" content="Eduardo Sidegum">
+
+  <!-- Robots -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://edusidegum.github.io/windows11/FAQ_Microsoft.html">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="📋 FAQ — Suporte Oficial Microsoft | Windows 11">
-  <meta property="og:description" content="FAQ oficial Microsoft Windows 11: suporte, atualizações, drivers e ferramenta de reparo.">
+  <meta property="og:title" content="FAQ Microsoft — Suporte Oficial | Windows 11">
+  <meta property="og:description" content="Recursos oficiais da Microsoft para suporte, atualizações, drivers e ferramentas de reparo do Windows 11.">
   <meta property="og:url" content="https://edusidegum.github.io/windows11/FAQ_Microsoft.html">
+  <meta property="og:image" content="https://edusidegum.github.io/windows11/assets/img/og-faq.jpg">
   <meta property="og:locale" content="pt_BR">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Scripts compartilhados -->
-  <script src="assets/js/bloco-incluir.js" defer></script>
-  <script src="assets/js/bloco-protecao.js" defer></script>
-  <!-- CSS base -->
+  <meta name="twitter:title" content="FAQ Microsoft — Suporte Oficial | Windows 11">
+  <meta name="twitter:description" content="Recursos oficiais da Microsoft para suporte, atualizações, drivers e ferramentas de reparo do Windows 11.">
+  <meta name="twitter:image" content="https://edusidegum.github.io/windows11/assets/img/og-faq.jpg">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Inline CSS para consistência dark -->
   <style>
-    .hero-faq {
-      text-align: center;
-      padding: 60px 16px 40px;
-      background: linear-gradient(180deg, #f0f4f8 0%, #fff 100%);
-    }
-    .hero-faq h1 {
-      font-family: 'Segoe UI', 'Montserrat', sans-serif;
-      font-size: 2.2rem;
-      color: #1a1a1a;
-      margin-bottom: 16px;
-    }
-    .hero-faq .pedagogico {
-      max-width: 720px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      color: #444;
-      background: #e8f0fe;
-      padding: 16px 24px;
-      border-radius: 12px;
-      border-left: 4px solid #0078d4;
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      padding: 40px 5%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 28px 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid #e0e0e0;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    }
-    .card h2 {
-      font-size: 1.3rem;
-      color: #0078d4;
-      margin-bottom: 12px;
-    }
-    .card p {
-      font-size: 0.95rem;
-      color: #555;
-      margin-bottom: 16px;
-    }
-    .card a {
-      display: inline-block;
-      background: #0078d4;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    .card a:hover {
-      background: #005a9e;
-    }
-    .seguranca-nota {
-      max-width: 800px;
-      margin: 0 auto 40px;
-      padding: 16px 24px;
-      background: #fff3cd;
-      border: 1px solid #ffc107;
-      border-radius: 12px;
-      color: #856404;
-    }
-    .seguranca-nota code {
-      background: #fff;
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-    .voltar-dashboard {
-      text-align: center;
-      margin: 40px 0 60px;
-    }
-    .btn-voltar {
-      background: #1a1a1a;
-      color: #fff;
-      padding: 14px 32px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: background 0.2s;
-    }
-    .btn-voltar:hover {
-      background: #333;
-    }
-    .site-footer {
-      background: #1a1a1a;
-      color: #ccc;
-      padding: 32px 5%;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    .site-footer a {
-      color: #0078d4;
-    }
-    .header-spacer {
-      height: 60px;
-    }
-    @media (max-width: 700px) {
-      .hero-faq h1 { font-size: 1.6rem; }
-      .card-grid { grid-template-columns: 1fr; padding: 20px 16px; }
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0f172a; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; }
+    a { color: #60a5fa; text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #93c5fd; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 5%; }
+    .hero { text-align: center; padding: 60px 5% 40px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+    .hero h1 { font-size: 2.2rem; color: #e2e8f0; margin-bottom: 16px; }
+    .hero p { font-size: 1.1rem; color: #94a3b8; max-width: 700px; margin: 0 auto 24px; }
+    .card-destaque { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 800px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .card-destaque p { color: #cbd5e1; font-size: 1rem; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0; }
+    @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } }
+    .card-recurso { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 24px; transition: transform 0.2s, box-shadow 0.2s; }
+    .card-recurso:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    .card-recurso h3 { color: #e2e8f0; margin-bottom: 8px; font-size: 1.2rem; }
+    .card-recurso p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 12px; }
+    .card-recurso a { color: #60a5fa; font-weight: 600; word-break: break-all; }
+    .card-recurso .icone { font-size: 2rem; margin-bottom: 12px; display: block; }
+    .alert-info { background: #1e3a5f; border: 1px solid #2563eb; border-radius: 12px; padding: 20px; margin: 30px 0; }
+    .alert-info p { color: #bfdbfe; font-size: 0.95rem; }
+    .alert-info strong { color: #93c5fd; }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0; border-radius: 12px; }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .btn-voltar { display: inline-block; padding: 12px 28px; background: #2563eb; color: #fff; border-radius: 8px; font-weight: 600; margin: 20px 0; transition: background 0.2s; }
+    .btn-voltar:hover { background: #1d4ed8; }
+    .footer-autoridade { text-align: center; padding: 20px 0; color: #94a3b8; font-size: 0.9rem; border-top: 1px solid #1e293b; margin-top: 40px; }
+    .footer-autoridade a { color: #60a5fa; }
   </style>
 </head>
 <body>
-  <!-- Header Local -->
-  <header class="sticky-header" role="banner">
-    <div class="header-inner">
-      <a href="https://edusidegum.github.io/windows11/" class="header-logo">
-        <img src="assets/img/windows-logo.webp" alt="Windows 11" width="32" height="32">
-        <span>Windows 11 Maintenance Hub</span>
-      </a>
-      <nav aria-label="Navegação principal">
-        <ul>
-          <li><a href="https://edusidegum.github.io/windows11/">Dashboard</a></li>
-          <li><a href="https://edusidegum.github.io/windows11/FAQ_Microsoft.html" class="active">FAQ</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <div class="header-spacer"></div>
 
-  <!-- Hero -->
-  <section class="hero-faq">
+  <!-- HEADER LOCAL -->
+  <div class="top-header" style="padding: 0 5%; height: 64px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-bottom: 2px solid #1e3a5f;">
+    <div>
+      <span style="font-size: 1.25rem; font-weight: 700; color: #e2e8f0;">Windows 11 🛡️</span>
+      <span style="font-size: 0.8rem; color: #94a3b8; margin-left: 8px;">Centro de Aprendizado</span>
+    </div>
+    <nav style="display: flex; gap: 24px; align-items: center;">
+      <a href="dashboard.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Dashboard</a>
+      <a href="manutencao.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Manutenção</a>
+      <a href="drivers.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Drivers</a>
+      <a href="softwares.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Softwares</a>
+      <a href="configuracoes.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Privacidade</a>
+      <a href="FAQ_Microsoft.html" style="color: #2563eb; font-size: 0.9rem; text-decoration: none; border-bottom: 2px solid #2563eb; padding-bottom: 2px;">FAQ</a>
+    </nav>
+    <a href="dashboard.html" style="display: inline-flex; align-items: center; gap: 4px; padding: 8px 18px; border: 1px solid #1e3a5f; border-radius: 8px; color: #94a3b8; font-size: 0.85rem; text-decoration: none; transition: all 0.2s;">← Voltar</a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
     <h1>📋 FAQ — Suporte Oficial Microsoft</h1>
-    <p class="pedagogico">
-      Sempre que encontrar um problema, a fonte primária é a documentação técnica do desenvolvedor do sistema ou do hardware. Blogs de terceiros são fontes secundárias.
-    </p>
+    <p>Sempre que encontrar um problema, a fonte primária é a documentação técnica do desenvolvedor do sistema ou do hardware. Blogs de terceiros são fontes secundárias e nem sempre confiáveis.</p>
+    <div class="card-destaque">
+      <p><strong>🔍 Princípio pedagógico:</strong> Antes de buscar soluções em fóruns ou sites aleatórios, consulte os canais oficiais da Microsoft. Eles fornecem as informações mais precisas, atualizadas e seguras para resolver seu problema.</p>
+    </div>
   </section>
 
-  <!-- Cards -->
-  <div class="card-grid">
-    <div class="card">
-      <h2>🔧 Suporte oficial</h2>
-      <p>Central de suporte Microsoft com artigos, tutoriais e contato.</p>
-      <a href="https://support.microsoft.com/windows" target="_blank" rel="noopener">support.microsoft.com/windows</a>
+  <div class="container">
+
+    <!-- RECURSOS OFICIAIS -->
+    <section>
+      <h2 style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.6rem;">🔧 Recursos Oficiais da Microsoft</h2>
+      <div class="grid-2">
+        <div class="card-recurso">
+          <span class="icone">🔧</span>
+          <h3>Suporte oficial da Microsoft</h3>
+          <p>Tutoriais, soluções de problemas e ferramentas de diagnóstico oficiais.</p>
+          <a href="https://support.microsoft.com/windows" target="_blank" rel="noopener">support.microsoft.com/windows</a>
+        </div>
+        <div class="card-recurso">
+          <span class="icone">💻</span>
+          <h3>Atualizações do Windows</h3>
+          <p>Central de atualizações de segurança e qualidade do Windows 11.</p>
+          <a href="https://aka.ms/windowsupdate" target="_blank" rel="noopener">aka.ms/windowsupdate</a>
+        </div>
+        <div class="card-recurso">
+          <span class="icone">🧩</span>
+          <h3>Drivers e firmware</h3>
+          <p>Catálogo oficial da Microsoft para localizar drivers de dispositivos.</p>
+          <a href="https://catalog.update.microsoft.com" target="_blank" rel="noopener">catalog.update.microsoft.com</a>
+        </div>
+        <div class="card-recurso">
+          <span class="icone">🛠️</span>
+          <h3>Ferramenta de reparo e otimização</h3>
+          <p>Assistente automático da Microsoft para diagnosticar e corrigir erros comuns.</p>
+          <a href="https://support.microsoft.com/fixwindows" target="_blank" rel="noopener">support.microsoft.com/fixwindows</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTA DE SEGURANÇA -->
+    <section>
+      <div class="alert-info">
+        <p><strong>⚠️ Atenção à segurança:</strong> Os únicos domínios oficiais da Microsoft são <strong>support.microsoft.com</strong>, <strong>aka.ms</strong> e <strong>catalog.update.microsoft.com</strong>. Desconfie de sites que imitam o visual da Microsoft ou oferecem suporte técnico por telefone. Nunca forneça senhas ou informações bancárias em sites não oficiais.</p>
+      </div>
+    </section>
+
+    <!-- VÍDEO TUTORIAL -->
+    <section>
+      <h2 style="color: #e2e8f0; margin-bottom: 20px; font-size: 1.4rem;">🎥 Tutorial: Como usar o suporte oficial</h2>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Tutorial Suporte Microsoft" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- BOTÃO VOLTAR -->
+    <div style="text-align: center;">
+      <a href="dashboard.html" class="btn-voltar">← Voltar para o Dashboard</a>
     </div>
-    <div class="card">
-      <h2>💻 Atualizações</h2>
-      <p>Baixe as últimas atualizações de segurança e qualidade do Windows.</p>
-      <a href="https://aka.ms/windowsupdate" target="_blank" rel="noopener">aka.ms/windowsupdate</a>
-    </div>
-    <div class="card">
-      <h2>🧩 Drivers</h2>
-      <p>Catálogo oficial da Microsoft para localizar drivers de dispositivos.</p>
-      <a href="https://catalog.update.microsoft.com" target="_blank" rel="noopener">catalog.update.microsoft.com</a>
-    </div>
-    <div class="card">
-      <h2>🛠️ Ferramenta de reparo</h2>
-      <p>Ferramenta oficial para diagnosticar e corrigir problemas do Windows.</p>
-      <a href="https://support.microsoft.com/fixwindows" target="_blank" rel="noopener">support.microsoft.com/fixwindows</a>
-    </div>
+
   </div>
 
-  <!-- Nota de segurança -->
-  <div class="seguranca-nota">
-    <strong>⚠️ Segurança:</strong> Verifique sempre se você está nos domínios oficiais: <code>support.microsoft.com</code>, <code>aka.ms</code>, <code>catalog.update.microsoft.com</code>. Desconfie de sites que pedem dados pessoais ou pagamentos para suporte técnico.
+  <!-- FOOTER VIA INCLUDE -->
+  <div id="footer"></div>
+
+  <!-- AUTORIDADE -->
+  <div class="footer-autoridade">
+    <p>Desenvolvido em 2026 por <a href="https://edusidegum.github.io/edusidegum/sobre.html" target="_blank" rel="noopener">e_Sid</a></p>
   </div>
 
-  <!-- Botão voltar -->
-  <div class="voltar-dashboard">
-    <a href="https://edusidegum.github.io/windows11/" class="btn-voltar">← Voltar para Dashboard</a>
-  </div>
+  <!-- TRACKING -->
+  <div id="cookies"></div>
+  <div id="ga4-gtm"></div>
 
-  <!-- Footer (substituído pelo bloco-incluir.js) -->
-  <footer class="site-footer" role="contentinfo">
-    <p><a href="https://edusidegum.github.io/windows11/">Windows 11 Maintenance Hub</a> — Desenvolvido em 10/07/2026 por Eduardo.</p>
-    <p>Este site não é afiliado à Microsoft Corporation. Os links oficiais são fornecidos como recurso de suporte.</p>
-  </footer>
-
-  <!-- Tracking e inclusões são gerenciados pelo bloco-incluir.js -->
 </body>
 </html>
