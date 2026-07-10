@@ -1,134 +1,146 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔐 Privacidade e Configurações — Controle seu Windows 11</title>
-    <meta name="description" content="Aprenda a configurar permissões, telemetria e privacidade no Windows 11. Controle o que seu sistema compartilha.">
-    <link rel="canonical" href="https://edusidegum.github.io/windows11/configuracoes.html">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="🔐 Privacidade e Configurações — Controle seu Windows 11">
-    <meta property="og:description" content="Aprenda a configurar permissões, telemetria e privacidade no Windows 11. Controle o que seu sistema compartilha.">
-    <meta property="og:url" content="https://edusidegum.github.io/windows11/configuracoes.html">
-    <meta property="og:image" content="https://edusidegum.github.io/windows11/assets/img/og-privacidade.jpg">
-    <meta property="og:locale" content="pt_BR">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔐 Privacidade e Configurações — Windows 11 Maintenance Hub</title>
+  <meta name="description" content="Configure a privacidade do seu Windows 11 com recomendações práticas. Controle anúncios, localização, diagnóstico e mais.">
+  <link rel="stylesheet" href="https://edusidegum.github.io/windows11/style.css">
+  <!-- Scripts compartilhados -->
+  <script src="https://edusidegum.github.io/windows11/bloco-incluir.js" defer></script>
+  <script src="https://edusidegum.github.io/windows11/bloco-protecao.js" defer></script>
+  <!-- Tracking: Cookies e GA4/GTM -->
+  <script src="https://edusidegum.github.io/windows11/cookies.js" defer></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <!-- Efeitos visuais adicionais (CSS inline opcional) -->
+  <style>
+    .hero { background: linear-gradient(135deg, #0078d4, #00bcd4); color: #fff; padding: 60px 20px; text-align: center; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 20px; }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 700px; margin: 0 auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px 5%; }
+    .card { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .card h3 { color: #0078d4; margin-top: 0; }
+    .card p { color: #555; font-size: 0.95rem; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 40px 5%; }
+    .comparison-table th, .comparison-table td { padding: 12px 16px; border: 1px solid #ddd; text-align: left; }
+    .comparison-table th { background: #0078d4; color: #fff; }
+    .comparison-table td { background: #fff; }
+    .educativo { background: #f0f8ff; padding: 40px 5%; border-radius: 12px; margin: 20px 5%; }
+    .checklist { padding: 40px 5%; }
+    .checklist li { margin-bottom: 8px; }
+    .site-footer { background: #222; color: #ccc; text-align: center; padding: 30px 20px; margin-top: 40px; }
+    .site-footer a { color: #00bcd4; text-decoration: none; }
+  </style>
 </head>
 <body>
-    <header class="top-header">
-    <div class="header-logo">Windows 11 🛡️ <span>Centro de Aprendizado</span></div>
-    <nav class="header-nav">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="manutencao.html">Manutenção</a>
-        <a href="drivers.html">Drivers</a>
-        <a href="softwares.html">Softwares</a>
-        <a href="configuracoes.html">Privacidade</a>
-        <a href="FAQ_Microsoft.html">FAQ</a>
-    </nav>
-    <a href="dashboard.html" class="btn-voltar">← Voltar</a>
-</header>
-    <main class="container">
-        <section class="hero">
-            <h1>🔐 Privacidade e Configurações — Controle seu Sistema</h1>
-            <p>Aprenda na prática a configurar as opções de privacidade do Windows 11 para ter mais controle sobre seus dados.</p>
-        </section>
+  <!-- Header Local (Específico da página) -->
+  <header class="sticky-header" role="banner">
+    <div class="header-inner">
+      <a href="https://edusidegum.github.io/windows11/" class="logo">Windows 11 Maintenance Hub</a>
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="configuracoes.html" class="active">Privacidade</a></li>
+          <li><a href="otimizacao.html">Otimização</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="header-spacer"></div>
 
-        <section class="video-destaque">
-            <h3>🎬 Assista antes de continuar (30 segundos)</h3>
-            <iframe width="560" height="315"
-                src="https://www.youtube.com/embed/grVp3WsJunA"
-                title="Vídeo explicativo rápido"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <p class="legenda-video">Vídeo rápido para você entender o assunto em menos de 1 minuto.</p>
-        </section>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>🔐 Privacidade e Configurações — Controle seu Sistema</h1>
+    <p>Domine as configurações de privacidade do Windows 11 e mantenha seus dados seguros.</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Privacidade Windows 11" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </section>
 
-        <section class="secao-cards">
-            <h2>⚙️ Configurações Recomendadas</h2>
-            <div class="grid-3">
-                <article class="card">
-                    <h3>Anúncios</h3>
-                    <p><strong>Onde:</strong> Configurações &gt; Personalização &gt; Inicializar</p>
-                    <p><strong>O que fazer:</strong> Desativar <em>“Mostrar sugestões ocasionalmente na Inicializar”</em>.</p>
-                </article>
-                <article class="card">
-                    <h3>Localização</h3>
-                    <p><strong>Onde:</strong> Configurações &gt; Privacidade e segurança &gt; Localização</p>
-                    <p><strong>O que fazer:</strong> Desativar o acesso à localização para aplicativos específicos.</p>
-                </article>
-                <article class="card">
-                    <h3>Diagnóstico</h3>
-                    <p><strong>Onde:</strong> Configurações &gt; Privacidade e segurança &gt; Diagnóstico e feedback</p>
-                    <p><strong>O que fazer:</strong> Selecionar <em>“Dados de diagnóstico obrigatórios”</em> (desativar dados opcionais).</p>
-                </article>
-                <article class="card">
-                    <h3>Histórico de Atividade</h3>
-                    <p><strong>Onde:</strong> Configurações &gt; Privacidade e segurança &gt; Histórico de atividades</p>
-                    <p><strong>O que fazer:</strong> Desmarcar <em>“Armazenar meu histórico de atividades”</em> e limpar histórico existente.</p>
-                </article>
-                <article class="card">
-                    <h3>Experiências personalizadas</h3>
-                    <p><strong>Onde:</strong> Configurações &gt; Privacidade e segurança &gt; Diagnóstico e feedback</p>
-                    <p><strong>O que fazer:</strong> Desativar <em>“Experiências personalizadas”</em>.</p>
-                </article>
-                <article class="card">
-                    <h3>Pesquisa</h3>
-                    <p><strong>Onde:</strong> Configurações &gt; Privacidade e segurança &gt; Pesquisa e permissões</p>
-                    <p><strong>O que fazer:</strong> Desativar <em>“Melhorar a pesquisa usando meus resultados”</em>.</p>
-                </article>
-            </div>
-        </section>
+  <!-- 6 Cards de Configurações Recomendadas -->
+  <section class="cards-grid">
+    <article class="card">
+      <h3>📢 Anúncios</h3>
+      <p>Desative o ID de publicidade e limite o rastreamento de anúncios personalizados.</p>
+    </article>
+    <article class="card">
+      <h3>📍 Localização</h3>
+      <p>Desabilite o acesso à localização para aplicativos que não precisam dela.</p>
+    </article>
+    <article class="card">
+      <h3>🩺 Diagnóstico</h3>
+      <p>Envie apenas dados de diagnóstico necessários para a Microsoft.</p>
+    </article>
+    <article class="card">
+      <h3>📜 Histórico de Atividades</h3>
+      <p>Impeça que o Windows colete e compartilhe seu histórico entre dispositivos.</p>
+    </article>
+    <article class="card">
+      <h3>🎯 Experiências Personalizadas</h3>
+      <p>Recuse ofertas personalizadas baseadas no uso do sistema.</p>
+    </article>
+    <article class="card">
+      <h3>🔎 Pesquisa</h3>
+      <p>Limite a pesquisa do Windows para não enviar dados à nuvem.</p>
+    </article>
+  </section>
 
-        <section class="secao-tabela">
-            <h2>🔄 Antes e Depois</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Antes (ativado)</th>
-                        <th>Depois (desativado)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Anúncios na Inicializar</td><td>Mostrar sugestões</td><td>Não mostrar</td></tr>
-                    <tr><td>Localização para apps</td><td>Permitido</td><td>Bloqueado seletivamente</td></tr>
-                    <tr><td>Dados de diagnóstico opcionais</td><td>Enviados</td><td>Não enviados</td></tr>
-                    <tr><td>Histórico de atividades</td><td>Armazenado</td><td>Não armazenado e limpo</td></tr>
-                    <tr><td>Experiências personalizadas</td><td>Ativado</td><td>Desativado</td></tr>
-                    <tr><td>Resultados de pesquisa</td><td>Compartilhados</td><td>Não compartilhados</td></tr>
-                </tbody>
-            </table>
-        </section>
+  <!-- Tabela Antes vs Depois -->
+  <table class="comparison-table">
+    <caption>Comparativo de configurações de privacidade</caption>
+    <thead>
+      <tr>
+        <th>Configuração</th>
+        <th>Antes (padrão)</th>
+        <th>Depois (recomendado)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Anúncios</td><td>ID de publicidade ativo</td><td>Desativado</td></tr>
+      <tr><td>Localização</td><td>Liberado para apps</td><td>Bloqueado exceto essenciais</td></tr>
+      <tr><td>Diagnóstico</td><td>Completo</td><td>Básico ou nenhum</td></tr>
+      <tr><td>Histórico de Atividades</td><td>Compartilhado entre dispositivos</td><td>Desativado</td></tr>
+      <tr><td>Experiências Personalizadas</td><td>Habilitadas</td><td>Desabilitadas</td></tr>
+      <tr><td>Pesquisa</td><td>Com nuvem</td><td>Somente local</td></tr>
+    </tbody>
+  </table>
 
-        <section class="secao-importancia">
-            <h2>📋 Por que isso importa?</h2>
-            <p>Cada permissão desativada reduz o tráfego de dados do seu sistema, melhora a privacidade e, em muitos casos, reduz o uso de CPU e RAM. Além disso, você assume o controle sobre o que é compartilhado com a Microsoft e com terceiros. Essas pequenas mudanças fazem parte de um ciclo completo: Máquina Rápida + Hardware Correto + Software Seguro + Privacidade.</p>
-        </section>
+  <!-- Por que isso importa -->
+  <section class="educativo">
+    <h2>🤔 Por que isso importa</h2>
+    <p>A privacidade no Windows 11 vai além de preferências: ela protege seus dados contra uso indevido por terceiros e dá a você controle sobre sua experiência digital. Ao ajustar essas configurações, você reduz o rastreamento, melhora a segurança e impede que informações sensíveis sejam enviadas sem seu consentimento. Pequenas mudanças hoje garantem um uso mais transparente e confiável do sistema.</p>
+  </section>
 
-        <section class="checklist">
-            <h2>✅ Checklist final</h2>
-            <ul>
-                <li>Revisei as configurações de anúncios e sugestões</li>
-                <li>Controlei o acesso de localização dos aplicativos</li>
-                <li>Reduzi os dados de diagnóstico enviados à Microsoft</li>
-                <li>Desativei e limpei o histórico de atividades</li>
-                <li>Desativei experiências personalizadas</li>
-                <li>Desativei a melhoria da pesquisa com meus resultados</li>
-            </ul>
-        </section>
-    </main>
+  <!-- Checklist Final -->
+  <section class="checklist">
+    <h2>✅ Checklist Final</h2>
+    <ul>
+      <li><input type="checkbox" id="c1"><label for="c1"> Desativei o ID de publicidade</label></li>
+      <li><input type="checkbox" id="c2"><label for="c2"> Restringi o acesso à localização</label></li>
+      <li><input type="checkbox" id="c3"><label for="c3"> Configurei o diagnóstico como Básico</label></li>
+      <li><input type="checkbox" id="c4"><label for="c4"> Desativei o Histórico de Atividades</label></li>
+      <li><input type="checkbox" id="c5"><label for="c5"> Desabilitei experiências personalizadas</label></li>
+      <li><input type="checkbox" id="c6"><label for="c6"> Limitei a pesquisa ao modo local</label></li>
+    </ul>
+  </section>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>© 2026 — Windows 11 Maintenance Hub</p>
-            <p class="disclaimer">Este site é mantido por um entusiasta de tecnologia e não tem vínculo oficial com a Microsoft. As informações são fornecidas para fins educacionais.</p>
-        </div>
-    </footer>
-
-    <script src="assets/js/main.js"></script>
+  <!-- Footer Compartilhado (via include ou direto) -->
+  <footer class="site-footer" role="contentinfo">
+    <p><a href="https://edusidegum.github.io/windows11/">Windows 11 Maintenance Hub</a> — Mantido por Eduardo Sidegum</p>
+    <p><a href="politica-de-privacidade.html">Política de Privacidade</a> | <a href="termos-de-uso.html">Termos de Uso</a></p>
+    <p>🔗 <a href="https://edusidegum.github.io/">Autoridade Eduardo Sidegum</a></p>
+    <p>Desenvolvido em 10/07/2026</p>
+  </footer>
 </body>
 </html>
