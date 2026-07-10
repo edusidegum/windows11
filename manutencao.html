@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🛡️ Manutenção Preventiva — Windows 11</title>
+  <meta name="description" content="Guia completo com 8 passos de manutenção preventiva do Windows 11. Execute manualmente comando por comando ou baixe o script automático .bat.">
+  <meta name="author" content="Edu Sidegum">
+  <meta name="geo.region" content="BR-RS">
+  <meta name="geo.placename" content="Novo Hamburgo">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://edusidegum.github.io/windows11/manutencao.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="🛡️ Manutenção Preventiva — Windows 11">
+  <meta property="og:description" content="Guia completo com 8 passos de manutenção preventiva do Windows 11. Execute manualmente comando por comando ou baixe o script automático .bat.">
+  <meta property="og:url" content="https://edusidegum.github.io/windows11/manutencao.html">
+  <meta property="og:image" content="https://edusidegum.github.io/windows11/assets/img/og-manutencao.webp">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🛡️ Manutenção Preventiva — Windows 11">
+  <meta name="twitter:description" content="Guia completo com 8 passos de manutenção preventiva do Windows 11. Execute manualmente comando por comando ou baixe o script automático .bat.">
+  <meta name="twitter:image" content="https://edusidegum.github.io/windows11/assets/img/og-manutencao.webp">
+  <link rel="preload" as="image" href="https://edusidegum.github.io/windows11/assets/img/hero-manutencao.webp">
+  <link rel="preload" as="style" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://edusidegum.github.io/menu/scripts/bloco-incluir.js" defer></script>
+  <script src="https://edusidegum.github.io/menu/scripts/bloco-protecao.js" defer></script>
+  <style>
+    body { background: #0a0e17; color: #e2e8f0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; margin: 0; }
+    .top-header { padding: 0 5%; height: 64px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-bottom: 2px solid #1e3a5f; }
+    .hero-section { text-align: center; padding: 60px 5% 40px; background: linear-gradient(180deg, #0f172a 0%, #0a0e17 100%); }
+    .hero-section h1 { font-size: 2.2rem; color: #e2e8f0; margin-bottom: 16px; }
+    .hero-section p { font-size: 1.1rem; color: #94a3b8; max-width: 720px; margin: 0 auto; line-height: 1.6; }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px 5%; max-width: 1200px; margin: 0 auto; }
+    .passo-card { background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; transition: border-color 0.3s; }
+    .passo-card:hover { border-color: #2563eb; }
+    .passo-card .icone { font-size: 2rem; margin-bottom: 12px; }
+    .passo-card h3 { font-size: 1.2rem; color: #e2e8f0; margin: 0 0 8px; }
+    .passo-card p { font-size: 0.9rem; color: #94a3b8; margin: 0 0 12px; line-height: 1.5; }
+    .passo-card .code-block { background: #0f172a; border: 1px solid #1e3a5f; border-radius: 6px; padding: 10px 14px; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.85rem; color: #60a5fa; overflow-x: auto; white-space: nowrap; }
+    .passo-card .tempo { font-size: 0.8rem; color: #64748b; margin-top: 8px; }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px; margin: 40px auto; border-radius: 12px; border: 1px solid #1e3a5f; }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .download-box { background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 32px; margin: 40px 5%; max-width: 800px; margin-left: auto; margin-right: auto; }
+    .download-box h2 { text-align: center; color: #e2e8f0; margin-top: 0; }
+    .manual-card { background: #0f172a; border: 2px solid #2563eb; border-radius: 10px; padding: 20px; margin-bottom: 24px; }
+    .manual-card h3 { color: #60a5fa; margin: 0 0 8px; }
+    .manual-card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.5; }
+    .command-item { border-left: 4px solid #2563eb; background: #0f172a; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 16px; }
+    .command-item .cmd-title { font-weight: 700; color: #e2e8f0; margin-bottom: 4px; }
+    .command-item .cmd-code { background: #1e293b; border-radius: 4px; padding: 8px 12px; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.85rem; color: #60a5fa; overflow-x: auto; white-space: nowrap; margin: 8px 0; }
+    .command-item .cmd-desc { color: #94a3b8; font-size: 0.9rem; }
+    .command-item .cmd-tempo { color: #64748b; font-size: 0.8rem; margin-top: 4px; }
+    .disclaimer-box { background: #1e293b; border: 1px solid #f59e0b; border-radius: 8px; padding: 16px; margin: 24px 0; font-size: 0.9rem; color: #fbbf24; }
+    .btn-download { display: inline-block; padding: 14px 32px; background: #2563eb; color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: background 0.3s; }
+    .btn-download:hover { background: #1d4ed8; }
+    .checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; padding: 20px 5%; max-width: 800px; margin: 0 auto; }
+    .checklist-item { display: flex; align-items: center; gap: 10px; background: #1e293b; border: 1px solid #1e3a5f; border-radius: 8px; padding: 12px 16px; cursor: pointer; transition: background 0.2s; }
+    .checklist-item.checked { background: #0f172a; border-color: #2563eb; text-decoration: line-through; color: #64748b; }
+    .checklist-item input[type="checkbox"] { accent-color: #2563eb; width: 18px; height: 18px; cursor: pointer; }
+    .format-panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; padding: 40px 5%; max-width: 1000px; margin: 0 auto; }
+    .format-card { background: #1e293b; border: 1px solid #dc2626; border-radius: 10px; padding: 20px; text-align: center; }
+    .format-card .icone { font-size: 2.5rem; margin-bottom: 8px; }
+    .format-card h4 { color: #fca5a5; margin: 0 0 6px; }
+    .format-card p { color: #94a3b8; font-size: 0.9rem; margin: 0; }
+    #footer { margin-top: 60px; }
+    .authority { text-align: center; padding: 16px; background: #0f172a; border-top: 1px solid #1e3a5f; color: #94a3b8; font-size: 0.85rem; }
+    .authority a { color: #60a5fa; text-decoration: none; }
+    @media (max-width: 700px) {
+      .top-header { flex-wrap: wrap; height: auto; padding: 8px 5%; gap: 8px; }
+      .top-header nav { gap: 12px; flex-wrap: wrap; justify-content: center; }
+      .hero-section h1 { font-size: 1.6rem; }
+      .steps-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-header">
+    <div>
+      <span style="font-size: 1.25rem; font-weight: 700; color: #e2e8f0;">Windows 11 🛡️</span>
+      <span style="font-size: 0.8rem; color: #94a3b8; margin-left: 8px;">Centro de Aprendizado</span>
+    </div>
+    <nav style="display: flex; gap: 24px; align-items: center;">
+      <a href="dashboard.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Dashboard</a>
+      <a href="manutencao.html" style="color: #2563eb; font-size: 0.9rem; text-decoration: none; border-bottom: 2px solid #2563eb; padding-bottom: 2px;">Manutenção</a>
+      <a href="drivers.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Drivers</a>
+      <a href="softwares.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Softwares</a>
+      <a href="configuracoes.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Privacidade</a>
+      <a href="FAQ_Microsoft.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">FAQ</a>
+    </nav>
+    <a href="dashboard.html" style="display: inline-flex; align-items: center; gap: 4px; padding: 8px 18px; border: 1px solid #1e3a5f; border-radius: 8px; color: #94a3b8; font-size: 0.85rem; text-decoration: none; transition: all 0.2s;">← Voltar</a>
+  </div>
+
+  <section class="hero-section">
+    <h1>🛡️ Manutenção Preventiva do Windows 11</h1>
+    <p>Antes de formatar, siga este guia. Muitos problemas podem ser corrigidos sem perder seus arquivos. Execute cada comando manualmente para maior segurança.</p>
+  </section>
+
+  <div class="steps-grid">
+    <div class="passo-card">
+      <div class="icone">🔍</div>
+      <h3>1. CHKDSK</h3>
+      <p>Verifica e corrige erros no disco rígido, setores danificados e problemas de integridade do sistema de arquivos.</p>
+      <div class="code-block">chkdsk C: /f /r</div>
+      <div class="tempo">⏱️ 10–30 min</div>
+    </div>
+    <div class="passo-card">
+      <div class="icone">🛠️</div>
+      <h3>2. SFC</h3>
+      <p>Verifica a integridade de todos os arquivos protegidos do sistema e substitui arquivos corrompidos por versões originais.</p>
+      <div class="code-block">sfc /scannow</div>
+      <div class="tempo">⏱️ 15–30 min</div>
+    </div>
+    <div class="passo-card">
+      <div class="icone">⚙️</div>
+      <h3>3. DISM</h3>
+      <p>Repara a imagem do sistema Windows, corrigindo corrupções no repositório de componentes e restaurando a saúde do sistema.</p>
+      <div class="code-block">DISM /Online /Cleanup-Image /RestoreHealth</div>
+      <div class="tempo">⏱️ 20–40 min</div>
+    </div>
+    <div class="passo-card">
+      <div class="icone">🧹</div>
+      <h3>4. Limpeza de Temporários</h3>
+      <p>Remove arquivos temporários do sistema, cache de atualizações e lixo digital que acumulam espaço e lentidão.</p>
+      <div class="code-block">del /q/f/s %TEMP%\* && del /q/f/s C:\Windows\Temp\*</div>
+      <div class="tempo">⏱️ 2–5 min</div>
+    </div>
+    <div class="passo-card">
+      <div class="icone">🗑️</div>
+      <h3>5. CleanMgr</h3>
+      <p>Ferramenta nativa de limpeza de disco que libera espaço removendo arquivos desnecessários, incluindo atualizações antigas.</p>
+      <div class="code-block">cleanmgr /sageset:1 && cleanmgr /sagerun:1</div>
+      <div class="tempo">⏱️ 5–15 min</div>
+    </div>
+    <div class="passo-card">
+      <div class="icone">🔧</div>
+      <h3>6. Boot Repair</h3>
+      <p>Reconstrói o registro de inicialização e repara problemas de boot, como tela preta ou loop de reinicialização.</p>
+      <div class="code-block">bootrec /fixmbr && bootrec /fixboot && bootrec /rebuildbcd</div>
+      <div class="tempo">⏱️ 5–10 min</div>
+    </div>
+    <div class="passo-card">
+      <div class="icone">💿</div>
+      <h3>7. Desfragmentação</h3>
+      <p>Otimiza a disposição dos dados no disco rígido (HDD) para melhorar o desempenho de leitura e escrita.</p>
+      <div class="code-block">defrag C: /O</div>
+      <div class="tempo">⏱️ 30–120 min (HDD)</div>
+    </div>
+    <div class="passo-card">
+      <div class="icone">🌐</div>
+      <h3>8. Rede</h3>
+      <p>Reseta pilha TCP/IP, libera e renova IP, e limpa cache DNS para solucionar problemas de conexão.</p>
+      <div class="code-block">netsh int ip reset && ipconfig /release && ipconfig /renew && ipconfig /flushdns</div>
+      <div class="tempo">⏱️ 2–5 min</div>
+    </div>
+  </div>
+
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Tutorial de Manutenção Preventiva Windows 11" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <div class="download-box">
+    <h2>📥 Executar Manutenção</h2>
+    <div class="manual-card">
+      <h3>⭐ Método Manual — Recomendado</h3>
+      <p>A execução manual é mais segura porque você vê o resultado de cada comando antes de prosseguir. Siga os passos: Win+R → digite <strong>cmd</strong> → clique com botão direito e escolha <strong>Executar como administrador</strong> → digite cada comando abaixo e pressione Enter.</p>
+    </div>
+
+    <div class="command-item">
+      <div class="cmd-title">1. CHKDSK — Verificação de Disco</div>
+      <div class="cmd-code">chkdsk C: /f /r</div>
+      <div class="cmd-desc">Verifica e repara erros no disco. Pode exigir reinicialização.</div>
+      <div class="cmd-tempo">⏱️ 10–30 min</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">2. SFC — Verificador de Arquivos do Sistema</div>
+      <div class="cmd-code">sfc /scannow</div>
+      <div class="cmd-desc">Escaneia e restaura arquivos protegidos do sistema.</div>
+      <div class="cmd-tempo">⏱️ 15–30 min</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">3. DISM — Reparo da Imagem do Windows</div>
+      <div class="cmd-code">DISM /Online /Cleanup-Image /RestoreHealth</div>
+      <div class="cmd-desc">Repara a imagem do sistema operacional.</div>
+      <div class="cmd-tempo">⏱️ 20–40 min</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">4. Limpeza de Arquivos Temporários</div>
+      <div class="cmd-code">del /q/f/s %TEMP%\* && del /q/f/s C:\Windows\Temp\*</div>
+      <div class="cmd-desc">Remove arquivos temporários do usuário e do sistema.</div>
+      <div class="cmd-tempo">⏱️ 2–5 min</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">5. CleanMgr — Limpeza de Disco</div>
+      <div class="cmd-code">cleanmgr /sageset:1 && cleanmgr /sagerun:1</div>
+      <div class="cmd-desc">Abre a ferramenta de limpeza com configurações pré-definidas.</div>
+      <div class="cmd-tempo">⏱️ 5–15 min</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">6. Reparo de Inicialização (Boot)</div>
+      <div class="cmd-code">bootrec /fixmbr && bootrec /fixboot && bootrec /rebuildbcd</div>
+      <div class="cmd-desc">Reconstrói o registro de boot do Windows.</div>
+      <div class="cmd-tempo">⏱️ 5–10 min</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">7. Desfragmentação (HDD)</div>
+      <div class="cmd-code">defrag C: /O</div>
+      <div class="cmd-desc">Otimiza o disco rígido (HDD). Em SSDs, o Windows otimiza automaticamente.</div>
+      <div class="cmd-tempo">⏱️ 30–120 min (HDD)</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">8. Reset de Rede</div>
+      <div class="cmd-code">netsh int ip reset && ipconfig /release && ipconfig /renew && ipconfig /flushdns</div>
+      <div class="cmd-desc">Reseta pilha TCP/IP, renova IP e limpa cache DNS.</div>
+      <div class="cmd-tempo">⏱️ 2–5 min</div>
+    </div>
+
+    <div class="disclaimer-box">
+      ⚠️ Recomendação: Sempre execute manualmente cada comando para acompanhar os resultados. O script automático é uma alternativa prática, mas não substitui a supervisão manual.
+    </div>
+
+    <hr style="border-color: #1e3a5f; margin: 24px 0;">
+
+    <div style="text-align: center;">
+      <p style="color: #94a3b8; font-size: 1rem; margin-bottom: 16px;">💾 Alternativa automática: Se preferir, baixe o script .bat</p>
+      <button class="btn-download" onclick="baixarScript()">📥 Baixar Script de Manutenção (.bat)</button>
+    </div>
+  </div>
+
+  <h2 style="text-align: center; color: #e2e8f0; margin-top: 40px;">✅ Checklist de Manutenção</h2>
+  <p style="text-align: center; color: #94a3b8;">Marque os passos já executados (salvo automaticamente)</p>
+  <div class="checklist-grid" id="checklist-container">
+    <label class="checklist-item" data-id="1"><input type="checkbox"> CHKDSK</label>
+    <label class="checklist-item" data-id="2"><input type="checkbox"> SFC</label>
+    <label class="checklist-item" data-id="3"><input type="checkbox"> DISM</label>
+    <label class="checklist-item" data-id="4"><input type="checkbox"> Limpeza Temporários</label>
+    <label class="checklist-item" data-id="5"><input type="checkbox"> CleanMgr</label>
+    <label class="checklist-item" data-id="6"><input type="checkbox"> Boot Repair</label>
+    <label class="checklist-item" data-id="7"><input type="checkbox"> Desfragmentação</label>
+    <label class="checklist-item" data-id="8"><input type="checkbox"> Rede</label>
+  </div>
+
+  <h2 style="text-align: center; color: #e2e8f0; margin-top: 40px;">🚨 Quando Formatar?</h2>
+  <p style="text-align: center; color: #94a3b8;">Se estes sinais persistirem após a manutenção, considere formatar.</p>
+  <div class="format-panel">
+    <div class="format-card">
+      <div class="icone">🐌</div>
+      <h4>Lentidão extrema</h4>
+      <p>O sistema demora mais de 5 minutos para iniciar mesmo após limpeza.</p>
+    </div>
+    <div class="format-card">
+      <div class="icone">💥</div>
+      <h4>Erros frequentes</h4>
+      <p>Telas azuis (BSOD) ou travamentos aleatórios que não desaparecem com reparos.</p>
+    </div>
+    <div class="format-card">
+      <div class="icone">🔐</div>
+      <h4>Infecção persistente</h4>
+      <p>Malware ou vírus que não são removidos mesmo com scanners avançados.</p>
+    </div>
+    <div class="format-card">
+      <div class="icone">📦</div>
+      <h4>Atualizações falham</h4>
+      <p>Windows Update não consegue instalar atualizações mesmo após DISM e SFC.</p>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+  <div class="authority">
+    <a href="https://edusidegum.github.io/edusidegum/sobre.html">Desenvolvido em 2026 por e_Sid</a>
+  </div>
+  <div id="cookies"></div>
+  <div id="ga4-gtm"></div>
+
+  <script>
+    // Script para baixar .bat
+    function baixarScript() {
+      const conteudo = `@echo off
+chcp 65001 >nul
+echo ============================================
+echo  MANUTENÇÃO PREVENTIVA WINDOWS 11
+echo  Execute como Administrador!
+echo ============================================
+echo.
+
+REM Verificar se está como administrador
+net session >nul 2>&1
+if %errorlevel% neq 0 (
+    echo ⚠️  Este script precisa ser executado como Administrador.
+    echo    Clique com botão direito e escolha "Executar como administrador".
+    pause
+    exit /b 1
+)
+
+echo [1/8] CHKDSK - Verificando disco...
+chkdsk C: /f /r
+echo.
+
+echo [2/8] SFC - Verificando integridade do sistema...
+sfc /scannow
+echo.
+
+echo [3/8] DISM - Reparando imagem do Windows...
+DISM /Online /Cleanup-Image /RestoreHealth
+echo.
+
+echo [4/8] Limpando arquivos temporários...
+del /q/f/s %TEMP%\* >nul 2>&1
+del /q/f/s C:\Windows\Temp\* >nul 2>&1
+echo Temporários removidos.
+echo.
+
+echo [5/8] CleanMgr - Limpeza de disco...
+cleanmgr /sageset:1 >nul 2>&1
+cleanmgr /sagerun:1
+echo.
+
+echo [6/8] Reparando boot...
+bootrec /fixmbr >nul 2>&1
+bootrec /fixboot >nul 2>&1
+bootrec /rebuildbcd >nul 2>&1
+echo Boot reparado.
+echo.
+
+echo [7/8] Desfragmentando disco...
+defrag C: /O
+echo.
+
+echo [8/8] Resetando rede...
+netsh int ip reset >nul 2>&1
+ipconfig /release >nul 2>&1
+ipconfig /renew >nul 2>&1
+ipconfig /flushdns >nul 2>&1
+echo Rede resetada.
+echo.
+
+echo ============================================
+echo  MANUTENÇÃO CONCLUÍDA!
+echo  Reinicie o computador para aplicar todas as alterações.
+echo ============================================
+pause`;
+      const blob = new Blob([conteudo], { type: 'application/x-msdos-program' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Manutencao_Windows11.bat';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Checklist com LocalStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkboxes = document.querySelectorAll('#checklist-container input[type="checkbox"]');
+      checkboxes.forEach(cb => {
+        const id = cb.closest('.checklist-item').dataset.id;
+        const saved = localStorage.getItem('checklist_' + id);
+        if (saved === 'true') {
+          cb.checked = true;
+          cb.closest('.checklist-item').classList.add('checked');
+        }
+        cb.addEventListener('change', function() {
+          const item = this.closest('.checklist-item');
+          const id = item.dataset.id;
+          if (this.checked) {
+            localStorage.setItem('checklist_' + id, 'true');
+            item.classList.add('checked');
+          } else {
+            localStorage.removeItem('checklist_' + id);
+            item.classList.remove('checked');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
