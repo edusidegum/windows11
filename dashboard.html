@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows 11 Maintenance Hub — Centro de Aprendizado Técnico</title>
+  <meta name="description" content="Centro de aprendizado para manutenção preventiva do Windows 11. Módulos educacionais: manutenção, drivers, software e privacidade.">
+  <link rel="canonical" href="https://edusidegum.github.io/windows11/dashboard.html">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta property="og:title" content="Windows 11 Maintenance Hub — Centro de Aprendizado Técnico">
+  <meta property="og:description" content="Centro de aprendizado para manutenção preventiva do Windows 11. Módulos educacionais: manutenção, drivers, software e privacidade.">
+  <meta property="og:url" content="https://edusidegum.github.io/windows11/dashboard.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://edusidegum.github.io/windows11/assets/img/og-default.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .modulo-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .modulo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    .modulo-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+    .modulo-card h3 {
+      margin: 8px 0;
+      font-size: 1.25rem;
+    }
+    .modulo-card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 12px 0;
+    }
+    .modulo-tempo {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 16px;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background: #000;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 700px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .checklist-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    .checklist-item label {
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .checklist-item.checked label {
+      text-decoration: line-through;
+      color: #999;
+    }
+    .alert-warning {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      color: #856404;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #0078d4;
+      color: #fff;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #005a9e;
+    }
+    .btn-secondary {
+      background: #e0e0e0;
+      color: #333;
+      border: none;
+    }
+    .btn-secondary:hover {
+      background: #ccc;
+    }
+    .top-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f8f9fa;
+      padding: 12px 5%;
+      border-bottom: 2px solid #0078d4;
+    }
+    .header-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0078d4;
+      text-decoration: none;
+    }
+    .header-logo span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #555;
+      margin-left: 8px;
+    }
+    .header-nav a {
+      margin-left: 16px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .header-nav a.active {
+      color: #0078d4;
+      border-bottom: 2px solid #0078d4;
+    }
+    .header-nav a:hover {
+      color: #0078d4;
+    }
+    .hero-section {
+      text-align: center;
+      padding: 60px 16px;
+      background: linear-gradient(180deg, #e9f0f7 0%, #fff 100%);
+    }
+    .hero-section h1 {
+      font-size: 2.5rem;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+    .hero-section p {
+      font-size: 1.15rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 16px;
+    }
+    .hero-section .tagline {
+      font-size: 0.95rem;
+      color: #777;
+      font-style: italic;
+    }
+    .section-title {
+      font-size: 1.75rem;
+      text-align: center;
+      margin: 48px 0 24px;
+      color: #1a1a1a;
+    }
+    .site-footer {
+      background: #1a1a1a;
+      color: #ccc;
+      padding: 40px 5% 20px;
+      margin-top: 60px;
+      text-align: center;
+    }
+    .site-footer a {
+      color: #5b9bd5;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
+    .site-footer p {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <a href="dashboard.html" class="header-logo">Windows 11 🛡️ <span>Centro de Aprendizado</span></a>
+    <nav class="header-nav">
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="manutencao.html">Manutenção</a>
+      <a href="drivers.html">Drivers</a>
+      <a href="FAQ_Microsoft.html">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <h1>🧠 Centro de Aprendizado Técnico</h1>
+      <p>Aprenda a diagnosticar, manter e otimizar seu Windows 11 com métodos práticos. Não oferecemos atalhos — ensinamos o caminho.</p>
+      <p class="tagline">Baseado em mais de 15 anos de suporte técnico Windows.</p>
+    </section>
+
+    <section style="max-width: 960px; margin: 0 auto; padding: 0 16px;">
+      <h2 class="section-title">🎥 Primeiros Passos</h2>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Vídeo introdutório do hub" allowfullscreen></iframe>
+      </div>
+      <p style="text-align: center; color: #555;">Assista ao vídeo para entender a metodologia do hub antes de começar.</p>
+    </section>
+
+    <section style="max-width: 960px; margin: 48px auto; padding: 0 16px;">
+      <h2 class="section-title">📚 Módulos de Aprendizado</h2>
+      <div class="grid-2">
+        <div class="modulo-card">
+          <div class="modulo-icon">🛡️</div>
+          <h3>Manutenção Preventiva</h3>
+          <p>Aprenda a sequência correta de comandos para restaurar a saúde do seu sistema. CHKDSK, SFC, DISM — entenda o que cada um faz e quando usar.</p>
+          <div class="modulo-tempo">8 passos • 30-60 min</div>
+          <a href="manutencao.html#passos" class="btn btn-primary">Acessar Módulo</a>
+        </div>
+        <div class="modulo-card">
+          <div class="modulo-icon">🔍</div>
+          <h3>Investigação de Drivers</h3>
+          <p>Descubra como identificar o hardware exato do seu PC e encontrar drivers oficiais usando o código de série do fabricante. Nada de sites genéricos.</p>
+          <div class="modulo-tempo">Guia do Investigador</div>
+          <a href="drivers.html" class="btn btn-primary">Acessar Módulo</a>
+        </div>
+        <div class="modulo-card">
+          <div class="modulo-icon">📦</div>
+          <h3>Curadoria de Software</h3>
+          <p>Aprenda a diferenciar software legítimo de programas nocivos. Critérios de escolha, assinatura digital e fontes oficiais.</p>
+          <div class="modulo-tempo">Verificação de Origem</div>
+          <a href="softwares.html" class="btn btn-primary">Acessar Módulo</a>
+        </div>
+        <div class="modulo-card">
+          <div class="modulo-icon">🔐</div>
+          <h3>Privacidade e Configurações</h3>
+          <p>Controle as permissões do seu sistema. Telemetria, anúncios, localização — aprenda a configurar o Windows 11 para respeitar sua privacidade.</p>
+          <div class="modulo-tempo">Permissões e Dados</div>
+          <a href="configuracoes.html" class="btn btn-primary">Acessar Módulo</a>
+        </div>
+        <div class="modulo-card">
+          <div class="modulo-icon">📋</div>
+          <h3>Suporte Oficial Microsoft</h3>
+          <p>Aprenda a navegar na documentação técnica oficial da Microsoft. A fonte primária para qualquer problema é sempre o fabricante do sistema.</p>
+          <div class="modulo-tempo">Documentação Oficial</div>
+          <a href="FAQ_Microsoft.html" class="btn btn-primary">Acessar Módulo</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width: 960px; margin: 48px auto; padding: 0 16px;">
+      <h2 class="section-title">📖 Nossa Metodologia</h2>
+      <div class="grid-3">
+        <div class="modulo-card">
+          <div class="modulo-icon">🎯</div>
+          <h3>Aprenda o Método</h3>
+          <p>Não entregamos links prontos. Ensinamos você a encontrar a solução oficial por conta própria.</p>
+        </div>
+        <div class="modulo-card">
+          <div class="modulo-icon">🔬</div>
+          <h3>Seja o Investigador</h3>
+          <p>Use ferramentas como msinfo32 e dxdiag para mapear seu hardware. Conhecimento é autonomia.</p>
+        </div>
+        <div class="modulo-card">
+          <div class="modulo-icon">✅</div>
+          <h3>Valide a Origem</h3>
+          <p>Domínios oficiais (.com do fabricante), assinatura digital e documentação primária são seus critérios de confiança.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width: 960px; margin: 48px auto; padding: 0 16px;">
+      <h2 class="section-title">✅ Minha Trilha de Aprendizado</h2>
+      <div id="checklist">
+        <div class="checklist-item" data-module="manutencao">
+          <input type="checkbox" id="chk-manutencao">
+          <label for="chk-manutencao">Módulo Manutenção Preventiva</label>
+        </div>
+        <div class="checklist-item" data-module="drivers">
+          <input type="checkbox" id="chk-drivers">
+          <label for="chk-drivers">Módulo Investigação de Drivers</label>
+        </div>
+        <div class="checklist-item" data-module="software">
+          <input type="checkbox" id="chk-software">
+          <label for="chk-software">Módulo Curadoria de Software</label>
+        </div>
+        <div class="checklist-item" data-module="privacidade">
+          <input type="checkbox" id="chk-privacidade">
+          <label for="chk-privacidade">Módulo Privacidade e Configurações</label>
+        </div>
+        <div class="checklist-item" data-module="faq">
+          <input type="checkbox" id="chk-faq">
+          <label for="chk-faq">FAQ Microsoft</label>
+        </div>
+      </div>
+      <button id="clearProgress" class="btn btn-secondary" style="margin-top: 16px;">Limpar Progresso</button>
+    </section>
+
+    <section style="max-width: 960px; margin: 48px auto; padding: 0 16px;">
+      <h2 class="section-title">📥 Script Automático de Manutenção</h2>
+      <p>Baixe o script .bat completo que executa todos os 8 passos da manutenção preventiva.</p>
+      <div class="alert-warning">
+        <strong>Aviso de responsabilidade:</strong> Este script é fornecido como ferramenta educacional. Execute por sua conta e risco. Recomendamos fazer backup antes de usar.
+      </div>
+      <button id="downloadBat" class="btn btn-primary">Baixar manutencaowindows11.bat</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Desenvolvido por Edu Sidegum — suporte técnico Windows desde 2008.</p>
+    <p>
+      <a href="politica-privacidade.html">Política de Privacidade</a> | 
+      <a href="termos-de-uso.html">Termos de Uso</a>
+    </p>
+    <p>&copy; 2026 Windows 11 Maintenance Hub</p>
+  </footer>
+
+  <script defer>
+    // Proteção dissuasória de conteúdo
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I' || e.key === 's' || e.key === 'S')) {
+        e.preventDefault();
+      }
+      if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I')) {
+        e.preventDefault();
+      }
+    });
+
+    // Download do script .bat via Blob
+    document.getElementById('downloadBat').addEventListener('click', function() {
+      const batContent = `@echo off
+title Manutencao Windows 11 - 8 Passos
+chkdsk /f /r
+sfc /scannow
+dism /online /cleanup-image /scanhealth
+dism /online /cleanup-image /restorehealth
+cleanmgr /sageset:1
+cleanmgr /sagerun:1
+ipconfig /flushdns
+netstat -b
+pause`;
+      const blob = new Blob([batContent], { type: 'application/bat' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'manutencaowindows11.bat';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    });
+
+    // Checklist com LocalStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+      
+      // Carregar estado salvo
+      checkboxes.forEach(cb => {
+        const id = cb.id;
+        const saved = localStorage.getItem(id);
+        if (saved === 'true') {
+          cb.checked = true;
+          cb.closest('.checklist-item').classList.add('checked');
+        }
+        cb.addEventListener('change', function() {
+          localStorage.setItem(this.id, this.checked);
+          if (this.checked) {
+            this.closest('.checklist-item').classList.add('checked');
+          } else {
+            this.closest('.checklist-item').classList.remove('checked');
+          }
+        });
+      });
+
+      // Limpar progresso
+      document.getElementById('clearProgress').addEventListener('click', function() {
+        checkboxes.forEach(cb => {
+          cb.checked = false;
+          localStorage.removeItem(cb.id);
+          cb.closest('.checklist-item').classList.remove('checked');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
