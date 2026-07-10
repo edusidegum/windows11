@@ -5,7 +5,344 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - Windows 11 Maintenance Hub | Centro de Aprendizado</title>
   <meta name="description" content="Centro de Aprendizado Técnico do Windows 11. Manutenção, Drivers, Softwares, Privacidade e FAQ. Aprenda e otimize seu sistema.">
+  <meta name="author" content="Ed<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Windows 11 Maintenance Hub</title>
+  <meta name="description" content="Centro de aprendizado técnico para manutenção preventiva do Windows 11. Módulos de manutenção, drivers, softwares, privacidade e FAQ.">
   <meta name="author" content="Eduardo Sidegum">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://edusidegum.github.io/windows11/dashboard.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dashboard — Windows 11 Maintenance Hub">
+  <meta property="og:description" content="Centro de aprendizado técnico para manutenção preventiva do Windows 11. Módulos de manutenção, drivers, softwares, privacidade e FAQ.">
+  <meta property="og:url" content="https://edusidegum.github.io/windows11/dashboard.html">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dashboard — Windows 11 Maintenance Hub">
+  <meta name="twitter:description" content="Centro de aprendizado técnico para manutenção preventiva do Windows 11.">
+  <script src="https://raw.githubusercontent.com/edusidegum/menu/main/scripts/bloco-incluir.js" defer></script>
+  <script src="https://raw.githubusercontent.com/edusidegum/menu/main/scripts/bloco-protecao.js" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .modulo-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .modulo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .modulo-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+    .modulo-card h3 {
+      color: #e2e8f0;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .modulo-card p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .modulo-card .btn {
+      display: inline-block;
+      background: #2563eb;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .modulo-card .btn:hover {
+      background: #1d4ed8;
+    }
+    .metodologia-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+    .metodologia-card .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .metodologia-card h3 {
+      color: #e2e8f0;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .metodologia-card p {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .hero-section {
+      text-align: center;
+      padding: 60px 5% 40px;
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    }
+    .hero-section h1 {
+      font-size: 2rem;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+    }
+    .hero-section p {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 640px;
+      margin: 0 auto 16px;
+    }
+    .hero-tagline {
+      font-size: 0.9rem;
+      color: #64748b;
+      font-style: italic;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background: #000;
+      border-radius: 12px;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .alert-warning {
+      background: #1e293b;
+      border-left: 4px solid #f59e0b;
+      color: #fbbf24;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin: 16px 0;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: #2563eb;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+    .section-title {
+      color: #e2e8f0;
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .dashboard-section {
+      padding: 40px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 700px) {
+      .hero-section h1 { font-size: 1.5rem; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Local -->
+  <div class="top-header" style="padding: 0 5%; height: 64px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-bottom: 2px solid #1e3a5f;">
+    <div>
+      <span style="font-size: 1.25rem; font-weight: 700; color: #e2e8f0;">Windows 11 🛡️</span>
+      <span style="font-size: 0.8rem; color: #94a3b8; margin-left: 8px;">Centro de Aprendizado</span>
+    </div>
+    <nav style="display: flex; gap: 24px; align-items: center;">
+      <a href="dashboard.html" style="color: #2563eb; font-size: 0.9rem; text-decoration: none; border-bottom: 2px solid #2563eb; padding-bottom: 2px;">Dashboard</a>
+      <a href="manutencao.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none; transition: color 0.2s;">Manutenção</a>
+      <a href="drivers.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Drivers</a>
+      <a href="softwares.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Softwares</a>
+      <a href="configuracoes.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Privacidade</a>
+      <a href="FAQ_Microsoft.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">FAQ</a>
+    </nav>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1>🧠 Centro de Aprendizado Técnico</h1>
+    <p>Domine a manutenção, drivers, softwares e privacidade do Windows 11 com guias práticos e atualizados.</p>
+    <div class="hero-tagline">Baseado em mais de 15 anos de suporte técnico Windows.</div>
+  </section>
+
+  <!-- Módulos -->
+  <section class="dashboard-section">
+    <h2 class="section-title">📚 Módulos de Estudo</h2>
+    <div class="grid-2">
+      <div class="modulo-card">
+        <div class="modulo-icon">🛡️</div>
+        <h3>Manutenção Preventiva</h3>
+        <p>Aprenda a sequência correta de comandos para restaurar a saúde do seu sistema: CHKDSK, SFC, DISM e mais.</p>
+        <a href="manutencao.html" class="btn">Acessar</a>
+      </div>
+      <div class="modulo-card">
+        <div class="modulo-icon">🔍</div>
+        <h3>Investigação de Drivers</h3>
+        <p>Descubra como identificar o hardware exato do seu PC e encontrar drivers oficiais usando o código de série.</p>
+        <a href="drivers.html" class="btn">Acessar</a>
+      </div>
+      <div class="modulo-card">
+        <div class="modulo-icon">📦</div>
+        <h3>Curadoria de Software</h3>
+        <p>Aprenda a diferenciar software legítimo de programas nocivos. Assinatura digital e fontes oficiais.</p>
+        <a href="softwares.html" class="btn">Acessar</a>
+      </div>
+      <div class="modulo-card">
+        <div class="modulo-icon">🔐</div>
+        <h3>Privacidade e Configurações</h3>
+        <p>Controle as permissões do seu sistema. Telemetria, anúncios, localização e histórico de atividades.</p>
+        <a href="configuracoes.html" class="btn">Acessar</a>
+      </div>
+      <div class="modulo-card">
+        <div class="modulo-icon">📋</div>
+        <h3>FAQ Microsoft</h3>
+        <p>Aprenda a navegar na documentação técnica oficial da Microsoft — a fonte primária para qualquer problema.</p>
+        <a href="FAQ_Microsoft.html" class="btn">Acessar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodologia -->
+  <section class="dashboard-section" style="background: #0f172a; padding: 40px 5%;">
+    <h2 class="section-title">🎯 Nossa Metodologia</h2>
+    <div class="grid-3">
+      <div class="metodologia-card">
+        <div class="icon">🎯</div>
+        <h3>Aprenda o Método</h3>
+        <p>Não entregamos links prontos. Ensinamos você a encontrar a solução oficial por conta própria.</p>
+      </div>
+      <div class="metodologia-card">
+        <div class="icon">🔬</div>
+        <h3>Seja o Investigador</h3>
+        <p>Use ferramentas como msinfo32 e dxdiag para mapear seu hardware. Conhecimento é autonomia.</p>
+      </div>
+      <div class="metodologia-card">
+        <div class="icon">✅</div>
+        <h3>Valide a Origem</h3>
+        <p>Domínios oficiais, assinatura digital e documentação primária são seus critérios de confiança.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vídeo Introdutório -->
+  <section class="dashboard-section">
+    <h2 class="section-title">🎥 Primeiros Passos</h2>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Primeiros Passos - Windows 11 Maintenance Hub" allowfullscreen></iframe>
+    </div>
+    <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 12px; text-align: center;">Assista ao vídeo para entender a estrutura do centro de aprendizado.</p>
+  </section>
+
+  <!-- Download Script -->
+  <section class="dashboard-section">
+    <h2 class="section-title">📥 Script Automático de Manutenção</h2>
+    <p style="color: #94a3b8; text-align: center; max-width: 600px; margin: 0 auto 16px;">Baixe o script .bat completo com todos os 8 passos da manutenção preventiva.</p>
+    <div class="alert-warning">
+      <strong>Aviso:</strong> Este script é fornecido como ferramenta educacional. Execute por sua conta e risco. Recomendamos fazer backup antes de usar.
+    </div>
+    <div style="text-align: center;">
+      <button id="downloadBat" class="btn-primary">⬇ Baixar Script .bat</button>
+    </div>
+  </section>
+
+  <!-- Footer via include -->
+  <div id="footer"></div>
+
+  <!-- Autoridade e Data -->
+  <div style="text-align: center; padding: 16px; font-size: 0.85rem; color: #64748b; border-top: 1px solid #1e293b;">
+    <a href="https://edusidegum.github.io/edusidegum/sobre.html" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;">Desenvolvido em 2026 por e_Sid</a>
+  </div>
+
+  <!-- Tracking -->
+  <div id="cookies"></div>
+  <div id="ga4-gtm"></div>
+
+  <!-- Script para download do .bat -->
+  <script defer>
+    document.getElementById('downloadBat').addEventListener('click', function() {
+      const batContent = `@echo off
+chcp 65001 >nul
+echo ============================================
+echo  Windows 11 - Manutenção Preventiva (8 Passos)
+echo ============================================
+echo.
+echo Passo 1: Verificação de disco (CHKDSK)
+chkdsk /f /r
+echo.
+echo Passo 2: Verificação de arquivos do sistema (SFC)
+sfc /scannow
+echo.
+echo Passo 3: Restauração da imagem do sistema (DISM)
+DISM /Online /Cleanup-Image /RestoreHealth
+echo.
+echo Passo 4: Limpeza de disco (CleanMgr)
+cleanmgr /sageset:1
+cleanmgr /sagerun:1
+echo.
+echo Passo 5: Verificação de integridade do Windows
+DISM /Online /Cleanup-Image /ScanHealth
+echo.
+echo Passo 6: Reparo de componentes corrompidos
+DISM /Online /Cleanup-Image /StartComponentCleanup
+echo.
+echo Passo 7: Atualização do Windows (verificação)
+wuauclt /detectnow
+echo.
+echo Passo 8: Reinicialização recomendada
+echo.
+echo Processo concluído. Pressione qualquer tecla para sair.
+pause >nul`;
+      const blob = new Blob([batContent], { type: 'application/x-msdos-program' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'manutencao_preventiva.bat';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>uardo Sidegum">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
