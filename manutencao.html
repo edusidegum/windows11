@@ -3,729 +3,404 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manutenção Preventiva Windows 11 — Guia Completo Antes de Formatar</title>
-  <meta name="description" content="Guia passo a passo para manutenção preventiva do Windows 11. CHKDSK, SFC, DISM, limpeza e otimização. Baixe o script .bat automático.">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <script src="https://raw.githubusercontent.com/edusidegum/menu/main/scripts/bloco-incluir.js" defer></script>
+  <script src="https://raw.githubusercontent.com/edusidegum/menu/main/scripts/bloco-protecao.js" defer></script>
+  <title>🛡️ Manutenção Preventiva do Windows 11 | Eduardo Sidegum</title>
+  <meta name="description" content="Guia completo de manutenção preventiva do Windows 11: CHKDSK, SFC, DISM, limpeza, boot repair, desfragmentação e mais. Antes de formatar, siga este guia.">
+  <meta name="author" content="Eduardo Sidegum">
+  <meta name="geo.region" content="BR-RS">
+  <meta name="geo.placename" content="Novo Hamburgo">
+  <meta name="protecao-copia" content="ativado">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://edusidegum.github.io/windows11/manutencao.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Manutenção Preventiva Windows 11 — Guia Completo Antes de Formatar">
-  <meta property="og:description" content="Guia passo a passo para manutenção preventiva do Windows 11. CHKDSK, SFC, DISM, limpeza e otimização. Baixe o script .bat automático.">
+  <meta property="og:title" content="🛡️ Manutenção Preventiva do Windows 11 | Eduardo Sidegum">
+  <meta property="og:description" content="Guia completo de manutenção preventiva do Windows 11: CHKDSK, SFC, DISM, limpeza, boot repair, desfragmentação e mais. Antes de formatar, siga este guia.">
   <meta property="og:url" content="https://edusidegum.github.io/windows11/manutencao.html">
+  <meta property="og:image" content="https://edusidegum.github.io/windows11/assets/img/hero-manutencao.webp">
   <meta property="og:locale" content="pt_BR">
-  <meta property="og:image" content="https://edusidegum.github.io/windows11/img/og-manutencao.webp">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🛡️ Manutenção Preventiva do Windows 11 | Eduardo Sidegum">
+  <meta name="twitter:description" content="Guia completo de manutenção preventiva do Windows 11: CHKDSK, SFC, DISM, limpeza, boot repair, desfragmentação e mais. Antes de formatar, siga este guia.">
+  <meta name="twitter:image" content="https://edusidegum.github.io/windows11/assets/img/hero-manutencao.webp">
+  <link rel="preload" as="style" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://edusidegum.github.io/edusidegum/#person",
+        "name": "Eduardo Sidegum",
+        "jobTitle": "Analista de Sistemas",
+        "url": "https://edusidegum.github.io/edusidegum/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://edusidegum.github.io/windows11/#website",
+        "url": "https://edusidegum.github.io/windows11/",
+        "publisher": { "@id": "https://edusidegum.github.io/edusidegum/#person" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://edusidegum.github.io/windows11/" },
+          { "@type": "ListItem", "position": 2, "name": "Manutenção Preventiva", "item": "https://edusidegum.github.io/windows11/manutencao.html" }
+        ]
+      }
+    ]
+  }
+  </script>
   <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    :root {
-      --bg: #0d1117;
-      --card-bg: #161b22;
-      --text: #e6edf3;
-      --text-muted: #8b949e;
-      --accent-blue: #58a6ff;
-      --accent-green: #3fb950;
-      --warning-red: #f85149;
-      --border: #30363d;
-      --font-stack: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: var(--font-stack);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-    a {
-      color: var(--accent-blue);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    /* HEADER FIXO */
-    .topo-fixo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(13, 17, 23, 0.97);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      z-index: 1000;
-      padding: 12px 5%;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Open Sans', Arial, Helvetica, sans-serif; color: #1a1a1a; background: #f5f5f5; line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Montserrat', Arial Black, sans-serif; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+    .top-header {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      padding: 16px 5%;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
     }
-    .topo-logo {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .topo-logo span {
-      color: var(--accent-blue);
-    }
-    .topo-tagline {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-    .topo-nav {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .topo-nav a {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      padding: 4px 10px;
-      border-radius: 6px;
-      transition: background 0.2s;
-    }
-    .topo-nav a:hover {
-      background: var(--card-bg);
-      text-decoration: none;
-      color: var(--text);
-    }
-    .header-spacer {
-      height: 70px;
-    }
-    /* HERO */
+    .top-header .brand { display: flex; align-items: center; gap: 12px; }
+    .top-header .brand .logo { font-size: 1.8rem; font-weight: 800; }
+    .top-header .brand .tagline { font-size: 0.85rem; opacity: 0.8; }
+    .top-header nav { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+    .top-header nav a { color: #ddd; text-decoration: none; font-size: 0.9rem; padding: 4px 0; transition: color 0.3s; }
+    .top-header nav a:hover, .top-header nav a.active { color: #00d2ff; border-bottom: 2px solid #00d2ff; }
+    .top-header .btn-voltar { background: #00d2ff; color: #000; padding: 8px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: transform 0.3s; }
+    .top-header .btn-voltar:hover { transform: scale(1.05); }
     .hero {
       text-align: center;
-      padding: 60px 20px 40px;
-      background: radial-gradient(ellipse at top, #161b22 0%, #0d1117 70%);
+      padding: 80px 16px 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+      color: #fff;
     }
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      max-width: 800px;
-      margin: 0 auto 16px;
-      line-height: 1.2;
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    .hero h1 span {
-      color: var(--accent-blue);
+    .hero h1 { font-size: 2.5rem; margin-bottom: 12px; }
+    .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 24px; opacity: 0.9; }
+    .hero .cta-btn {
+      background: #fff; color: #764ba2; padding: 14px 32px; border-radius: 50px; font-weight: 700; font-size: 1.1rem;
+      text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      max-width: 650px;
-      margin: 0 auto 24px;
+    .hero .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 40px 0; }
+    .step-card {
+      background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column;
     }
-    .hero .btn-cta {
-      display: inline-block;
-      background: var(--accent-green);
-      color: #0d1117;
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding: 16px 36px;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      margin-bottom: 20px;
+    .step-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
+    .step-card .numero { font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 8px; }
+    .step-card .icone { font-size: 2.5rem; margin-bottom: 8px; }
+    .step-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+    .step-card p { flex: 1; margin-bottom: 12px; color: #555; }
+    .step-card .comando { background: #f0f0f0; padding: 12px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 0.8rem; margin-bottom: 8px; word-break: break-all; }
+    .step-card .tempo { font-size: 0.85rem; color: #888; }
+    .video-section { text-align: center; margin: 40px 0; }
+    .video-section iframe { width: 100%; max-width: 560px; height: 315px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .download-section { background: #fff; border-radius: 16px; padding: 32px; margin: 40px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center; }
+    .download-section h2 { margin-bottom: 16px; }
+    .download-section .warning {
+      background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 12px 16px; margin: 16px 0;
+      font-size: 0.9rem; color: #856404;
     }
-    .hero .btn-cta:hover {
-      transform: scale(1.03);
-      box-shadow: 0 4px 20px rgba(63, 185, 80, 0.4);
-      text-decoration: none;
+    .download-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; padding: 14px 32px; border: none; border-radius: 50px;
+      font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102,126,234,0.4);
     }
-    .hero .credibilidade {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      font-style: italic;
+    .download-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(102,126,234,0.6); }
+    .checklist { margin: 40px 0; }
+    .checklist h2 { margin-bottom: 16px; }
+    .checklist-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #eee; }
+    .checklist-item input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; }
+    .checklist-item label { cursor: pointer; flex: 1; }
+    .checklist-item.done label { text-decoration: line-through; color: #999; }
+    .reset-btn { background: #e74c3c; color: #fff; border: none; padding: 8px 20px; border-radius: 50px; cursor: pointer; transition: background 0.3s; }
+    .reset-btn:hover { background: #c0392b; }
+    .warning-panel { background: #fff; border-radius: 16px; padding: 32px; margin: 40px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .warning-panel h2 { margin-bottom: 16px; }
+    .warning-panel .alert-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .warning-panel .alert-card {
+      background: #ffeaa7; border-radius: 12px; padding: 16px; text-align: center; border: 1px solid #fdcb6e;
     }
-    /* SEÇÕES */
-    section {
-      padding: 40px 0;
-    }
-    section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 20px;
-    }
-    /* COMO USAR */
-    .como-usar ol {
-      list-style-position: inside;
-      font-size: 1.05rem;
-    }
-    .como-usar ol li {
-      margin-bottom: 10px;
-    }
-    .destaque-cmd {
-      background: #1c2333;
-      color: var(--accent-green);
-      font-family: monospace;
-      padding: 12px 16px;
-      border-radius: 8px;
-      display: inline-block;
-      margin: 8px 0;
-      border: 1px solid var(--border);
-    }
-    /* 8 PASSOS - GRID */
-    .grid-passos {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 600px) {
-      .grid-passos {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (min-width: 960px) {
-      .grid-passos {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    .passo-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s;
-    }
-    .passo-card:hover {
-      transform: translateY(-4px);
-    }
-    .passo-numero {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 4px;
-    }
-    .passo-icon {
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-    .passo-titulo {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .passo-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      flex: 1;
-      margin-bottom: 12px;
-    }
-    .passo-comando {
-      background: #1c2333;
-      color: var(--accent-green);
-      font-family: monospace;
-      font-size: 0.9rem;
-      padding: 10px 12px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      overflow-x: auto;
-      white-space: nowrap;
-      margin-bottom: 8px;
-    }
-    .passo-tempo {
-      font-size: 0.85rem;
-      color: var(--accent-blue);
-      font-weight: 600;
-    }
-    /* VÍDEO */
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    /* DOWNLOAD */
-    .warning-box {
-      background: rgba(248, 81, 73, 0.1);
-      border: 1px solid var(--warning-red);
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin-bottom: 20px;
-      color: var(--warning-red);
-    }
-    .warning-box strong {
-      display: block;
-      margin-bottom: 6px;
-    }
-    .btn-download {
-      display: inline-block;
-      background: var(--accent-blue);
-      color: #0d1117;
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding: 16px 32px;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .btn-download:hover {
-      background: #79b8ff;
-      transform: scale(1.02);
-    }
-    /* CHECKLIST */
-    .checklist-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .checklist-item:hover {
-      background: #1c2333;
-    }
-    .checklist-item input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      accent-color: var(--accent-green);
-      cursor: pointer;
-    }
-    .checklist-item label {
-      flex: 1;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    .checklist-item.checked label {
-      text-decoration: line-through;
-      color: var(--text-muted);
-    }
-    .btn-reset {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 8px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background 0.2s;
-    }
-    .btn-reset:hover {
-      background: var(--card-bg);
-    }
-    /* WARNING TABLE */
-    .tabela-alerta {
-      display: grid;
-      gap: 12px;
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 600px) {
-      .tabela-alerta {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    .alerta-item {
-      background: var(--card-bg);
-      border: 1px solid var(--warning-red);
-      border-radius: 8px;
-      padding: 16px;
-    }
-    .alerta-item .sintoma {
-      font-weight: 700;
-      color: var(--warning-red);
-    }
-    .alerta-item .diagnostico {
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 5%;
-      margin-top: 40px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-    footer a {
-      color: var(--accent-blue);
-    }
-    footer .creditos {
-      margin-bottom: 8px;
-    }
-    /* RESPONSIVO */
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-      .topo-fixo {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        padding: 8px 5%;
-      }
-      .topo-nav {
-        gap: 8px;
-      }
-      section h2 {
-        font-size: 1.4rem;
-      }
+    .warning-panel .alert-card h4 { margin-bottom: 8px; }
+    .warning-panel .alert-card p { font-size: 0.9rem; color: #555; }
+    .authority { text-align: center; padding: 20px; font-size: 0.85rem; color: #555; }
+    .authority a { color: #667eea; text-decoration: none; }
+    @media (max-width: 700px) {
+      .top-header { flex-direction: column; gap: 12px; }
+      .hero h1 { font-size: 1.8rem; }
+      .steps-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <!-- TOPO FIXO -->
-  <header class="topo-fixo">
-    <div>
-      <div class="topo-logo">Windows 11 <span>🛡️</span></div>
-      <div class="topo-tagline">Manual de Manutenção Preventiva</div>
+
+<header class="top-header">
+  <div class="brand">
+    <div class="logo">Windows 11 🛡️</div>
+    <div class="tagline">Centro de Aprendizado</div>
+  </div>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="manutencao.html" class="active">Manutenção</a>
+    <a href="drivers.html">Drivers</a>
+    <a href="softwares.html">Softwares</a>
+    <a href="configuracoes.html">Privacidade</a>
+    <a href="FAQ_Microsoft.html">FAQ</a>
+  </nav>
+  <a href="dashboard.html" class="btn-voltar">← Voltar</a>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>🛡️ Manutenção Preventiva do Windows 11</h1>
+    <p>Antes de formatar, siga este guia. Muitos problemas podem ser corrigidos sem perder seus arquivos.</p>
+    <a href="#download" class="cta-btn">📥 Baixar Script Completo (.bat)</a>
+  </div>
+</section>
+
+<main class="container">
+  <h2 style="margin-top: 40px;">Os 8 Passos da Manutenção</h2>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="numero">1</div>
+      <div class="icone">🛡️</div>
+      <h3>CHKDSK — Verificação de disco</h3>
+      <p>Verifica e repara erros no disco rígido, setores defeituosos e problemas de sistema de arquivos.</p>
+      <div class="comando">chkdsk C: /f /r /x</div>
+      <div class="tempo">⏱ 30-60 min</div>
     </div>
-    <nav class="topo-nav" aria-label="Navegação rápida">
-      <a href="#passos">Passos</a>
-      <a href="#video">Vídeo</a>
-      <a href="#download">Download</a>
-      <a href="#checklist">Checklist</a>
-      <a href="#formatar">Quando formatar</a>
-    </nav>
-  </header>
-  <div class="header-spacer"></div>
-
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <h1>Seu <span>Windows 11</span> está lento? Vamos resolver.</h1>
-        <p>Antes de pensar em formatar, siga este guia de manutenção preventiva. Muitos problemas podem ser corrigidos sem perder seus arquivos.</p>
-        <a href="#download" class="btn-cta">📥 Baixar Script Completo (.bat)</a>
-        <div class="credibilidade">Baseado em mais de 15 anos de experiência com suporte técnico Windows.</div>
-      </div>
-    </section>
-
-    <!-- COMO USAR -->
-    <section class="como-usar container">
-      <h2>📋 Como usar este guia</h2>
-      <div class="card">
-        <ol>
-          <li><strong>Abra o CMD como Administrador</strong>: pressione <code>Win + S</code>, digite <code>cmd</code>, clique com o botão direito e escolha <em>Executar como Administrador</em>.</li>
-          <li><strong>Siga os passos na ordem</strong> abaixo. Cada comando tem um tempo estimado.</li>
-          <li><strong>Use o script automático</strong> para executar todos os passos de uma vez (recomendado).</li>
-        </ol>
-        <div class="destaque-cmd">Win + S → digite cmd → Executar como Administrador</div>
-      </div>
-    </section>
-
-    <!-- 8 PASSOS -->
-    <section id="passos" class="container">
-      <h2>🛡️ Os 8 passos da manutenção preventiva</h2>
-      <div class="grid-passos">
-        <!-- Passo 1 -->
-        <div class="passo-card">
-          <div class="passo-numero">Passo 1</div>
-          <div class="passo-icon">🛡️</div>
-          <div class="passo-titulo">CHKDSK — Verificação de disco</div>
-          <div class="passo-desc">Escaneia e repara erros no disco rígido, setores danificados e problemas de sistema de arquivos.</div>
-          <div class="passo-comando">chkdsk /f /r</div>
-          <div class="passo-tempo">⏱ Tempo estimado: 30-60 min</div>
-        </div>
-        <!-- Passo 2 -->
-        <div class="passo-card">
-          <div class="passo-numero">Passo 2</div>
-          <div class="passo-icon">🔧</div>
-          <div class="passo-titulo">SFC — Verificador de arquivos do sistema</div>
-          <div class="passo-desc">Verifica e restaura arquivos protegidos do Windows substituindo versões corrompidas.</div>
-          <div class="passo-comando">sfc /scannow</div>
-          <div class="passo-tempo">⏱ Tempo estimado: 10-30 min</div>
-        </div>
-        <!-- Passo 3 -->
-        <div class="passo-card">
-          <div class="passo-numero">Passo 3</div>
-          <div class="passo-icon">⚙️</div>
-          <div class="passo-titulo">DISM — Reparo da imagem do Windows</div>
-          <div class="passo-desc">Corrige a imagem de sistema corrompida que pode impedir o SFC de funcionar.</div>
-          <div class="passo-comando">DISM /Online /Cleanup-Image /RestoreHealth</div>
-          <div class="passo-tempo">⏱ Tempo estimado: 15-30 min</div>
-        </div>
-        <!-- Passo 4 -->
-        <div class="passo-card">
-          <div class="passo-numero">Passo 4</div>
-          <div class="passo-icon">🧹</div>
-          <div class="passo-titulo">Limpeza de arquivos temporários</div>
-          <div class="passo-desc">Remove arquivos temporários desnecessários que acumulam e ocupam espaço.</div>
-          <div class="passo-comando">del /q /f /s %TEMP%\* & rd /s /q %TEMP%</div>
-          <div class="passo-tempo">⏱ Tempo estimado: 1 min</div>
-        </div>
-        <!-- Passo 5 -->
-        <div class="passo-card">
-          <div class="passo-numero">Passo 5</div>
-          <div class="passo-icon">🗑️</div>
-          <div class="passo-titulo">CleanMgr — Limpeza profunda</div>
-          <div class="passo-desc">Ferramenta nativa que libera espaço removendo arquivos de sistema, caches e atualizações antigas.</div>
-          <div class="passo-comando">cleanmgr /sagerun:1</div>
-          <div class="passo-tempo">⏱ Tempo estimado: 5-10 min</div>
-        </div>
-        <!-- Passo 6 -->
-        <div class="passo-card">
-          <div class="passo-numero">Passo 6</div>
-          <div class="passo-icon">🔄</div>
-          <div class="passo-titulo">Boot Repair — Reparo de inicialização</div>
-          <div class="passo-desc">Reconstrói o gerenciador de inicialização e corrige problemas de boot.</div>
-          <div class="passo-comando">bootrec /fixboot & bootrec /fixmbr</div>
-          <div class="passo-tempo">⏱ Tempo estimado: 2 min</div>
-        </div>
-        <!-- Passo 7 -->
-        <div class="passo-card">
-          <div class="passo-numero">Passo 7</div>
-          <div class="passo-icon">⚡</div>
-          <div class="passo-titulo">Desfragmentação (HDD)</div>
-          <div class="passo-desc">Reorganiza arquivos no disco rígido para melhorar desempenho (apenas para HDD, ignore se for SSD).</div>
-          <div class="passo-comando">defrag C: /O</div>
-          <div class="passo-tempo">⏱ Tempo estimado: 10-30 min</div>
-        </div>
-        <!-- Passo 8 -->
-        <div class="passo-card">
-          <div class="passo-numero">Passo 8</div>
-          <div class="passo-icon">🌐</div>
-          <div class="passo-titulo">Redefinição de Rede</div>
-          <div class="passo-desc">Limpa cache DNS, reseta winsock e pilha TCP/IP para corrigir problemas de conectividade.</div>
-          <div class="passo-comando">ipconfig /flushdns & netsh winsock reset & netsh int ip reset</div>
-          <div class="passo-tempo">⏱ Tempo estimado: 1 min</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VÍDEO -->
-    <section id="video" class="container">
-      <h2>🎥 Assista ao Passo a Passo</h2>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Vídeo tutorial de manutenção preventiva Windows 11" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <p style="margin-top: 12px; color: var(--text-muted);">Vídeo ilustrativo. Os comandos podem variar conforme a versão do Windows.</p>
-    </section>
-
-    <!-- DOWNLOAD DO SCRIPT -->
-    <section id="download" class="container">
-      <h2>📥 Script Automático de Manutenção</h2>
-      <div class="card">
-        <div class="warning-box">
-          <strong>⚠️ AVISO IMPORTANTE</strong>
-          Este script executa comandos que alteram o sistema. Embora seguro em condições normais, o uso é de sua inteira responsabilidade. Faça backup dos seus dados antes de executar. Recomendamos criar um ponto de restauração do sistema.
-        </div>
-        <p style="margin-bottom: 16px;">Clique no botão abaixo para baixar o arquivo <strong>manutencaowindows11.bat</strong>. Execute-o como Administrador para aplicar todos os 8 passos automaticamente.</p>
-        <button class="btn-download" onclick="baixarScript()">Baixar manutencaowindows11.bat</button>
-      </div>
-    </section>
-
-    <!-- CHECKLIST INTERATIVO -->
-    <section id="checklist" class="container">
-      <h2>✅ Checklist de Execução</h2>
-      <div class="card">
-        <div id="checklist-itens"></div>
-        <button class="btn-reset" onclick="limparChecklist()">Limpar Progresso</button>
-      </div>
-    </section>
-
-    <!-- QUANDO FORMATAR -->
-    <section id="formatar" class="container">
-      <h2>⚠️ Quando a manutenção não resolve — é hora de formatar</h2>
-      <div class="tabela-alerta">
-        <div class="alerta-item">
-          <div class="sintoma">CHKDSK encontra setores ruins repetidamente</div>
-          <div class="diagnostico">🔴 Disco morrendo. Substitua o HD/SSD imediatamente.</div>
-        </div>
-        <div class="alerta-item">
-          <div class="sintoma">SFC não repara mesmo após DISM</div>
-          <div class="diagnostico">🔴 Sistema muito corrompido. A formatação é o caminho mais seguro.</div>
-        </div>
-        <div class="alerta-item">
-          <div class="sintoma">PC continua lento após todos os passos</div>
-          <div class="diagnostico">🔴 Pode ser hardware defasado ou software malicioso. Uma instalação limpa resolve.</div>
-        </div>
-        <div class="alerta-item">
-          <div class="sintoma">Tela azul persistente (BSOD)</div>
-          <div class="diagnostico">🔴 Erro crítico que geralmente indica problema de driver ou corrupção grave. Formate.</div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="creditos">Desenvolvido por <a href="https://edusidegum.github.io">Edu Sidegum</a> — suporte técnico Windows desde 2008.</div>
-    <div>
-      <a href="#" onclick="event.preventDefault()">Política de Privacidade</a> •
-      <a href="#" onclick="event.preventDefault()">Termos de Uso</a>
+    <div class="step-card">
+      <div class="numero">2</div>
+      <div class="icone">🔧</div>
+      <h3>SFC — Verificador de arquivos do sistema</h3>
+      <p>Escaneia e restaura arquivos corrompidos ou ausentes do sistema.</p>
+      <div class="comando">sfc /scannow</div>
+      <div class="tempo">⏱ 10-30 min</div>
     </div>
-    <div style="margin-top: 8px;">© 2026 — Windows 11 Maintenance. Todos os direitos reservados.</div>
-  </footer>
+    <div class="step-card">
+      <div class="numero">3</div>
+      <div class="icone">⚙️</div>
+      <h3>DISM — Reparo da imagem do Windows</h3>
+      <p>Repara a imagem do sistema operacional e o componente de instalação.</p>
+      <div class="comando">DISM /Online /Cleanup-Image /RestoreHealth</div>
+      <div class="tempo">⏱ 15-30 min</div>
+    </div>
+    <div class="step-card">
+      <div class="numero">4</div>
+      <div class="icone">🧹</div>
+      <h3>Limpeza de Temporários</h3>
+      <p>Remove arquivos temporários que acumulam e ocupam espaço.</p>
+      <div class="comando">del /q /f /s %TEMP%\*</div>
+      <div class="tempo">⏱ 1 min</div>
+    </div>
+    <div class="step-card">
+      <div class="numero">5</div>
+      <div class="icone">🗑️</div>
+      <h3>CleanMgr — Limpeza profunda</h3>
+      <p>Executa a limpeza de disco com configurações pré-definidas.</p>
+      <div class="comando">cleanmgr /sagerun:1</div>
+      <div class="tempo">⏱ 5-10 min</div>
+    </div>
+    <div class="step-card">
+      <div class="numero">6</div>
+      <div class="icone">🔄</div>
+      <h3>Boot Repair — Reparo de inicialização</h3>
+      <p>Corrige problemas no registro de inicialização e no MBR.</p>
+      <div class="comando">bootrec /fixboot & bootrec /fixmbr</div>
+      <div class="tempo">⏱ 2 min</div>
+    </div>
+    <div class="step-card">
+      <div class="numero">7</div>
+      <div class="icone">⚡</div>
+      <h3>Desfragmentação — HDD</h3>
+      <p>Otimiza o disco rígido reorganizando arquivos fragmentados (recomendado apenas para HD).</p>
+      <div class="comando">defrag C: /O</div>
+      <div class="tempo">⏱ 10-30 min</div>
+    </div>
+    <div class="step-card">
+      <div class="numero">8</div>
+      <div class="icone">🌐</div>
+      <h3>Redefinição de Rede</h3>
+      <p>Limpa o cache DNS e redefine as configurações de rede.</p>
+      <div class="comando">ipconfig /flushdns & netsh winsock reset</div>
+      <div class="tempo">⏱ 1 min</div>
+    </div>
+  </div>
 
-  <script>
-    // ===== PROTEÇÃO DISSUASÓRIA =====
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', function(e) {
-      if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
-        e.preventDefault();
-      }
-      if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
-        e.preventDefault();
+  <div class="video-section">
+    <h2>📺 Tutorial em Vídeo</h2>
+    <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Tutorial de Manutenção Windows 11" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <div id="download" class="download-section">
+    <h2>📥 Script Automático de Manutenção</h2>
+    <div class="warning">
+      ⚠️ <strong>Importante:</strong> Este script executa comandos que afetam o sistema. Execute como Administrador e faça backup dos seus dados antes de prosseguir. O uso é de sua inteira responsabilidade.
+    </div>
+    <button class="download-btn" onclick="downloadScript()">📥 Baixar manutencaowindows11.bat</button>
+  </div>
+
+  <div class="checklist">
+    <h2>✅ Checklist Interativo</h2>
+    <p>Marque os passos concluídos (progresso salvo automaticamente).</p>
+    <div id="checklist-items">
+      <div class="checklist-item" data-id="1">
+        <input type="checkbox" id="step1"><label for="step1">🛡️ CHKDSK — Verificação de disco</label>
+      </div>
+      <div class="checklist-item" data-id="2">
+        <input type="checkbox" id="step2"><label for="step2">🔧 SFC — Verificador de arquivos do sistema</label>
+      </div>
+      <div class="checklist-item" data-id="3">
+        <input type="checkbox" id="step3"><label for="step3">⚙️ DISM — Reparo da imagem do Windows</label>
+      </div>
+      <div class="checklist-item" data-id="4">
+        <input type="checkbox" id="step4"><label for="step4">🧹 Limpeza de Temporários</label>
+      </div>
+      <div class="checklist-item" data-id="5">
+        <input type="checkbox" id="step5"><label for="step5">🗑️ CleanMgr — Limpeza profunda</label>
+      </div>
+      <div class="checklist-item" data-id="6">
+        <input type="checkbox" id="step6"><label for="step6">🔄 Boot Repair — Reparo de inicialização</label>
+      </div>
+      <div class="checklist-item" data-id="7">
+        <input type="checkbox" id="step7"><label for="step7">⚡ Desfragmentação — HDD</label>
+      </div>
+      <div class="checklist-item" data-id="8">
+        <input type="checkbox" id="step8"><label for="step8">🌐 Redefinição de Rede</label>
+      </div>
+    </div>
+    <button class="reset-btn" onclick="resetChecklist()">🗑️ Limpar Progresso</button>
+  </div>
+
+  <div class="warning-panel">
+    <h2>🚨 Quando Formatar?</h2>
+    <p>Se você já executou todos os passos acima e ainda enfrenta problemas graves, pode ser hora de considerar uma formatação. Veja os sinais:</p>
+    <div class="alert-cards">
+      <div class="alert-card">
+        <h4>🔴 Tela Azul Frequente</h4>
+        <p>Erros críticos mesmo após reparos de sistema.</p>
+      </div>
+      <div class="alert-card">
+        <h4>🟠 Lentidão Extrema</h4>
+        <p>O sistema demora mais de 5 minutos para iniciar.</p>
+      </div>
+      <div class="alert-card">
+        <h4>🟡 Vírus ou Malware Persistente</h4>
+        <p>Infecção que não é removida por antivírus.</p>
+      </div>
+      <div class="alert-card">
+        <h4>🔵 Erros de Atualização</h4>
+        <p>Windows Update falha mesmo com DISM/SFC.</p>
+      </div>
+      <div class="alert-card">
+        <h4>⚫ Corrupção de Perfil</h4>
+        <p>Perfil de usuário danificado sem solução.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer via include -->
+<div id="footer"></div>
+
+<div class="authority">
+  <a href="https://edusidegum.github.io/edusidegum/sobre.html" target="_blank" rel="noopener">Eduardo Sidegum</a> — Desenvolvido em 10/07/2026
+</div>
+
+<!-- Tracking -->
+<div id="cookies"></div>
+<div id="ga4-gtm"></div>
+
+<script>
+// Checklist persistence
+function loadChecklist() {
+  document.querySelectorAll('.checklist-item').forEach(item => {
+    const id = item.dataset.id;
+    const checkbox = item.querySelector('input[type="checkbox"]');
+    const saved = localStorage.getItem('checklist-' + id);
+    if (saved === 'true') {
+      checkbox.checked = true;
+      item.classList.add('done');
+    }
+    checkbox.addEventListener('change', function() {
+      if (this.checked) {
+        localStorage.setItem('checklist-' + id, 'true');
+        item.classList.add('done');
+      } else {
+        localStorage.removeItem('checklist-' + id);
+        item.classList.remove('done');
       }
     });
+  });
+}
 
-    // ===== DOWNLOAD DO SCRIPT .BAT =====
-    function baixarScript() {
-      const conteudo = '@echo off\n' +
-        'title Manutencao Windows 11\n' +
-        'net session >nul 2>&1\n' +
-        'if %errorLevel% neq 0 (\n' +
-        '    echo ============================================\n' +
-        '    echo   ERRO: Este script requer privilegios de\n' +
-        '    echo   Administrador.\n' +
-        '    echo ============================================\n' +
-        '    echo   Clique com botao direito ^> Executar como\n' +
-        '    echo   Administrador\n' +
-        '    pause\n' +
-        '    exit /b 1\n' +
-        ')\n' +
-        'echo.\n' +
-        'echo ============================================\n' +
-        'echo   INICIANDO MANUTENCAO PREVENTIVA\n' +
-        'echo ============================================\n' +
-        'echo.\n' +
-        'REM PASSO 1: CHKDSK\n' +
-        'echo [1/8] Verificacao de disco...\n' +
-        'chkdsk /f /r\n' +
-        'echo.\n' +
-        'REM PASSO 2: SFC\n' +
-        'echo [2/8] Verificacao de arquivos do sistema...\n' +
-        'sfc /scannow\n' +
-        'echo.\n' +
-        'REM PASSO 3: DISM\n' +
-        'echo [3/8] Reparo da imagem do Windows...\n' +
-        'DISM /Online /Cleanup-Image /RestoreHealth\n' +
-        'echo.\n' +
-        'REM PASSO 4: Limpeza de temporarios\n' +
-        'echo [4/8] Limpando arquivos temporarios...\n' +
-        'del /q /f /s %TEMP%\* >nul 2>&1\n' +
-        'rd /s /q %TEMP% >nul 2>&1\n' +
-        'echo.\n' +
-        'REM PASSO 5: CleanMgr\n' +
-        'echo [5/8] Limpeza profunda...\n' +
-        'cleanmgr /sagerun:1\n' +
-        'echo.\n' +
-        'REM PASSO 6: Boot Repair\n' +
-        'echo [6/8] Reparo de inicializacao...\n' +
-        'bootrec /fixboot >nul 2>&1\n' +
-        'bootrec /fixmbr >nul 2>&1\n' +
-        'echo.\n' +
-        'REM PASSO 7: Desfragmentacao\n' +
-        'echo [7/8] Desfragmentacao (se HDD)...\n' +
-        'defrag C: /O\n' +
-        'echo.\n' +
-        'REM PASSO 8: Rede\n' +
-        'echo [8/8] Redefinicao de rede...\n' +
-        'ipconfig /flushdns >nul 2>&1\n' +
-        'netsh winsock reset >nul 2>&1\n' +
-        'netsh int ip reset >nul 2>&1\n' +
-        'echo.\n' +
-        'echo ============================================\n' +
-        'echo   MANUTENCAO CONCLUIDA!\n' +
-        'echo   Recomendamos reiniciar o PC.\n' +
-        'echo ============================================\n' +
-        'pause\n';
+function resetChecklist() {
+  if (!confirm('Tem certeza que deseja limpar todo o progresso do checklist?')) return;
+  for (let i = 1; i <= 8; i++) {
+    localStorage.removeItem('checklist-' + i);
+  }
+  document.querySelectorAll('.checklist-item').forEach(item => {
+    item.querySelector('input[type="checkbox"]').checked = false;
+    item.classList.remove('done');
+  });
+}
 
-      const blob = new Blob([conteudo], { type: 'application/x-msdos-program' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'manutencaowindows11.bat';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
+document.addEventListener('DOMContentLoaded', loadChecklist);
 
-    // ===== CHECKLIST COM LOCALSTORAGE =====
-    const passosChecklist = [
-      'Passo 1: CHKDSK (Verificação de disco)',
-      'Passo 2: SFC /scannow (Arquivos de sistema)',
-      'Passo 3: DISM (Imagem do Windows)',
-      'Passo 4: Limpeza de Temporários',
-      'Passo 5: CleanMgr (Limpeza profunda)',
-      'Passo 6: Boot Repair (Reparo de inicialização)',
-      'Passo 7: Desfragmentação (HDD)',
-      'Passo 8: Redefinição de Rede'
-    ];
+// Download script
+function downloadScript() {
+  const content = `@echo off
+title Manutencao Preventiva Windows 11
+echo Verificando privilegios de administrador...
+net session >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Este script precisa ser executado como administrador.
+    pause
+    exit /b 1
+)
+echo Privilegios confirmados.
+echo Iniciando manutencao...
+chkdsk C: /f /r /x
+sfc /scannow
+DISM /Online /Cleanup-Image /RestoreHealth
+del /q /f /s %TEMP%\*
+cleanmgr /sagerun:1
+bootrec /fixboot
+bootrec /fixmbr
+defrag C: /O
+ipconfig /flushdns
+netsh winsock reset
+echo Manutencao concluida.
+pause`;
+  const blob = new Blob([content], { type: 'application/bat' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'manutencaowindows11.bat';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
 
-    function carregarChecklist() {
-      const container = document.getElementById('checklist-itens');
-      container.innerHTML = '';
-      const saved = JSON.parse(localStorage.getItem('checklist')) || [];
-      passosChecklist.forEach((texto, index) => {
-        const div = document.createElement('div');
-        div.className = 'checklist-item';
-        if (saved[index]) div.classList.add('checked');
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.checked = saved[index] || false;
-        checkbox.addEventListener('change', function() {
-          saved[index] = this.checked;
-          localStorage.setItem('checklist', JSON.stringify(saved));
-          if (this.checked) {
-            div.classList.add('checked');
-          } else {
-            div.classList.remove('checked');
-          }
-        });
-        const label = document.createElement('label');
-        label.textContent = texto;
-        div.appendChild(checkbox);
-        div.appendChild(label);
-        container.appendChild(div);
-      });
-    }
-
-    function limparChecklist() {
-      localStorage.removeItem('checklist');
-      carregarChecklist();
-    }
-
-    carregarChecklist();
-  </script>
 </body>
 </html>
