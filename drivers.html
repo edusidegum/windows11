@@ -3,426 +3,377 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔍 Investigação de Drivers — Guia do Investigador | Windows 11</title>
-  <meta name="description" content="Aprenda a identificar o hardware do seu PC e encontrar drivers oficiais usando o código de série do fabricante. Método investigativo passo a passo.">
+
+  <!-- Scripts de injeção e proteção -->
+  <script src="assets/js/bloco-incluir.js" defer></script>
+  <script src="assets/js/bloco-protecao.js" defer></script>
+
+  <!-- Título e Description -->
+  <title>Investigação de Drivers — O Guia do Investigador | Windows 11 Maintenance Hub</title>
+  <meta name="description" content="Guia completo para investigar drivers no Windows 11: ferramentas de identificação, busca em 4 passos, validação de autenticidade e checklist.">
+  <meta name="author" content="Eduardo Sidegum — Windows 11 Maintenance Hub">
+
+  <!-- Geo (opcional, mantido por consistência) -->
+  <meta name="geo.region" content="BR-RS">
+  <meta name="geo.placename" content="Novo Hamburgo">
+
+  <!-- Proteção de conteúdo -->
+  <meta name="protecao-copia" content="ativado">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://edusidegum.github.io/windows11/drivers.html">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="🔍 Investigação de Drivers — Guia do Investigador | Windows 11">
-  <meta property="og:description" content="Aprenda a identificar o hardware do seu PC e encontrar drivers oficiais usando o código de série do fabricante. Método investigativo passo a passo.">
+  <meta property="og:title" content="Investigação de Drivers — O Guia do Investigador | Windows 11 Maintenance Hub">
+  <meta property="og:description" content="Guia completo para investigar drivers no Windows 11: ferramentas de identificação, busca em 4 passos, validação de autenticidade e checklist.">
   <meta property="og:url" content="https://edusidegum.github.io/windows11/drivers.html">
-  <meta property="og:image" content="https://edusidegum.github.io/windows11/img/og-image-drivers.webp">
+  <meta property="og:image" content="https://edusidegum.github.io/windows11/img/drivers-og.webp">
   <meta property="og:locale" content="pt_BR">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Investigação de Drivers — O Guia do Investigador | Windows 11 Maintenance Hub">
+  <meta name="twitter:description" content="Guia completo para investigar drivers no Windows 11: ferramentas de identificação, busca em 4 passos, validação de autenticidade e checklist.">
+  <meta name="twitter:image" content="https://edusidegum.github.io/windows11/img/drivers-og.webp">
+
+  <!-- Preload da imagem LCP (hero) -->
+  <link rel="preload" as="image" href="https://edusidegum.github.io/windows11/img/drivers-hero.webp">
+
+  <!-- CSS -->
+  <link rel="preload" as="style" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://edusidegum.github.io/windows11/#person",
+        "name": "Eduardo Sidegum",
+        "jobTitle": "Analista de Sistemas — Windows 11 Maintenance Hub"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://edusidegum.github.io/windows11/#website",
+        "url": "https://edusidegum.github.io/windows11/",
+        "publisher": { "@id": "https://edusidegum.github.io/windows11/#person" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://edusidegum.github.io/windows11/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Investigação de Drivers",
+            "item": "https://edusidegum.github.io/windows11/drivers.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- GA4 / GTM (placeholders) -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- CSS crítico inline -->
   <style>
-    :root {
-      --bg-dark: #0d0d0d;
-      --card-bg: #1a1a1a;
-      --text-light: #d6d6d6;
-      --primary: #78BE20;
-      --accent: #00aaff;
-      --warning: #ffaa00;
-      --danger: #ff4444;
+    .sticky-header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: #1a1a1a; z-index: 1000; text-align: center;
+      padding: 12px 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    body {
-      background: var(--bg-dark);
-      color: var(--text-light);
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+    .sticky-header a {
+      color: #fff; font-family: 'Montserrat', sans-serif;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      letter-spacing: 0.5px;
     }
-    .top-header {
-      background: #0a0a0a;
-      border-bottom: 1px solid #222;
-      padding: 10px 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    .top-header .logo {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--primary);
-    }
-    .top-header .tagline {
-      font-size: 0.85rem;
-      color: #888;
-      margin-left: 10px;
-    }
-    .top-header nav {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-    }
-    .top-header nav a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 0.9rem;
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: background 0.3s;
-    }
-    .top-header nav a:hover, .top-header nav a.active {
-      background: #222;
-      color: var(--primary);
-    }
-    .btn-voltar {
-      background: #333;
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: background 0.3s;
-    }
-    .btn-voltar:hover {
-      background: var(--primary);
-      color: #000;
-    }
-    .hero {
-      text-align: center;
-      padding: 60px 16px 40px;
-      background: linear-gradient(180deg, #141414 0%, #0d0d0d 100%);
-    }
-    .hero h1 {
-      font-size: 2.2rem;
-      color: #fff;
-      margin-bottom: 16px;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: #aaa;
-      max-width: 700px;
-      margin: 0 auto 20px;
-    }
-    .hero .tagline {
-      font-size: 0.9rem;
-      color: var(--primary);
-      font-style: italic;
-    }
-    .section {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 40px 16px;
-    }
-    .section h2 {
-      font-size: 1.8rem;
-      color: #fff;
-      margin-bottom: 24px;
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 8px;
-    }
-    .card, .ferramenta-card, .investigador-card, .alerta-card {
-      background: var(--card-bg);
-      border: 1px solid #2a2a2a;
-      border-radius: 12px;
-      padding: 24px;
-      margin: 16px 0;
-    }
-    .grid-2, .grid-3 {
+    .header-spacer { height: 56px; }
+    body { font-family: 'Open Sans', Arial, Helvetica, sans-serif; }
+    h1, h2, h3 { font-family: 'Montserrat', Arial Black, sans-serif; }
+
+    /* Estilos específicos da página */
+    .tool-grid {
       display: grid;
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
     }
-    .grid-2 { grid-template-columns: 1fr 1fr; }
-    .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
-    @media (max-width: 700px) {
-      .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 1.5rem; }
-    }
-    .card h3 {
-      color: var(--primary);
-      margin-bottom: 12px;
-    }
-    .card p, .card ul {
-      color: #ccc;
-      font-size: 0.95rem;
-    }
-    .card ul {
-      padding-left: 20px;
-    }
-    .dica {
-      background: #1e2a1e;
-      border-left: 4px solid var(--primary);
-      padding: 12px 16px;
-      border-radius: 6px;
-      margin: 12px 0;
-      font-size: 0.9rem;
-    }
-    .dica strong {
-      color: var(--primary);
-    }
-    .passo-numero {
-      display: inline-block;
-      background: var(--primary);
-      color: #000;
-      font-weight: bold;
-      width: 36px;
-      height: 36px;
-      line-height: 36px;
+    .tool-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       text-align: center;
-      border-radius: 50%;
-      margin-right: 12px;
     }
-    .video-container {
+    .tool-card h3 { margin-bottom: 8px; }
+    .step-list { counter-reset: step; }
+    .step-item {
+      counter-increment: step;
+      margin: 16px 0;
+      padding-left: 40px;
+      position: relative;
+    }
+    .step-item::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #78BE20;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+    .video-wrapper {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
-      overflow: hidden;
-      max-width: 560px;
-      margin: 20px auto;
+      margin: 24px 0;
     }
-    .video-container iframe {
+    .video-wrapper iframe {
       position: absolute;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
+      border: none;
     }
     .checklist-item {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 10px 0;
-      border-bottom: 1px solid #222;
-      cursor: pointer;
+      margin: 8px 0;
     }
     .checklist-item input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      accent-color: var(--primary);
+      margin-right: 12px;
+      transform: scale(1.3);
     }
-    .checklist-item label {
-      color: #ccc;
-      font-size: 1rem;
-    }
-    .checklist-item.checked label {
-      text-decoration: line-through;
-      color: #666;
-    }
-    footer {
-      background: #080808;
-      padding: 40px 5% 20px;
-      margin-top: 60px;
-      border-top: 1px solid #222;
-      text-align: center;
-    }
-    footer p {
-      margin: 6px 0;
-      color: #888;
-      font-size: 0.85rem;
-    }
-    footer a {
-      color: var(--primary);
+    .btn-back {
+      display: inline-block;
+      background: #78BE20;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 50px;
       text-decoration: none;
+      font-weight: 700;
+      margin-top: 24px;
     }
-    footer a:hover {
-      text-decoration: underline;
+    .btn-back:hover {
+      background: #5a9e14;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="top-header">
-    <div style="display:flex;align-items:center;gap:10px;">
-      <span class="logo">Windows 11 🛡️</span>
-      <span class="tagline">Centro de Aprendizado</span>
-    </div>
-    <nav>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="manutencao.html">Manutenção</a>
-      <a href="drivers.html" class="active">Drivers</a>
-      <a href="softwares.html">Softwares</a>
-      <a href="FAQ_Microsoft.html">FAQ</a>
-      <a href="dashboard.html" class="btn-voltar">← Voltar</a>
-    </nav>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>🔍 Investigação de Drivers — O Guia do Investigador</h1>
-    <p>Não entregamos links. Ensinamos o método. Ao final desta página, você saberá encontrar qualquer driver oficial sozinho.</p>
-    <div class="tagline">Método investigativo — como um detetive de hardware</div>
-  </section>
+<!-- Header local com navegação completa -->
+<header class="sticky-header" role="banner" aria-label="Navegação principal">
+  <nav style="display: flex; justify-content: space-between; align-items: center; max-width: 960px; margin: 0 auto; padding: 0 16px;">
+    <a href="https://edusidegum.github.io/windows11/" style="color: #78BE20; font-weight: 800; font-size: 1.1rem;">Windows 11 Hub</a>
+    <ul style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0;">
+      <li><a href="https://edusidegum.github.io/windows11/">Dashboard</a></li>
+      <li><a href="https://edusidegum.github.io/windows11/drivers.html" style="color: #78BE20;">Drivers</a></li>
+      <li><a href="https://edusidegum.github.io/edusidegum/sobre.html" target="_blank" rel="noopener">Sobre</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="header-spacer"></div>
 
-  <!-- Section 1: Ferramentas de Identificação -->
-  <section class="section">
+<!-- Hero -->
+<section class="hero">
+  <h1>🔍 Investigação de Drivers — O Guia do Investigador</h1>
+  <p>Aprenda a identificar, buscar e validar drivers para o Windows 11 como um verdadeiro investigador digital. Sem links diretos, apenas conhecimento aplicado.</p>
+</section>
+
+<div class="container">
+
+  <!-- 4 Ferramentas de Identificação -->
+  <section>
     <h2>🛠️ Ferramentas de Identificação</h2>
-    <div class="grid-2">
-      <div class="ferramenta-card card">
-        <h3>msinfo32 — Informações do Sistema</h3>
-        <p><strong>Como abrir:</strong> Win + R, digite <code>msinfo32</code>, Enter</p>
-        <p><strong>O que mostra:</strong> modelo do PC, placa-mãe, BIOS, processador, memória</p>
-        <div class="dica"><strong>Dica pedagógica:</strong> "Procure por 'Modelo do Sistema' e 'Fabricante do Sistema'. Essa é sua identidade técnica."</div>
+    <p>Antes de buscar um driver, você precisa saber exatamente qual hardware está no seu sistema. Use estas ferramentas nativas do Windows:</p>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <h3>msinfo32</h3>
+        <p>Informações detalhadas do sistema, incluindo componentes e versões de driver.</p>
+        <p><strong>Como usar:</strong> Pressione <kbd>Win + R</kbd>, digite <code>msinfo32</code> e pressione Enter.</p>
       </div>
-      <div class="ferramenta-card card">
-        <h3>dxdiag — DirectX Diagnostic Tool</h3>
-        <p><strong>Como abrir:</strong> Win + R, digite <code>dxdiag</code>, Enter</p>
-        <p><strong>O que mostra:</strong> placa de vídeo, som, drivers instalados</p>
-        <div class="dica"><strong>Dica pedagógica:</strong> "Na aba 'Exibir' você encontra o modelo exato da sua GPU. Anote o 'Fabricante' e o 'Tipo de Chip'."</div>
+      <div class="tool-card">
+        <h3>dxdiag</h3>
+        <p>Ferramenta de diagnóstico do DirectX. Exibe informações de placa de vídeo, som e entrada.</p>
+        <p><strong>Como usar:</strong> <kbd>Win + R</kbd>, digite <code>dxdiag</code> e confirme.</p>
       </div>
-      <div class="ferramenta-card card">
+      <div class="tool-card">
         <h3>Gerenciador de Dispositivos</h3>
-        <p><strong>Como abrir:</strong> Win + X → Gerenciador de Dispositivos</p>
-        <p><strong>O que mostra:</strong> todos os componentes com seus IDs de hardware</p>
-        <div class="dica"><strong>Dica pedagógica:</strong> "Clique com botão direito em qualquer dispositivo → Propriedades → Detalhes → ID de Hardware. Esse código é a impressão digital do componente."</div>
+        <p>Lista todo o hardware instalado. Clique com botão direito em um dispositivo para ver propriedades e detalhes do driver.</p>
+        <p><strong>Como usar:</strong> Clique com botão direito no Menu Iniciar e selecione “Gerenciador de Dispositivos”.</p>
       </div>
-      <div class="ferramenta-card card">
-        <h3>Etiqueta Física (Service Tag)</h3>
-        <p><strong>Onde encontrar:</strong> na carcaça do notebook (parte inferior) ou desktop (traseira)</p>
-        <p><strong>O que contém:</strong> código alfanumérico de 7 caracteres (Service Tag para Dell, Serial Number para HP/Lenovo)</p>
-        <div class="dica"><strong>Dica pedagógica:</strong> "Esse código é a chave do cofre. Com ele, o site oficial do fabricante sabe exatamente qual hardware seu modelo usa."</div>
+      <div class="tool-card">
+        <h3>Service Tag / Número de Série</h3>
+        <p>Para computadores OEM (Dell, HP, Lenovo), o service tag ou número de série permite buscar drivers diretamente no site do fabricante.</p>
+        <p><strong>Como encontrar:</strong> No CMD, digite <code>wmic bios get serialnumber</code>.</p>
       </div>
     </div>
   </section>
 
-  <!-- Section 2: Método de Busca -->
-  <section class="section">
-    <h2>🔎 O Método de Busca em 4 Passos</h2>
-    <div class="card">
-      <h3><span class="passo-numero">1</span>Identifique o Fabricante do seu PC ou Componente</h3>
-      <p>Exemplos: Dell, HP, Lenovo, Acer, ASUS, Samsung, Positivo</p>
-      <p>Use <code>msinfo32</code> ou a etiqueta física.</p>
-    </div>
-    <div class="card">
-      <h3><span class="passo-numero">2</span>Acesse o Site Oficial do Fabricante</h3>
-      <p>Use o domínio .com oficial (ex: dell.com.br/support, hp.com/br/support)</p>
-      <p>Cuidado com sites genéricos - sempre verifique o domínio.</p>
-      <div class="dica"><strong>Dica:</strong> sites confiáveis terminam em .com ou .org do próprio fabricante.</div>
-    </div>
-    <div class="card">
-      <h3><span class="passo-numero">3</span>Localize a Área de Suporte e Drivers</h3>
-      <p>Procure por "Suporte", "Drivers", "Downloads".</p>
-      <p>Geralmente exige o Service Tag ou modelo do PC. Digite o código que você identificou no Passo 1.</p>
-    </div>
-    <div class="card">
-      <h3><span class="passo-numero">4</span>Baixe Apenas o Driver Oficial</h3>
-      <p>Confira se o site é oficial (cadeado SSL, domínio do fabricante).</p>
-      <p>Prefira drivers com assinatura digital (verificada pelo Windows).</p>
-      <p>Evite sites de terceiros que prometem "drivers atualizados".</p>
-    </div>
-  </section>
-
-  <!-- Section 3: Validação de Autenticidade -->
-  <section class="section">
-    <h2>✅ Como Validar se o Driver é Oficial</h2>
-    <div class="grid-3">
-      <div class="investigador-card card">
-        <h3>Domínio</h3>
-        <p>O download está hospedado no domínio oficial do fabricante? Desconfie de .br genéricos, sites com nomes estranhos ou URLs encurtadas.</p>
+  <!-- Método de Busca em 4 Passos -->
+  <section>
+    <h2>📋 Método de Busca em 4 Passos</h2>
+    <div class="step-list">
+      <div class="step-item">
+        <strong>1. Identifique o hardware exato</strong>
+        <p>Use as ferramentas acima para obter o modelo do dispositivo (ex.: “Realtek Audio ALC892”).</p>
       </div>
-      <div class="investigador-card card">
-        <h3>Assinatura Digital</h3>
-        <p>Após baixar, clique com botão direito no arquivo .exe ou .msi → Propriedades → Assinaturas Digitais. Se houver uma assinatura válida do fabricante, o arquivo é legítimo.</p>
+      <div class="step-item">
+        <strong>2. Descubra o ID do hardware</strong>
+        <p>No Gerenciador de Dispositivos, vá em Propriedades > Detalhes > ID do hardware. Copie o valor (ex.: <code>VEN_10DE&DEV_1C03</code>).</p>
       </div>
-      <div class="investigador-card card">
-        <h3>Versão e Data</h3>
-        <p>Compare a versão do driver com a listada no site oficial. Drivers legítimos têm datas de lançamento e números de versão consistentes.</p>
+      <div class="step-item">
+        <strong>3. Pesquise pelo ID ou modelo</strong>
+        <p>Use um mecanismo de busca com o ID ou modelo + “driver Windows 11”. Exemplo: “VEN_10DE&DEV_1C03 driver Windows 11”.</p>
+      </div>
+      <div class="step-item">
+        <strong>4. Baixe apenas de fontes confiáveis</strong>
+        <p>Prefira o site do fabricante do hardware ou do fabricante do PC. Evite sites de terceiros não verificados.</p>
       </div>
     </div>
   </section>
 
-  <!-- Section 4: Vídeo Tutorial -->
-  <section class="section">
-    <h2>🎥 Tutorial Rápido</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Tutorial: encontrando drivers no Gerenciador de Dispositivos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <p style="text-align:center;color:#888;">Vídeo ilustrativo de 30 segundos mostrando o passo a passo no Gerenciador de Dispositivos.</p>
+  <!-- Validação de Autenticidade -->
+  <section>
+    <h2>✅ Validação de Autenticidade (3 Critérios)</h2>
+    <p>Antes de instalar um driver baixado, verifique:</p>
+    <ul>
+      <li><strong>Assinatura digital:</strong> O arquivo deve ter uma assinatura válida da Microsoft ou do fabricante. Clique com botão direito > Propriedades > Assinaturas Digitais.</li>
+      <li><strong>Versão e data:</strong> Compare a versão com a listada no site oficial. Drivers falsos geralmente têm versões antigas ou datas suspeitas.</li>
+      <li><strong>Hash checksum:</strong> Se o site oficial fornecer o hash (SHA-256), calcule o hash do arquivo baixado com <code>certutil -hashfile arquivo.exe SHA256</code> e compare.</li>
+    </ul>
   </section>
 
-  <!-- Section 5: O que Evitar -->
-  <section class="section">
-    <h2>⚠️ Armadilhas Comuns</h2>
-    <div class="grid-3">
-      <div class="alerta-card card" style="border-left: 4px solid var(--danger);">
-        <h3>Driver Booster e similares</h3>
-        <p>Programas que prometem "atualizar todos os drivers" geralmente instalam versões genéricas ou incorretas.</p>
-      </div>
-      <div class="alerta-card card" style="border-left: 4px solid var(--danger);">
-        <h3>Sites de terceiros (baixar drivers, driverx, etc.)</h3>
-        <p>Muitos contêm malware disfarçado de driver. A única fonte confiável é o site do fabricante.</p>
-      </div>
-      <div class="alerta-card card" style="border-left: 4px solid var(--danger);">
-        <h3>Drivers "mais recentes" de versões diferentes</h3>
-        <p>Seu hardware foi testado com uma versão específica. A mais recente nem sempre é a melhor para seu modelo.</p>
-      </div>
+  <!-- Vídeo YouTube -->
+  <section>
+    <h2>🎥 Vídeo Tutorial</h2>
+    <p>Assista ao guia prático sobre investigação de drivers:</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Guia de Investigação de Drivers" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </section>
 
-  <!-- Section 6: Checklist do Investigador -->
-  <section class="section">
-    <h2>📋 Checklist do Investigador</h2>
-    <p style="margin-bottom:20px;">Marque os passos que você já concluiu. Seu progresso fica salvo automagicamente.</p>
+  <!-- Armadilhas Comuns -->
+  <section>
+    <h2>⚠️ Armadilhas Comuns (O que Evitar)</h2>
+    <ul>
+      <li><strong>Drivers “universais” de sites genéricos:</strong> Muitas vezes são versões antigas ou infectadas.</li>
+      <li><strong>Atualizadores automáticos de terceiros:</strong> Ferramentas que prometem atualizar todos os drivers de uma vez podem instalar versões incorretas ou conter malware.</li>
+      <li><strong>Links patrocinados em mecanismos de busca:</strong> O primeiro resultado nem sempre é o oficial. Verifique o domínio.</li>
+      <li><strong>Drivers para versões erradas do Windows:</strong> Um driver para Windows 10 pode funcionar no 11, mas o ideal é buscar o específico para Windows 11.</li>
+    </ul>
+  </section>
+
+  <!-- Checklist do Investigador (LocalStorage) -->
+  <section>
+    <h2>📝 Checklist do Investigador</h2>
+    <p>Marque os passos concluídos. Seu progresso é salvo automaticamente no navegador.</p>
     <div id="checklist">
-      <div class="checklist-item" data-id="pc-model">
+      <div class="checklist-item">
         <input type="checkbox" id="chk1">
-        <label for="chk1">Identifiquei o modelo do meu PC</label>
+        <label for="chk1">Identifiquei o hardware com msinfo32 ou dxdiag</label>
       </div>
-      <div class="checklist-item" data-id="service-tag">
+      <div class="checklist-item">
         <input type="checkbox" id="chk2">
-        <label for="chk2">Encontrei a Service Tag / Número de Série</label>
+        <label for="chk2">Copiei o ID do hardware no Gerenciador de Dispositivos</label>
       </div>
-      <div class="checklist-item" data-id="site-oficial">
+      <div class="checklist-item">
         <input type="checkbox" id="chk3">
-        <label for="chk3">Acessei o site oficial do fabricante</label>
+        <label for="chk3">Pesquisei o driver em fontes confiáveis</label>
       </div>
-      <div class="checklist-item" data-id="pagina-drivers">
+      <div class="checklist-item">
         <input type="checkbox" id="chk4">
-        <label for="chk4">Localizei a página de drivers</label>
+        <label for="chk4">Verifiquei a assinatura digital do arquivo</label>
       </div>
-      <div class="checklist-item" data-id="assinatura-digital">
+      <div class="checklist-item">
         <input type="checkbox" id="chk5">
-        <label for="chk5">Baixei e verifiquei a assinatura digital</label>
+        <label for="chk5">Comparei a versão e data com o site oficial</label>
       </div>
-    </div>
-    <div style="margin-top:20px;text-align:center;">
-      <a href="dashboard.html" class="btn-voltar" style="display:inline-block;">← Voltar ao Dashboard</a>
+      <div class="checklist-item">
+        <input type="checkbox" id="chk6">
+        <label for="chk6">Calculei o hash e conferi com o oficial</label>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>Desenvolvido por Edu Sidegum — suporte técnico Windows desde 2008.</p>
-    <p><a href="politica-privacidade.html">Política de Privacidade</a> | <a href="termos-de-uso.html">Termos de Uso</a></p>
-    <p>© 2026 Windows 11 Maintenance Hub</p>
-  </footer>
+  <!-- Botão Voltar para dashboard -->
+  <div style="text-align: center;">
+    <a href="https://edusidegum.github.io/windows11/" class="btn-back">⬅ Voltar para Dashboard</a>
+  </div>
 
-  <!-- Scripts -->
-  <script>
-    // Proteção dissuasória contra inspeção
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S')) {
-        e.preventDefault();
+  <!-- Footer via include (bloco-incluir.js injeta o footer compartilhado) -->
+  <!-- O footer será inserido dinamicamente pelo script bloco-incluir.js -->
+  <!-- Nota: O script bloco-incluir.js deve estar presente em assets/js/ -->
+
+  <!-- Rodapé com data de desenvolvimento -->
+  <div class="footer-note">
+    <p>Desenvolvido em 10/07/2026</p>
+    <p><a href="https://edusidegum.github.io/edusidegum/sobre.html" target="_blank" rel="noopener">Sobre o autor</a></p>
+  </div>
+
+</div>
+
+<!-- Script para salvar checklist no LocalStorage -->
+<script>
+  (function() {
+    const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+    const storageKey = 'drivers_checklist';
+
+    // Carregar estado salvo
+    const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+    checkboxes.forEach(cb => {
+      if (saved[cb.id]) {
+        cb.checked = true;
       }
-      if (e.key === 'F12') e.preventDefault();
-    });
-
-    // Checklist com LocalStorage
-    document.addEventListener('DOMContentLoaded', function() {
-      const items = document.querySelectorAll('.checklist-item');
-      items.forEach(item => {
-        const checkbox = item.querySelector('input[type="checkbox"]');
-        const id = item.dataset.id;
-        // Load saved state
-        if (localStorage.getItem('driver_checklist_' + id) === 'true') {
-          checkbox.checked = true;
-          item.classList.add('checked');
-        }
-        // Save on change
-        checkbox.addEventListener('change', function() {
-          if (this.checked) {
-            localStorage.setItem('driver_checklist_' + id, 'true');
-            item.classList.add('checked');
-          } else {
-            localStorage.removeItem('driver_checklist_' + id);
-            item.classList.remove('checked');
-          }
-        });
+      cb.addEventListener('change', function() {
+        const state = {};
+        checkboxes.forEach(c => { state[c.id] = c.checked; });
+        localStorage.setItem(storageKey, JSON.stringify(state));
       });
     });
-  </script>
+  })();
+</script>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 </body>
 </html>
