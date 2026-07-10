@@ -3,144 +3,379 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔐 Privacidade e Configurações — Windows 11 Maintenance Hub</title>
-  <meta name="description" content="Configure a privacidade do seu Windows 11 com recomendações práticas. Controle anúncios, localização, diagnóstico e mais.">
-  <link rel="stylesheet" href="https://edusidegum.github.io/windows11/style.css">
-  <!-- Scripts compartilhados -->
-  <script src="https://edusidegum.github.io/windows11/bloco-incluir.js" defer></script>
-  <script src="https://edusidegum.github.io/windows11/bloco-protecao.js" defer></script>
-  <!-- Tracking: Cookies e GA4/GTM -->
-  <script src="https://edusidegum.github.io/windows11/cookies.js" defer></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+
+  <!-- Scripts Core (defer) -->
+  <script src="https://raw.githubusercontent.com/edusidegum/menu/main/scripts/bloco-incluir.js" defer></script>
+  <script src="https://raw.githubusercontent.com/edusidegum/menu/main/scripts/bloco-protecao.js" defer></script>
+
+  <title>Privacidade e Configurações — Windows 11</title>
+  <meta name="description" content="Aprenda a configurar privacidade no Windows 11: anúncios, localização, diagnóstico, histórico de atividades e mais.">
+  <meta name="author" content="Eduardo Sidegum">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <link rel="canonical" href="https://edusidegum.github.io/windows11/configuracoes.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Privacidade e Configurações — Windows 11">
+  <meta property="og:description" content="Aprenda a configurar privacidade no Windows 11: anúncios, localização, diagnóstico, histórico de atividades e mais.">
+  <meta property="og:url" content="https://edusidegum.github.io/windows11/configuracoes.html">
+  <meta property="og:image" content="https://edusidegum.github.io/windows11/assets/img/og-configuracoes.webp">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacidade e Configurações — Windows 11">
+  <meta name="twitter:description" content="Aprenda a configurar privacidade no Windows 11: anúncios, localização, diagnóstico, histórico de atividades e mais.">
+  <meta name="twitter:image" content="https://edusidegum.github.io/windows11/assets/img/og-configuracoes.webp">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://edusidegum.github.io/windows11/#person",
+        "name": "Eduardo Sidegum",
+        "jobTitle": "Especialista em Windows 11"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://edusidegum.github.io/windows11/#website",
+        "url": "https://edusidegum.github.io/windows11/",
+        "publisher": { "@id": "https://edusidegum.github.io/windows11/#person" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Dashboard", "item": "https://edusidegum.github.io/windows11/dashboard.html" },
+          { "@type": "ListItem", "position": 2, "name": "Privacidade e Configurações", "item": "https://edusidegum.github.io/windows11/configuracoes.html" }
+        ]
+      }
+    ]
+  }
   </script>
-  <!-- Efeitos visuais adicionais (CSS inline opcional) -->
+
   <style>
-    .hero { background: linear-gradient(135deg, #0078d4, #00bcd4); color: #fff; padding: 60px 20px; text-align: center; }
-    .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
-    .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 20px; }
-    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 700px; margin: 0 auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
-    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px 5%; }
-    .card { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-    .card h3 { color: #0078d4; margin-top: 0; }
-    .card p { color: #555; font-size: 0.95rem; }
-    .comparison-table { width: 100%; border-collapse: collapse; margin: 40px 5%; }
-    .comparison-table th, .comparison-table td { padding: 12px 16px; border: 1px solid #ddd; text-align: left; }
-    .comparison-table th { background: #0078d4; color: #fff; }
-    .comparison-table td { background: #fff; }
-    .educativo { background: #f0f8ff; padding: 40px 5%; border-radius: 12px; margin: 20px 5%; }
-    .checklist { padding: 40px 5%; }
-    .checklist li { margin-bottom: 8px; }
-    .site-footer { background: #222; color: #ccc; text-align: center; padding: 30px 20px; margin-top: 40px; }
-    .site-footer a { color: #00bcd4; text-decoration: none; }
+    /* Classes exclusivas para esta página */
+    .config-hero {
+      text-align: center;
+      padding: 60px 5% 40px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+    }
+    .config-hero h1 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .config-hero p {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .config-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .config-card {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 24px;
+      color: #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+    .config-card:hover {
+      transform: translateY(-4px);
+    }
+    .config-card .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .config-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #60a5fa;
+    }
+    .config-card .path {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+    .config-card .action {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 40px 0 20px;
+      color: #e2e8f0;
+    }
+    .table-responsive {
+      overflow-x: auto;
+      margin: 0 5% 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #1e293b;
+      color: #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #334155;
+    }
+    th {
+      background: #0f172a;
+      color: #60a5fa;
+      font-weight: 600;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      border-radius: 12px;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .why-section {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      padding: 0 5%;
+      color: #cbd5e1;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .checklist {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      padding: 0 5%;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: #1e293b;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      color: #e2e8f0;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .checklist-item.checked {
+      background: #0f172a;
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+    .checklist-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2563eb;
+      cursor: pointer;
+    }
+    .authority-link {
+      text-align: center;
+      padding: 20px 5%;
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+    .authority-link a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+    .authority-link a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      .config-hero h1 { font-size: 1.5rem; }
+      .config-grid { grid-template-columns: 1fr; padding: 20px 3%; }
+    }
   </style>
 </head>
 <body>
-  <!-- Header Local (Específico da página) -->
-  <header class="sticky-header" role="banner">
-    <div class="header-inner">
-      <a href="https://edusidegum.github.io/windows11/" class="logo">Windows 11 Maintenance Hub</a>
-      <nav aria-label="Navegação principal">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="configuracoes.html" class="active">Privacidade</a></li>
-          <li><a href="otimizacao.html">Otimização</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <div class="header-spacer"></div>
 
-  <!-- Hero -->
-  <section class="hero">
+  <!-- Header Local (idêntico às demais páginas) -->
+  <div class="top-header" style="padding: 0 5%; height: 64px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-bottom: 2px solid #1e3a5f;">
+    <div>
+      <span style="font-size: 1.25rem; font-weight: 700; color: #e2e8f0;">Windows 11 🛡️</span>
+      <span style="font-size: 0.8rem; color: #94a3b8; margin-left: 8px;">Centro de Aprendizado</span>
+    </div>
+    <nav style="display: flex; gap: 24px; align-items: center;">
+      <a href="dashboard.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Dashboard</a>
+      <a href="manutencao.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Manutenção</a>
+      <a href="drivers.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Drivers</a>
+      <a href="softwares.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Softwares</a>
+      <a href="configuracoes.html" style="color: #2563eb; font-size: 0.9rem; text-decoration: none; border-bottom: 2px solid #2563eb; padding-bottom: 2px;">Privacidade</a>
+      <a href="FAQ_Microsoft.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">FAQ</a>
+    </nav>
+    <a href="dashboard.html" style="display: inline-flex; align-items: center; gap: 4px; padding: 8px 18px; border: 1px solid #1e3a5f; border-radius: 8px; color: #94a3b8; font-size: 0.85rem; text-decoration: none; transition: all 0.2s;">← Voltar</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="config-hero">
     <h1>🔐 Privacidade e Configurações — Controle seu Sistema</h1>
-    <p>Domine as configurações de privacidade do Windows 11 e mantenha seus dados seguros.</p>
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Privacidade Windows 11" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    <p>Aprenda a configurar as opções de privacidade do Windows 11 para ter mais controle sobre seus dados e reduzir o rastreamento.</p>
+  </section>
+
+  <!-- Seção 1: 6 Configurações Recomendadas -->
+  <h2 class="section-title">⚙️ 6 Configurações Recomendadas</h2>
+  <div class="config-grid">
+    <div class="config-card">
+      <div class="icon">📢</div>
+      <h3>Anúncios</h3>
+      <div class="path">Configurações &gt; Personalização &gt; Iniciar</div>
+      <div class="action">Desativar "Mostrar sugestões ocasionalmente"</div>
     </div>
-  </section>
+    <div class="config-card">
+      <div class="icon">📍</div>
+      <h3>Localização</h3>
+      <div class="path">Configurações &gt; Privacidade e segurança &gt; Localização</div>
+      <div class="action">Desativar para apps específicas</div>
+    </div>
+    <div class="config-card">
+      <div class="icon">🩺</div>
+      <h3>Diagnóstico</h3>
+      <div class="path">Configurações &gt; Privacidade e segurança &gt; Diagnóstico e feedback</div>
+      <div class="action">Selecionar "Dados obrigatórios" apenas</div>
+    </div>
+    <div class="config-card">
+      <div class="icon">📜</div>
+      <h3>Histórico de Atividades</h3>
+      <div class="path">Configurações &gt; Privacidade e segurança &gt; Histórico de atividades</div>
+      <div class="action">Desmarcar "Armazenar histórico"</div>
+    </div>
+    <div class="config-card">
+      <div class="icon">🎯</div>
+      <h3>Experiências Personalizadas</h3>
+      <div class="path">Configurações &gt; Privacidade e segurança &gt; Diagnóstico e feedback</div>
+      <div class="action">Desativar</div>
+    </div>
+    <div class="config-card">
+      <div class="icon">🔎</div>
+      <h3>Pesquisa</h3>
+      <div class="path">Configurações &gt; Privacidade e segurança &gt; Pesquisa e permissões</div>
+      <div class="action">Desativar "Melhorar a pesquisa"</div>
+    </div>
+  </div>
 
-  <!-- 6 Cards de Configurações Recomendadas -->
-  <section class="cards-grid">
-    <article class="card">
-      <h3>📢 Anúncios</h3>
-      <p>Desative o ID de publicidade e limite o rastreamento de anúncios personalizados.</p>
-    </article>
-    <article class="card">
-      <h3>📍 Localização</h3>
-      <p>Desabilite o acesso à localização para aplicativos que não precisam dela.</p>
-    </article>
-    <article class="card">
-      <h3>🩺 Diagnóstico</h3>
-      <p>Envie apenas dados de diagnóstico necessários para a Microsoft.</p>
-    </article>
-    <article class="card">
-      <h3>📜 Histórico de Atividades</h3>
-      <p>Impeça que o Windows colete e compartilhe seu histórico entre dispositivos.</p>
-    </article>
-    <article class="card">
-      <h3>🎯 Experiências Personalizadas</h3>
-      <p>Recuse ofertas personalizadas baseadas no uso do sistema.</p>
-    </article>
-    <article class="card">
-      <h3>🔎 Pesquisa</h3>
-      <p>Limite a pesquisa do Windows para não enviar dados à nuvem.</p>
-    </article>
-  </section>
+  <!-- Seção 2: Tabela Antes vs Depois -->
+  <h2 class="section-title">📊 Antes vs Depois</h2>
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Antes (Padrão)</th>
+          <th>Depois (Recomendado)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Anúncios</td><td>Sugestões ativas</td><td>Sugestões desativadas</td></tr>
+        <tr><td>Localização</td><td>Ativada para todos os apps</td><td>Desativada ou por app</td></tr>
+        <tr><td>Diagnóstico</td><td>Completo</td><td>Obrigatório apenas</td></tr>
+        <tr><td>Histórico de Atividades</td><td>Armazenando</td><td>Não armazenar</td></tr>
+        <tr><td>Experiências Personalizadas</td><td>Ativadas</td><td>Desativadas</td></tr>
+        <tr><td>Pesquisa</td><td>Melhoria ativa</td><td>Desativada</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <!-- Tabela Antes vs Depois -->
-  <table class="comparison-table">
-    <caption>Comparativo de configurações de privacidade</caption>
-    <thead>
-      <tr>
-        <th>Configuração</th>
-        <th>Antes (padrão)</th>
-        <th>Depois (recomendado)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Anúncios</td><td>ID de publicidade ativo</td><td>Desativado</td></tr>
-      <tr><td>Localização</td><td>Liberado para apps</td><td>Bloqueado exceto essenciais</td></tr>
-      <tr><td>Diagnóstico</td><td>Completo</td><td>Básico ou nenhum</td></tr>
-      <tr><td>Histórico de Atividades</td><td>Compartilhado entre dispositivos</td><td>Desativado</td></tr>
-      <tr><td>Experiências Personalizadas</td><td>Habilitadas</td><td>Desabilitadas</td></tr>
-      <tr><td>Pesquisa</td><td>Com nuvem</td><td>Somente local</td></tr>
-    </tbody>
-  </table>
+  <!-- Seção 3: Vídeo Tutorial -->
+  <h2 class="section-title">🎥 Vídeo Tutorial</h2>
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Tutorial de Privacidade no Windows 11" allowfullscreen loading="lazy"></iframe>
+  </div>
 
-  <!-- Por que isso importa -->
-  <section class="educativo">
-    <h2>🤔 Por que isso importa</h2>
-    <p>A privacidade no Windows 11 vai além de preferências: ela protege seus dados contra uso indevido por terceiros e dá a você controle sobre sua experiência digital. Ao ajustar essas configurações, você reduz o rastreamento, melhora a segurança e impede que informações sensíveis sejam enviadas sem seu consentimento. Pequenas mudanças hoje garantem um uso mais transparente e confiável do sistema.</p>
-  </section>
+  <!-- Seção 4: Por que isso importa -->
+  <h2 class="section-title">🤔 Por que isso importa</h2>
+  <div class="why-section">
+    <p>Cada permissão desativada reduz o tráfego de dados, melhora a privacidade e reduz uso de CPU/RAM. O Windows 11 coleta telemetria extensiva por padrão; ajustar essas configurações coloca você no controle. Menos processos em segundo plano significa mais desempenho para suas tarefas reais.</p>
+  </div>
 
-  <!-- Checklist Final -->
-  <section class="checklist">
-    <h2>✅ Checklist Final</h2>
-    <ul>
-      <li><input type="checkbox" id="c1"><label for="c1"> Desativei o ID de publicidade</label></li>
-      <li><input type="checkbox" id="c2"><label for="c2"> Restringi o acesso à localização</label></li>
-      <li><input type="checkbox" id="c3"><label for="c3"> Configurei o diagnóstico como Básico</label></li>
-      <li><input type="checkbox" id="c4"><label for="c4"> Desativei o Histórico de Atividades</label></li>
-      <li><input type="checkbox" id="c5"><label for="c5"> Desabilitei experiências personalizadas</label></li>
-      <li><input type="checkbox" id="c6"><label for="c6"> Limitei a pesquisa ao modo local</label></li>
-    </ul>
-  </section>
+  <!-- Seção 5: Checklist Final -->
+  <h2 class="section-title">✅ Checklist Final</h2>
+  <div class="checklist" id="checklist">
+    <label class="checklist-item" data-key="anuncios">
+      <input type="checkbox"> Desativar sugestões de anúncios no Iniciar
+    </label>
+    <label class="checklist-item" data-key="localizacao">
+      <input type="checkbox"> Desativar localização para apps desnecessários
+    </label>
+    <label class="checklist-item" data-key="diagnostico">
+      <input type="checkbox"> Selecionar dados obrigatórios de diagnóstico
+    </label>
+    <label class="checklist-item" data-key="historico">
+      <input type="checkbox"> Desativar armazenamento de histórico de atividades
+    </label>
+    <label class="checklist-item" data-key="experiencias">
+      <input type="checkbox"> Desativar experiências personalizadas
+    </label>
+    <label class="checklist-item" data-key="pesquisa">
+      <input type="checkbox"> Desativar melhoria de pesquisa
+    </label>
+  </div>
 
-  <!-- Footer Compartilhado (via include ou direto) -->
-  <footer class="site-footer" role="contentinfo">
-    <p><a href="https://edusidegum.github.io/windows11/">Windows 11 Maintenance Hub</a> — Mantido por Eduardo Sidegum</p>
-    <p><a href="politica-de-privacidade.html">Política de Privacidade</a> | <a href="termos-de-uso.html">Termos de Uso</a></p>
-    <p>🔗 <a href="https://edusidegum.github.io/">Autoridade Eduardo Sidegum</a></p>
-    <p>Desenvolvido em 10/07/2026</p>
-  </footer>
+  <!-- Autoridade -->
+  <div class="authority-link">
+    Desenvolvido em 2026 por <a href="https://edusidegum.github.io/edusidegum/sobre.html" target="_blank" rel="noopener">e_Sid</a>
+  </div>
+
+  <!-- Footer via Include -->
+  <div id="footer"></div>
+
+  <!-- Tracking -->
+  <div id="cookies"></div>
+  <div id="ga4-gtm"></div>
+
+  <script>
+    // Persistência do checklist via localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      const items = document.querySelectorAll('.checklist-item');
+      items.forEach(function(item) {
+        const key = item.getAttribute('data-key');
+        const checkbox = item.querySelector('input[type="checkbox"]');
+        // Carregar estado salvo
+        const saved = localStorage.getItem('config_checklist_' + key);
+        if (saved === 'true') {
+          checkbox.checked = true;
+          item.classList.add('checked');
+        }
+        // Salvar ao clicar
+        checkbox.addEventListener('change', function() {
+          if (checkbox.checked) {
+            localStorage.setItem('config_checklist_' + key, 'true');
+            item.classList.add('checked');
+          } else {
+            localStorage.removeItem('config_checklist_' + key);
+            item.classList.remove('checked');
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
