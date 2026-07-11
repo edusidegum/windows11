@@ -25,10 +25,11 @@
   <link rel="preload" as="image" href="https://edusidegum.github.io/windows11/assets/img/hero-manutencao.webp">
   <link rel="preload" as="style" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Google Fonts Caveat CORRETAMENTE no head -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://edusidegum.github.io/menu/scripts/bloco-incluir.js" defer></script>
   <script src="https://edusidegum.github.io/menu/scripts/bloco-protecao.js" defer></script>
   <style>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
     body { background: #0a0e17; color: #e2e8f0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; margin: 0; }
     .top-header { padding: 0 5%; height: 64px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-bottom: 2px solid #1e3a5f; }
     .hero-section { text-align: center; padding: 60px 5% 40px; background: linear-gradient(180deg, #0f172a 0%, #0a0e17 100%); }
@@ -69,13 +70,7 @@
     #footer { margin-top: 60px; }
     .authority { text-align: center; padding: 16px; background: #0f172a; border-top: 1px solid #1e3a5f; color: #94a3b8; font-size: 0.85rem; }
     .authority a { color: #60a5fa; text-decoration: none; }
-    @media (max-width: 700px) {
-      .top-header { flex-wrap: wrap; height: auto; padding: 8px 5%; gap: 8px; }
-      .top-header nav { gap: 12px; flex-wrap: wrap; justify-content: center; }
-      .hero-section h1 { font-size: 1.6rem; }
-      .steps-grid { grid-template-columns: 1fr; }
-    }
-        .card-item:hover {
+    .card-item:hover {
       transform: translateY(-4px);
       border-color: #2563eb !important;
       box-shadow: 0 8px 25px rgba(37,99,235,0.3);
@@ -93,28 +88,34 @@
     }
     .postit {
       background: #fef9c3;
-      width: 340px; max-width: 90%;
+      width: 380px; max-width: 90%;
       padding: 28px 24px;
       border-radius: 4px;
       box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
       font-family: 'Caveat', cursive;
-      font-size: 1.3rem;
-      color: #1e3a8a;
+      font-size: 1.5rem;
+      color: #0a1628;
       line-height: 1.5;
       position: relative;
       transform: rotate(var(--rot, 0deg));
     }
     .postit .close-btn {
       position: absolute; top: 8px; right: 12px;
-      font-size: 1.5rem; color: #1e3a8a;
+      font-size: 1.5rem; color: #0a1628;
       cursor: pointer; background: none; border: none;
     }
     .postit .cmd-text {
-      font-weight: 700; font-size: 1.4rem; margin-bottom: 8px;
+      font-weight: 700; font-size: 1.6rem; margin-bottom: 8px;
       word-break: break-word;
     }
     .postit .desc-text {
-      font-size: 1.1rem; white-space: pre-line;
+      font-size: 1.3rem; white-space: pre-line;
+    }
+    @media (max-width: 700px) {
+      .top-header { flex-wrap: wrap; height: auto; padding: 8px 5%; gap: 8px; }
+      .top-header nav { gap: 12px; flex-wrap: wrap; justify-content: center; }
+      .hero-section h1 { font-size: 1.6rem; }
+      .steps-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -135,7 +136,7 @@
     <a href="dashboard.html" style="display: inline-flex; align-items: center; gap: 4px; padding: 8px 18px; border: 1px solid #1e3a5f; border-radius: 8px; color: #94a3b8; font-size: 0.85rem; text-decoration: none; transition: all 0.2s;">← Voltar</a>
   </div>
 
-   <!-- HERO -->
+  <!-- HERO -->
   <section class="hero-section" style="text-align:center;padding:60px 5% 40px;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);">
     <h1 style="color:#e2e8f0;font-size:2.2rem;margin-bottom:16px;">🛡️ Manutenção Preventiva do Windows 11</h1>
     <p style="color:#94a3b8;font-size:1.1rem;max-width:700px;margin:0 auto 24px;">Antes de formatar, tente estes 8 comandos. Clique em cada card para abrir a instrução em um post-it interativo.</p>
@@ -180,7 +181,7 @@
       </div>
     </div>
   </section>
-  </div>
+  <!-- tag </div> extra removida -->
 
   <div class="video-wrapper">
     <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Tutorial de Manutenção Preventiva Windows 11" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -291,6 +292,7 @@
       <p>Windows Update não consegue instalar atualizações mesmo após DISM e SFC.</p>
     </div>
   </div>
+
   <!-- OVERLAY POST-IT -->
   <div class="postit-overlay" id="postitOverlay">
     <div class="postit" id="postitContent">
@@ -299,6 +301,7 @@
       <div class="desc-text" id="postitDesc"></div>
     </div>
   </div>
+
   <div id="footer"></div>
   <div class="authority">
     <a href="https://edusidegum.github.io/edusidegum/sobre.html">Desenvolvido em 2026 por e_Sid</a>
@@ -306,8 +309,9 @@
   <div id="cookies"></div>
   <div id="ga4-gtm"></div>
 
+  <!-- Script ÚNICO com todas as funcionalidades -->
   <script>
-    // Script para baixar .bat
+    // Função para baixar .bat
     function baixarScript() {
       const conteudo = `@echo off
 chcp 65001 >nul
@@ -384,30 +388,7 @@ pause`;
       URL.revokeObjectURL(url);
     }
 
-    // Checklist com LocalStorage
-    document.addEventListener('DOMContentLoaded', function() {
-      const checkboxes = document.querySelectorAll('#checklist-container input[type="checkbox"]');
-      checkboxes.forEach(cb => {
-        const id = cb.closest('.checklist-item').dataset.id;
-        const saved = localStorage.getItem('checklist_' + id);
-        if (saved === 'true') {
-          cb.checked = true;
-          cb.closest('.checklist-item').classList.add('checked');
-        }
-        cb.addEventListener('change', function() {
-          const item = this.closest('.checklist-item');
-          const id = item.dataset.id;
-          if (this.checked) {
-            localStorage.setItem('checklist_' + id, 'true');
-            item.classList.add('checked');
-          } else {
-            localStorage.removeItem('checklist_' + id);
-            item.classList.remove('checked');
-          }
-        });
-      });
-    });
-      <script>
+    // Array de comandos para post-it
     const commands = [
       { title: "CHKDSK", command: "chkdsk C: /f /r /x", description: "Verifica e repara erros no disco rígido, setores defeituosos e problemas de sistema de arquivos. Necessita reinicialização." },
       { title: "SFC", command: "sfc /scannow", description: "Escaneia e restaura arquivos corrompidos ou ausentes do sistema." },
@@ -453,7 +434,30 @@ pause`;
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closePostIt();
     });
-  </script>
+
+    // Checklist com LocalStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkboxes = document.querySelectorAll('#checklist-container input[type="checkbox"]');
+      checkboxes.forEach(cb => {
+        const id = cb.closest('.checklist-item').dataset.id;
+        const saved = localStorage.getItem('checklist_' + id);
+        if (saved === 'true') {
+          cb.checked = true;
+          cb.closest('.checklist-item').classList.add('checked');
+        }
+        cb.addEventListener('change', function() {
+          const item = this.closest('.checklist-item');
+          const id = item.dataset.id;
+          if (this.checked) {
+            localStorage.setItem('checklist_' + id, 'true');
+            item.classList.add('checked');
+          } else {
+            localStorage.removeItem('checklist_' + id);
+            item.classList.remove('checked');
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
