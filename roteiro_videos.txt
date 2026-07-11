@@ -1,186 +1,140 @@
-# ROTEIRO DE VÍDEOS — REELS WINDOWS 11 MAINTENANCE HUB
+ROTEIRO DE VÍDEOS — YOUTUBE SHORTS / EMBEDS
+Projeto: Windows 11 Maintenance Hub (https://edusidegum.github.io/windows11/)
 
-**Propósito:** Roteiro profissional para editor de vídeo produzir 6 reels de 29 segundos cada, um para cada página do Windows 11 Maintenance Hub ([https://edusidegum.github.io/windows11/](https://edusidegum.github.io/windows11/)).
+ESTILO DOS VÍDEOS
+Formato: 9:16 vertical (YouTube Shorts)
+Duração: Exatos 30 segundos cada (29s de vídeo + 1s de capa estática)
+Tom: Tecnológico, escuro com azul (#0f172a, #1e293b, #2563eb), moderno, profissional
+Música: Tech beat moderna, ritmo médio, sem vocal (BPM 120-130)
+Legendas: OBRIGATÓRIO em todas as cenas (estilo kinetic typography ou legenda limpa, centralizada)
+Voz: Opcional (narração masculina grave ou apenas texto na tela)
+Transições: Fluídas, 0.3s a 0.5s, crossfade ou deslize rápido
+Elementos visuais: Ícones grandes (Material Design/Font Awesome), texto limpo, animações sutis
+ESTRUTURA PADRÃO (30s)
+Cena 1 (0-5s): GANCHO — Problema ou dor do usuário
+Cena 2 (5-12s): SOLUÇÃO — Apresentação visual do módulo
+Cena 3 (12-22s): VALOR — Demonstração rápida do conteúdo
+Cena 4 (22-29s): CTA — Chamada para ação (Descrição/Site)
+Cena 5 (29-30s): CAPA — Frame estático para Thumbnail do YouTube
+ROTEIROS INDIVIDUAIS
+REEL 1: DASHBOARD (Hub Central)
+Cena 1 (0-5s): GANCHO
 
----
+Visual: Fundo escuro. Usuário frustrado (silhueta ou ícone) olhando tela azul do Windows. Zoom in rápido na tela azul, transição para escuro.
+Texto: "Seu Windows 11 está lento? Não formate ainda."
+Som: Som de erro do Windows (BSOD) → corte seco para a música tech.
+Cena 2 (5-12s): APRESENTAÇÃO
 
-## ESTILO DOS VÍDEOS
+Visual: Dashboard abre em navegador escuro. Cards surgem um a um com escala e fade.
+Texto: "O Maintenance Hub resolve."
+Cena 3 (12-22s): VALOR
 
-- **Formato:** 9:16 vertical (Reels/Shorts/Stories)
-- **Duração:** exatos 29 segundos cada
-- **Tom:** Tecnológico, escuro com azul (#0f172a, #1e293b, #2563eb), moderno, profissional
-- **Música:** Tech beat moderna, ritmo médio, sem vocal
-- **Legendas:** OBRIGATÓRIO em todas as cenas (estilo kinetic typography ou legenda limpa)
-- **Voz:** Opcional (pode ser narração masculina gravada ou apenas texto na tela)
-- **Transições:** Fluídas, 0.5s, fade ou deslize
-- **Elementos visuais:** Ícones grandes, texto limpo, animações sutis
-- **CTA final:** Sempre convidando para acessar o site/saber mais
+Visual: Scroll animado e suave pela página mostrando os módulos. Cursor simula um clique.
+Texto: "Manutenção, drivers, softwares e privacidade. Sem achismo, com método."
+Cena 4 (22-29s): CTA
 
----
+Visual: Fundo escuro com brilho azul no centro. Logo + botão brilhando.
+Texto: "Acesse o guia completo. Link na descrição."
+Cena 5 (29-30s): CAPA / THUMBNAIL
 
-## ESTRUTURA DE CADA REEL (29s)
+Visual: Frame estático com o Título "Windows 11 Maintenance Hub" e a logo.
+REEL 2: MANUTENÇÃO (8 Passos)
+Cena 1 (0-5s): GANCHO
 
-- **Cena 1 (0-5s):** GANCHO — Problema ou dor do usuário + logo "Windows 11 🛡️"
-- **Cena 2 (5-12s):** SOLUÇÃO — Apresentação visual da página/módulo
-- **Cena 3 (12-22s):** VALOR — Demonstração do conteúdo (cards, comandos, dicas)
-- **Cena 4 (22-29s):** CTA — "Acesse o link na bio" + logotipo + brilho
+Visual: CMD.exe piscando. Letreiro digitando no estilo terminal.
+Texto: "Antes de formatar, tente estes 8 comandos."
+Cena 2 (5-12s): SOLUÇÃO
 
----
+Visual: Página de manutenção, grid com os 8 cards pulando em sequência.
+Texto: "CHKDSK, SFC, DISM... Cada comando explicado."
+Cena 3 (12-22s): VALOR
 
-## ROTEIROS INDIVIDUAIS
+Visual: Close no post-it amarelo ou no box de download. Post-it colando na tela com rotação suave.
+Texto: "Execute manualmente e veja o resultado. Ou baixe nosso script automático."
+Cena 4 (22-29s): CTA
 
-### REEL 1: DASHBOARD (Hub Central)
+Visual: Fundo escuro. Brilho azul pulsando.
+Texto: "Recupere seu sistema. Link na descrição."
+Cena 5 (29-30s): CAPA / THUMBNAIL
 
-**Cena 1 (0-5s): GANCHO**
-- Visual: Fundo escuro. Usuário frustrado olhando tela azul do Windows.
-- Texto: "Seu Windows 11 está lento? Não formate ainda."
-- Efeito: Zoom in na tela azul, transição para escuro.
-- Som: Som de erro de Windows (bsod) → corte seco para beat tech.
+Visual: Frame estático com o Título "8 Comandos de Manutenção" e ícone do CMD.
+REEL 3: DRIVERS (Guia do Investigador)
+Cena 1 (0-5s): GANCHO
 
-**Cena 2 (5-12s): APRESENTAÇÃO**
-- Visual: Dashboard.html abre em navegador escuro. Cards aparecem um a um (Manutenção, Drivers, Softwares, Privacidade, FAQ).
-- Texto: "O Centro de Aprendizado resolve."
-- Efeito: Cards surgindo com escala e fade, animados.
+Visual: Gerenciador de Dispositivos com ponto de exclamação amarelo. Zoom rápido no ícone.
+Texto: "Driver faltando? Aprenda a encontrar o oficial."
+Cena 2 (5-12s): SOLUÇÃO
 
-**Cena 3 (12-22s): VALOR**
-- Visual: Scroll suave pela página mostrando os 5 módulos, a metodologia, o vídeo.
-- Texto: "Aprenda na prática: manutenção, drivers, softwares e privacidade. Sem achismo, com método."
-- Efeito: Scroll animado com cursor simulando clique.
+Visual: Ferramentas de identificação (msinfo32, dxdiag) aparecendo como fichas de detetive.
+Texto: "Não use sites aleatórios. Use o método investigativo."
+Cena 3 (12-22s): VALOR
 
-**Cena 4 (22-29s): CTA**
-- Visual: Fundo escuro com brilho azul no centro. Logo + botão brilhando.
-- Texto: "Windows 11 Maintenance Hub. Acesse o link na bio."
-- Efeito: Brilho pulsando no botão, fade out.
+Visual: Scroll mostrando os passos de busca. Check verde (✔️) nos 3 critérios de autenticidade.
+Texto: "Identifique, pesquise e valide. Instale apenas drivers originais."
+Cena 4 (22-29s): CTA
 
----
+Visual: Fundo escuro. Ícone de Lupa + Chip de computador.
+Texto: "Seja o investigador. Link na descrição."
+Cena 5 (29-30s): CAPA / THUMBNAIL
 
-### REEL 2: MANUTENÇÃO (8 Passos)
+Visual: Frame estático com o Título "Guia de Drivers Oficiais" e ícone de lupa.
+REEL 4: SOFTWARES (Curadoria)
+Cena 1 (0-5s): GANCHO
 
-**Cena 1 (0-5s): GANCHO**
-- Visual: CMD.exe piscando. Riscos de formatação perdendo dados.
-- Texto: "Antes de formatar, tente estes 8 comandos."
-- Efeito: Letreiro digitando no estilo terminal.
+Visual: Tela dividida: de um lado sites cheios de pop-ups falsos, do outro um site limpo.
+Texto: "Todo site de download é confiável?"
+Cena 2 (5-12s): SOLUÇÃO
 
-**Cena 2 (5-12s): SOLUÇÃO**
-- Visual: Página manutencao.html, grid com os 8 cards aparecendo.
-- Texto: "CHKDSK, SFC, DISM e mais. Cada comando explicado."
-- Efeito: Cards pulando em sequência.
+Visual: Seção de Critérios de Escolha. Ícones de escudo e certificado aparecendo.
+Texto: "Conheça os 3 critérios para nunca errar na escolha."
+Cena 3 (12-22s): VALOR
 
-**Cena 3 (12-22s): VALOR**
-- Visual: Close no post-it amarelo (se versão dashboard2) ou no box de download manual. Destaque para "Método Manual — Recomendado".
-- Texto: "Execute manualmente, veja cada resultado. Ou baixe o script .bat."
-- Efeito: Post-it colando na tela com rotação suave.
+Visual: Tutorial de assinatura digital passando rápido. Tabela "Recomendado vs Evitar".
+Texto: "Assinatura digital, fonte oficial e reputação. Só o antivírus não basta."
+Cena 4 (22-29s): CTA
 
-**Cena 4 (22-29s): CTA**
-- Visual: Fundo escuro. Link para manutencao.html.
-- Texto: "Guia completo no site. Link na bio."
-- Efeito: Brilho azul no final.
+Visual: Escudo com selo de verificação brilhando.
+Texto: "Aprenda a curadoria segura. Link na descrição."
+Cena 5 (29-30s): CAPA / THUMBNAIL
 
----
+Visual: Frame estático com o Título "Como Baixar Softwares Seguros" e ícone de escudo.
+REEL 5: PRIVACIDADE (Configurações)
+Cena 1 (0-5s): GANCHO
 
-### REEL 3: DRIVERS (Guia do Investigador)
+Visual: Ícones de localização, câmera e microfone ativados. Um ícone de "olho" observando.
+Texto: "Você sabe o que o Windows 11 coleta sobre você?"
+Cena 2 (5-12s): SOLUÇÃO
 
-**Cena 1 (0-5s): GANCHO**
-- Visual: Gerenciador de Dispositivos Windows com ponto de exclamação amarelo.
-- Texto: "Driver faltando? Saiba como encontrar o oficial."
-- Efeito: Zoom no ponto de exclamação.
+Visual: Grid de 6 cards de configuração girando e se alinhando na tela.
+Texto: "Conheça 6 configurações essenciais de privacidade."
+Cena 3 (12-22s): VALOR
 
-**Cena 2 (5-12s): SOLUÇÃO**
-- Visual: Página drivers.html, seção de ferramentas de identificação (msinfo32, dxdiag).
-- Texto: "Não baixe de sites aleatórios. Aprenda o método investigativo."
-- Efeito: Cards de ferramentas aparecendo como fichas de detetive.
+Visual: Tabela Antes vs Depois. Interruptores (switches) deslizando para a posição OFF.
+Texto: "Desative telemetria, anúncios e rastreamento. Seus dados, seu controle."
+Cena 4 (22-29s): CTA
 
-**Cena 3 (12-22s): VALOR**
-- Visual: Scroll mostrando os 4 passos do método de busca + validação de autenticidade (3 critérios).
-- Texto: "Identifique, pesquise, valide. Apenas drivers oficiais."
-- Efeito: Check nos 3 critérios de autenticidade.
+Visual: Cadeado fechando com um clique + escudo.
+Texto: "Assuma o controle. Link na descrição."
+Cena 5 (29-30s): CAPA / THUMBNAIL
 
-**Cena 4 (22-29s): CTA**
-- Visual: Fundo escuro. Lupa + chip.
-- Texto: "Seja o investigador. Link na bio."
-- Efeito: Brilho.
+Visual: Frame estático com o Título "Privacidade no Windows 11" e ícone de cadeado.
+REEL 6: FAQ (Suporte Oficial)
+Cena 1 (0-5s): GANCHO
 
----
+Visual: Navegador com várias abas de fóruns duvidosos se fechando, sobrando apenas uma aba oficial.
+Texto: "Onde buscar ajuda de verdade para o Windows?"
+Cena 2 (5-12s): SOLUÇÃO
 
-### REEL 4: SOFTWARES (Curadoria)
+Visual: 4 cards de recursos oficiais da Microsoft aparecendo na tela.
+Texto: "Vá direto à fonte primária. A resposta certa."
+Cena 3 (12-22s): VALOR
 
-**Cena 1 (0-5s): GANCHO**
-- Visual: Instalador suspeito baixando, pop-ups, sites genéricos.
-- Texto: "Todo site que baixa software é confiável?"
-- Efeito: Tela dividida com sites falsos vs oficiais.
+Visual: Domínios oficiais sendo digitados em um terminal (support.microsoft.com, aka.ms).
+Texto: "Aprenda a identificar os domínios oficiais da Microsoft. Fuja de golpes."
+Cena 4 (22-29s): CTA
 
-**Cena 2 (5-12s): SOLUÇÃO**
-- Visual: Página softwares.html, seção Critérios de Escolha (Site Oficial, Assinatura Digital, Reputação).
-- Texto: "3 critérios para nunca errar na escolha."
-- Efeito: Ícones aparecendo.
+Visual: Mapa com marcador de destino e selo de verificação.
+Texto: "Acesse o FAQ oficial. Link na descrição."
+Cena 5 (29-30s): CAPA / THUMBNAIL
 
-**Cena 3 (12-22s): VALOR**
-- Visual: Tutorial de assinatura digital (6 passos). Tabela Recomendado vs Evitar.
-- Texto: "Assinatura digital, fonte oficial, reputação. Seu antivírus não basta."
-- Efeito: Passos sendo marcados.
-
-**Cena 4 (22-29s): CTA**
-- Visual: Escudo + cadeado.
-- Texto: "Curadoria consciente. Link na bio."
-- Efeito: Selo de verificação.
-
----
-
-### REEL 5: PRIVACIDADE (Configurações)
-
-**Cena 1 (0-5s): GANCHO**
-- Visual: Ícones de localização, câmera, microfone ativados. Olho observando.
-- Texto: "Você sabe o que o Windows 11 coleta sobre você?"
-- Efeito: Ícones piscando um a um.
-
-**Cena 2 (5-12s): SOLUÇÃO**
-- Visual: Página configuracoes.html, grid de 6 cards de configuração (Anúncios, Localização, Diagnóstico etc.).
-- Texto: "6 configurações essenciais de privacidade."
-- Efeito: Cards girando.
-
-**Cena 3 (12-22s): VALOR**
-- Visual: Tabela Antes vs Depois. Cada item sendo alternado.
-- Texto: "Desative telemetria, anúncios e rastreamento. Seus dados, seu controle."
-- Efeito: Interruptores deslizando para OFF.
-
-**Cena 4 (22-29s): CTA**
-- Visual: Cadeado fechado + escudo.
-- Texto: "Assuma o controle. Link na bio."
-- Efeito: Brilho azul.
-
----
-
-### REEL 6: FAQ (Suporte Oficial)
-
-**Cena 1 (0-5s): GANCHO**
-- Visual: Navegador com várias abas abertas, todas com sites aleatórios de suporte.
-- Texto: "Onde buscar ajuda de verdade?"
-- Efeito: Abas se fechando até sobrar uma.
-
-**Cena 2 (5-12s): SOLUÇÃO**
-- Visual: Página FAQ_Microsoft.html, 4 cards de recursos oficiais.
-- Texto: "Fontes primárias. A resposta certa, direto da Microsoft."
-- Efeito: Cards com links oficiais aparecendo.
-
-**Cena 3 (12-22s): VALOR**
-- Visual: Nota de segurança sobre domínios oficiais + card pedagógico.
-- Texto: "support.microsoft.com, aka.ms, catalog.update.microsoft.com. Só estes."
-- Efeito: Domínios sendo digitados em um terminal.
-
-**Cena 4 (22-29s): CTA**
-- Visual: Mapa com marcador.
-- Texto: "FAQ oficial no site. Link na bio."
-- Efeito: Selo de verificação.
-
----
-
-## ESPECIFICAÇÕES TÉCNICAS PARA EDITOR
-
-- **Formato:** 1080x1920px, 30fps
-- **Cor:** #0a0e17 fundo, #2563eb azul principal, #e2e8f0 texto, #fef9c3 para destaques amarelo post-it
-- **Fonte:** 'Inter' ou 'Montserrat' para títulos, 'Caveat' para post-it
-- **Transições:** Crossfade 0.3s entre cenas
-- **Legendas:** Obrigatórias, alinhadas centralizadas, fundo semi-transparente escuro
-- **Ícones:** Utilizar Material Design Icons ou Font Awesome (versão gratuita)
-- **Música:** Biblioteca sem royalties (epidemicsound.com ou artlist.io), tech/instrumental, BPM 120-130
-- **Exportação:** H.264, MP4, 30fps, máximo 50MB
+Visual: Frame estático com o Título "Suporte Oficial Microsoft" e logo do Windows.
