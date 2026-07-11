@@ -3,505 +3,457 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🛡️ Manutenção Preventiva do Windows 11 | e_Sid</title>
-  <meta name="description" content="Ferramenta interativa com 8 comandos essenciais para manutenção do Windows 11. Clique nos cards e veja instruções em post-its.">
-  <meta name="author" content="Eduardo Sidegum (e_Sid)">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://edusidegum.github.io/dashboard2.html">
-
-  <!-- Scripts core (defer) -->
+  <title>🛡️ Manutenção Preventiva — Windows 11</title>
+  <meta name="description" content="Guia completo com 8 passos de manutenção preventiva do Windows 11. Execute manualmente comando por comando ou baixe o script automático .bat.">
+  <meta name="author" content="Edu Sidegum">
+  <meta name="geo.region" content="BR-RS">
+  <meta name="geo.placename" content="Novo Hamburgo">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://edusidegum.github.io/windows11/manutencao.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="🛡️ Manutenção Preventiva — Windows 11">
+  <meta property="og:description" content="Guia completo com 8 passos de manutenção preventiva do Windows 11. Execute manualmente comando por comando ou baixe o script automático .bat.">
+  <meta property="og:url" content="https://edusidegum.github.io/windows11/manutencao.html">
+  <meta property="og:image" content="https://edusidegum.github.io/windows11/assets/img/og-manutencao.webp">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🛡️ Manutenção Preventiva — Windows 11">
+  <meta name="twitter:description" content="Guia completo com 8 passos de manutenção preventiva do Windows 11. Execute manualmente comando por comando ou baixe o script automático .bat.">
+  <meta name="twitter:image" content="https://edusidegum.github.io/windows11/assets/img/og-manutencao.webp">
+  <link rel="preload" as="image" href="https://edusidegum.github.io/windows11/assets/img/hero-manutencao.webp">
+  <link rel="preload" as="style" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <script src="https://edusidegum.github.io/menu/scripts/bloco-incluir.js" defer></script>
   <script src="https://edusidegum.github.io/menu/scripts/bloco-protecao.js" defer></script>
-
-  <!-- CSS compartilhado -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- Google Fonts: Caveat (cursiva) + Montserrat/Open Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
   <style>
-    /* Reset e base */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-      background: #0a0e17;
-      color: #e0e0e0;
-      line-height: 1.6;
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+    body { background: #0a0e17; color: #e2e8f0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; margin: 0; }
+    .top-header { padding: 0 5%; height: 64px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-bottom: 2px solid #1e3a5f; }
+    .hero-section { text-align: center; padding: 60px 5% 40px; background: linear-gradient(180deg, #0f172a 0%, #0a0e17 100%); }
+    .hero-section h1 { font-size: 2.2rem; color: #e2e8f0; margin-bottom: 16px; }
+    .hero-section p { font-size: 1.1rem; color: #94a3b8; max-width: 720px; margin: 0 auto; line-height: 1.6; }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px 5%; max-width: 1200px; margin: 0 auto; }
+    .passo-card { background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; transition: border-color 0.3s; }
+    .passo-card:hover { border-color: #2563eb; }
+    .passo-card .icone { font-size: 2rem; margin-bottom: 12px; }
+    .passo-card h3 { font-size: 1.2rem; color: #e2e8f0; margin: 0 0 8px; }
+    .passo-card p { font-size: 0.9rem; color: #94a3b8; margin: 0 0 12px; line-height: 1.5; }
+    .passo-card .code-block { background: #0f172a; border: 1px solid #1e3a5f; border-radius: 6px; padding: 10px 14px; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.85rem; color: #60a5fa; overflow-x: auto; white-space: nowrap; }
+    .passo-card .tempo { font-size: 0.8rem; color: #64748b; margin-top: 8px; }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px; margin: 40px auto; border-radius: 12px; border: 1px solid #1e3a5f; }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .download-box { background: #1e293b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 32px; margin: 40px 5%; max-width: 800px; margin-left: auto; margin-right: auto; }
+    .download-box h2 { text-align: center; color: #e2e8f0; margin-top: 0; }
+    .manual-card { background: #0f172a; border: 2px solid #2563eb; border-radius: 10px; padding: 20px; margin-bottom: 24px; }
+    .manual-card h3 { color: #60a5fa; margin: 0 0 8px; }
+    .manual-card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.5; }
+    .command-item { border-left: 4px solid #2563eb; background: #0f172a; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 16px; }
+    .command-item .cmd-title { font-weight: 700; color: #e2e8f0; margin-bottom: 4px; }
+    .command-item .cmd-code { background: #1e293b; border-radius: 4px; padding: 8px 12px; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.85rem; color: #60a5fa; overflow-x: auto; white-space: nowrap; margin: 8px 0; }
+    .command-item .cmd-desc { color: #94a3b8; font-size: 0.9rem; }
+    .command-item .cmd-tempo { color: #64748b; font-size: 0.8rem; margin-top: 4px; }
+    .disclaimer-box { background: #1e293b; border: 1px solid #f59e0b; border-radius: 8px; padding: 16px; margin: 24px 0; font-size: 0.9rem; color: #fbbf24; }
+    .btn-download { display: inline-block; padding: 14px 32px; background: #2563eb; color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: background 0.3s; }
+    .btn-download:hover { background: #1d4ed8; }
+    .checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; padding: 20px 5%; max-width: 800px; margin: 0 auto; }
+    .checklist-item { display: flex; align-items: center; gap: 10px; background: #1e293b; border: 1px solid #1e3a5f; border-radius: 8px; padding: 12px 16px; cursor: pointer; transition: background 0.2s; }
+    .checklist-item.checked { background: #0f172a; border-color: #2563eb; text-decoration: line-through; color: #64748b; }
+    .checklist-item input[type="checkbox"] { accent-color: #2563eb; width: 18px; height: 18px; cursor: pointer; }
+    .format-panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; padding: 40px 5%; max-width: 1000px; margin: 0 auto; }
+    .format-card { background: #1e293b; border: 1px solid #dc2626; border-radius: 10px; padding: 20px; text-align: center; }
+    .format-card .icone { font-size: 2.5rem; margin-bottom: 8px; }
+    .format-card h4 { color: #fca5a5; margin: 0 0 6px; }
+    .format-card p { color: #94a3b8; font-size: 0.9rem; margin: 0; }
+    #footer { margin-top: 60px; }
+    .authority { text-align: center; padding: 16px; background: #0f172a; border-top: 1px solid #1e3a5f; color: #94a3b8; font-size: 0.85rem; }
+    .authority a { color: #60a5fa; text-decoration: none; }
+    @media (max-width: 700px) {
+      .top-header { flex-wrap: wrap; height: auto; padding: 8px 5%; gap: 8px; }
+      .top-header nav { gap: 12px; flex-wrap: wrap; justify-content: center; }
+      .hero-section h1 { font-size: 1.6rem; }
+      .steps-grid { grid-template-columns: 1fr; }
     }
-
-    /* Cabeçalho local */
-    .local-header {
-      background: #1e293b;
-      padding: 12px 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 2px solid #2563eb;
-    }
-    .local-header .logo {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      color: #2563eb;
-      font-size: 1.2rem;
-      text-decoration: none;
-    }
-    .local-header nav a {
-      color: #cbd5e1;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-    .local-header nav a:hover { color: #2563eb; }
-
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding: 60px 16px 40px;
-      background: linear-gradient(180deg, #0f172a 0%, #0a0e17 100%);
-    }
-    .hero h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.2rem;
-      color: #f1f5f9;
-      margin-bottom: 12px;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: #94a3b8;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    /* Container */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
-
-    /* Grid de cards */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      padding: 40px 0;
-    }
-    .card-item {
-      background: #1e293b;
-      border-radius: 12px;
-      padding: 24px 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-      border: 1px solid #334155;
-    }
-    .card-item:hover {
+        .card-item:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
-      border-color: #2563eb;
+      border-color: #2563eb !important;
+      box-shadow: 0 8px 25px rgba(37,99,235,0.3);
     }
-    .card-item .icon {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    .card-item h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
-      color: #f1f5f9;
-    }
-
-    /* Overlay e Post-it */
     .postit-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       z-index: 9999;
-      opacity: 0;
-      visibility: hidden;
+      opacity: 0; visibility: hidden;
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
     .postit-overlay.active {
-      opacity: 1;
-      visibility: visible;
+      opacity: 1; visibility: visible;
     }
     .postit {
       background: #fef9c3;
-      width: 340px;
-      max-width: 90%;
+      width: 340px; max-width: 90%;
       padding: 28px 24px;
       border-radius: 4px;
       box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-      font-family: 'Caveat', 'Comic Sans MS', 'Patrick Hand', cursive;
+      font-family: 'Caveat', cursive;
       font-size: 1.3rem;
       color: #1e3a8a;
       line-height: 1.5;
       position: relative;
       transform: rotate(var(--rot, 0deg));
-      transition: transform 0.2s;
     }
     .postit .close-btn {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      font-size: 1.5rem;
-      color: #1e3a8a;
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-family: inherit;
+      position: absolute; top: 8px; right: 12px;
+      font-size: 1.5rem; color: #1e3a8a;
+      cursor: pointer; background: none; border: none;
     }
-    .postit .command {
-      font-weight: 700;
-      font-size: 1.4rem;
-      margin-bottom: 8px;
+    .postit .cmd-text {
+      font-weight: 700; font-size: 1.4rem; margin-bottom: 8px;
       word-break: break-word;
     }
-    .postit .description {
-      font-size: 1.1rem;
-      white-space: pre-line;
-    }
-    /* Efeito canto dobrado (opcional) */
-    .postit::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 30px;
-      height: 30px;
-      background: linear-gradient(135deg, transparent 50%, #e5d9a0 50%);
-      border-bottom-right-radius: 4px;
-    }
-
-    /* Seções */
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.5rem;
-      color: #f1f5f9;
-      margin: 40px 0 20px;
-      text-align: center;
-    }
-    .video-wrapper {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      max-width: 100%;
-      background: #1e293b;
-      border-radius: 12px;
-      margin: 20px 0;
-    }
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .download-section {
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 12px;
-      margin: 20px 0;
-      text-align: center;
-    }
-    .download-section a {
-      display: inline-block;
-      background: #2563eb;
-      color: #fff;
-      padding: 12px 30px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      margin-top: 10px;
-    }
-    .checklist {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-      margin: 20px 0;
-    }
-    .checklist-item {
-      background: #1e293b;
-      padding: 12px 16px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      border: 1px solid #334155;
-      transition: background 0.2s;
-    }
-    .checklist-item.checked {
-      background: #1e3a5f;
-      border-color: #2563eb;
-    }
-    .checklist-item input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      accent-color: #2563eb;
-    }
-
-    /* Footer (autoridade) */
-    .authority-footer {
-      text-align: center;
-      padding: 20px;
-      color: #64748b;
-      font-size: 0.85rem;
-      border-top: 1px solid #1e293b;
-      margin-top: 40px;
-    }
-    .authority-footer a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-
-    /* Responsivo */
-    @media (max-width: 700px) {
-      .hero h1 { font-size: 1.6rem; }
-      .local-header { flex-direction: column; gap: 8px; }
-      .local-header nav a { margin: 0 10px; }
+    .postit .desc-text {
+      font-size: 1.1rem; white-space: pre-line;
     }
   </style>
 </head>
 <body>
-
-  <!-- Header Local -->
-  <header class="local-header">
-    <a href="/" class="logo">🛡️ Win11 Hub</a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/dashboard2.html">Dashboard</a>
-      <a href="/sobre.html">Sobre</a>
-      <a href="https://edusidegum.github.io/edusidegum/sobre.html" target="_blank">e_Sid</a>
+  <div class="top-header">
+    <div>
+      <span style="font-size: 1.25rem; font-weight: 700; color: #e2e8f0;">Windows 11 🛡️</span>
+      <span style="font-size: 0.8rem; color: #94a3b8; margin-left: 8px;">Centro de Aprendizado</span>
+    </div>
+    <nav style="display: flex; gap: 24px; align-items: center;">
+      <a href="dashboard.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Dashboard</a>
+      <a href="manutencao.html" style="color: #2563eb; font-size: 0.9rem; text-decoration: none; border-bottom: 2px solid #2563eb; padding-bottom: 2px;">Manutenção</a>
+      <a href="drivers.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Drivers</a>
+      <a href="softwares.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Softwares</a>
+      <a href="configuracoes.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">Privacidade</a>
+      <a href="FAQ_Microsoft.html" style="color: #94a3b8; font-size: 0.9rem; text-decoration: none;">FAQ</a>
     </nav>
-  </header>
+    <a href="dashboard.html" style="display: inline-flex; align-items: center; gap: 4px; padding: 8px 18px; border: 1px solid #1e3a5f; border-radius: 8px; color: #94a3b8; font-size: 0.85rem; text-decoration: none; transition: all 0.2s;">← Voltar</a>
+  </div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>🛡️ Manutenção Preventiva do Windows 11</h1>
-    <p>Clique em cada card para abrir a instrução em um post-it interativo.</p>
+   <!-- HERO -->
+  <section class="hero-section" style="text-align:center;padding:60px 5% 40px;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);">
+    <h1 style="color:#e2e8f0;font-size:2.2rem;margin-bottom:16px;">🛡️ Manutenção Preventiva do Windows 11</h1>
+    <p style="color:#94a3b8;font-size:1.1rem;max-width:700px;margin:0 auto 24px;">Antes de formatar, tente estes 8 comandos. Clique em cada card para abrir a instrução em um post-it interativo.</p>
+    <span style="color:#2563eb;font-size:1rem;font-weight:600;">🔧 Aprenda, investigue e valide cada etapa.</span>
   </section>
 
-  <div class="container">
-    <!-- Grid de 8 Cards -->
-    <div class="cards-grid" id="cardsGrid">
-      <!-- Card 1 -->
-      <div class="card-item" data-index="0">
-        <div class="icon">🛡️</div>
-        <h3>CHKDSK</h3>
+  <!-- 8 CARDS INTERATIVOS COM POST-IT -->
+  <section style="padding:40px 5%;max-width:1200px;margin:0 auto;">
+    <h2 style="color:#e2e8f0;text-align:center;font-size:1.5rem;margin-bottom:24px;">🔧 Os 8 Passos Essenciais</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;" id="cardsGrid">
+      <div class="card-item" data-index="0" style="background:#1e293b;border:1px solid #1e3a5f;border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:transform 0.2s,border-color 0.2s;">
+        <div style="font-size:2.5rem;margin-bottom:8px;">🛡️</div>
+        <h3 style="color:#e2e8f0;margin:0;font-size:1rem;">CHKDSK</h3>
       </div>
-      <!-- Card 2 -->
-      <div class="card-item" data-index="1">
-        <div class="icon">🔧</div>
-        <h3>SFC</h3>
+      <div class="card-item" data-index="1" style="background:#1e293b;border:1px solid #1e3a5f;border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:transform 0.2s,border-color 0.2s;">
+        <div style="font-size:2.5rem;margin-bottom:8px;">🔧</div>
+        <h3 style="color:#e2e8f0;margin:0;font-size:1rem;">SFC</h3>
       </div>
-      <!-- Card 3 -->
-      <div class="card-item" data-index="2">
-        <div class="icon">⚙️</div>
-        <h3>DISM</h3>
+      <div class="card-item" data-index="2" style="background:#1e293b;border:1px solid #1e3a5f;border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:transform 0.2s,border-color 0.2s;">
+        <div style="font-size:2.5rem;margin-bottom:8px;">⚙️</div>
+        <h3 style="color:#e2e8f0;margin:0;font-size:1rem;">DISM</h3>
       </div>
-      <!-- Card 4 -->
-      <div class="card-item" data-index="3">
-        <div class="icon">🧹</div>
-        <h3>Temporários</h3>
+      <div class="card-item" data-index="3" style="background:#1e293b;border:1px solid #1e3a5f;border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:transform 0.2s,border-color 0.2s;">
+        <div style="font-size:2.5rem;margin-bottom:8px;">🧹</div>
+        <h3 style="color:#e2e8f0;margin:0;font-size:1rem;">Temporários</h3>
       </div>
-      <!-- Card 5 -->
-      <div class="card-item" data-index="4">
-        <div class="icon">🗑️</div>
-        <h3>CleanMgr</h3>
+      <div class="card-item" data-index="4" style="background:#1e293b;border:1px solid #1e3a5f;border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:transform 0.2s,border-color 0.2s;">
+        <div style="font-size:2.5rem;margin-bottom:8px;">🗑️</div>
+        <h3 style="color:#e2e8f0;margin:0;font-size:1rem;">CleanMgr</h3>
       </div>
-      <!-- Card 6 -->
-      <div class="card-item" data-index="5">
-        <div class="icon">🔄</div>
-        <h3>Boot Repair</h3>
+      <div class="card-item" data-index="5" style="background:#1e293b;border:1px solid #1e3a5f;border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:transform 0.2s,border-color 0.2s;">
+        <div style="font-size:2.5rem;margin-bottom:8px;">🔄</div>
+        <h3 style="color:#e2e8f0;margin:0;font-size:1rem;">Boot Repair</h3>
       </div>
-      <!-- Card 7 -->
-      <div class="card-item" data-index="6">
-        <div class="icon">⚡</div>
-        <h3>Desfragmentação</h3>
+      <div class="card-item" data-index="6" style="background:#1e293b;border:1px solid #1e3a5f;border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:transform 0.2s,border-color 0.2s;">
+        <div style="font-size:2.5rem;margin-bottom:8px;">⚡</div>
+        <h3 style="color:#e2e8f0;margin:0;font-size:1rem;">Desfragmentação</h3>
       </div>
-      <!-- Card 8 -->
-      <div class="card-item" data-index="7">
-        <div class="icon">🌐</div>
-        <h3>Rede</h3>
+      <div class="card-item" data-index="7" style="background:#1e293b;border:1px solid #1e3a5f;border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:transform 0.2s,border-color 0.2s;">
+        <div style="font-size:2.5rem;margin-bottom:8px;">🌐</div>
+        <h3 style="color:#e2e8f0;margin:0;font-size:1rem;">Rede</h3>
       </div>
     </div>
+  </section>
+  </div>
 
-    <!-- Vídeo Tutorial -->
-    <h2 class="section-title">🎥 Vídeo Tutorial</h2>
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tutorial de Manutenção Windows 11" allowfullscreen></iframe>
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Tutorial de Manutenção Preventiva Windows 11" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <div class="download-box">
+    <h2>📥 Executar Manutenção</h2>
+    <div class="manual-card">
+      <h3>⭐ Método Manual — Recomendado</h3>
+      <p>A execução manual é mais segura porque você vê o resultado de cada comando antes de prosseguir. Siga os passos: Win+R → digite <strong>cmd</strong> → clique com botão direito e escolha <strong>Executar como administrador</strong> → digite cada comando abaixo e pressione Enter.</p>
     </div>
 
-    <!-- Seção de Download -->
-    <h2 class="section-title">📥 Download do Script Completo</h2>
-    <div class="download-section">
-      <p>Baixe o script .bat com todos os comandos para executar manualmente.</p>
-      <a href="#" onclick="alert('Download simulado: script.bat')">⬇️ Baixar Script (Método Manual)</a>
+    <div class="command-item">
+      <div class="cmd-title">1. CHKDSK — Verificação de Disco</div>
+      <div class="cmd-code">chkdsk C: /f /r</div>
+      <div class="cmd-desc">Verifica e repara erros no disco. Pode exigir reinicialização.</div>
+      <div class="cmd-tempo">⏱️ 10–30 min</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">2. SFC — Verificador de Arquivos do Sistema</div>
+      <div class="cmd-code">sfc /scannow</div>
+      <div class="cmd-desc">Escaneia e restaura arquivos protegidos do sistema.</div>
+      <div class="cmd-tempo">⏱️ 15–30 min</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">3. DISM — Reparo da Imagem do Windows</div>
+      <div class="cmd-code">DISM /Online /Cleanup-Image /RestoreHealth</div>
+      <div class="cmd-desc">Repara a imagem do sistema operacional.</div>
+      <div class="cmd-tempo">⏱️ 20–40 min</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">4. Limpeza de Arquivos Temporários</div>
+      <div class="cmd-code">del /q/f/s %TEMP%\* && del /q/f/s C:\Windows\Temp\*</div>
+      <div class="cmd-desc">Remove arquivos temporários do usuário e do sistema.</div>
+      <div class="cmd-tempo">⏱️ 2–5 min</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">5. CleanMgr — Limpeza de Disco</div>
+      <div class="cmd-code">cleanmgr /sageset:1 && cleanmgr /sagerun:1</div>
+      <div class="cmd-desc">Abre a ferramenta de limpeza com configurações pré-definidas.</div>
+      <div class="cmd-tempo">⏱️ 5–15 min</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">6. Reparo de Inicialização (Boot)</div>
+      <div class="cmd-code">bootrec /fixmbr && bootrec /fixboot && bootrec /rebuildbcd</div>
+      <div class="cmd-desc">Reconstrói o registro de boot do Windows.</div>
+      <div class="cmd-tempo">⏱️ 5–10 min</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">7. Desfragmentação (HDD)</div>
+      <div class="cmd-code">defrag C: /O</div>
+      <div class="cmd-desc">Otimiza o disco rígido (HDD). Em SSDs, o Windows otimiza automaticamente.</div>
+      <div class="cmd-tempo">⏱️ 30–120 min (HDD)</div>
+    </div>
+    <div class="command-item">
+      <div class="cmd-title">8. Reset de Rede</div>
+      <div class="cmd-code">netsh int ip reset && ipconfig /release && ipconfig /renew && ipconfig /flushdns</div>
+      <div class="cmd-desc">Reseta pilha TCP/IP, renova IP e limpa cache DNS.</div>
+      <div class="cmd-tempo">⏱️ 2–5 min</div>
     </div>
 
-    <!-- Checklist -->
-    <h2 class="section-title">✅ Checklist de Execução</h2>
-    <div class="checklist" id="checklist">
-      <label class="checklist-item" data-key="chkdsk">
-        <input type="checkbox"> 🛡️ CHKDSK
-      </label>
-      <label class="checklist-item" data-key="sfc">
-        <input type="checkbox"> 🔧 SFC
-      </label>
-      <label class="checklist-item" data-key="dism">
-        <input type="checkbox"> ⚙️ DISM
-      </label>
-      <label class="checklist-item" data-key="temp">
-        <input type="checkbox"> 🧹 Temporários
-      </label>
-      <label class="checklist-item" data-key="cleanmgr">
-        <input type="checkbox"> 🗑️ CleanMgr
-      </label>
-      <label class="checklist-item" data-key="bootrec">
-        <input type="checkbox"> 🔄 Boot Repair
-      </label>
-      <label class="checklist-item" data-key="defrag">
-        <input type="checkbox"> ⚡ Desfragmentação
-      </label>
-      <label class="checklist-item" data-key="rede">
-        <input type="checkbox"> 🌐 Rede
-      </label>
+    <div class="disclaimer-box">
+      ⚠️ Recomendação: Sempre execute manualmente cada comando para acompanhar os resultados. O script automático é uma alternativa prática, mas não substitui a supervisão manual.
+    </div>
+
+    <hr style="border-color: #1e3a5f; margin: 24px 0;">
+
+    <div style="text-align: center;">
+      <p style="color: #94a3b8; font-size: 1rem; margin-bottom: 16px;">💾 Alternativa automática: Se preferir, baixe o script .bat</p>
+      <button class="btn-download" onclick="baixarScript()">📥 Baixar Script de Manutenção (.bat)</button>
     </div>
   </div>
 
-  <!-- Overlay do Post-it -->
+  <h2 style="text-align: center; color: #e2e8f0; margin-top: 40px;">✅ Checklist de Manutenção</h2>
+  <p style="text-align: center; color: #94a3b8;">Marque os passos já executados (salvo automaticamente)</p>
+  <div class="checklist-grid" id="checklist-container">
+    <label class="checklist-item" data-id="1"><input type="checkbox"> CHKDSK</label>
+    <label class="checklist-item" data-id="2"><input type="checkbox"> SFC</label>
+    <label class="checklist-item" data-id="3"><input type="checkbox"> DISM</label>
+    <label class="checklist-item" data-id="4"><input type="checkbox"> Limpeza Temporários</label>
+    <label class="checklist-item" data-id="5"><input type="checkbox"> CleanMgr</label>
+    <label class="checklist-item" data-id="6"><input type="checkbox"> Boot Repair</label>
+    <label class="checklist-item" data-id="7"><input type="checkbox"> Desfragmentação</label>
+    <label class="checklist-item" data-id="8"><input type="checkbox"> Rede</label>
+  </div>
+
+  <h2 style="text-align: center; color: #e2e8f0; margin-top: 40px;">🚨 Quando Formatar?</h2>
+  <p style="text-align: center; color: #94a3b8;">Se estes sinais persistirem após a manutenção, considere formatar.</p>
+  <div class="format-panel">
+    <div class="format-card">
+      <div class="icone">🐌</div>
+      <h4>Lentidão extrema</h4>
+      <p>O sistema demora mais de 5 minutos para iniciar mesmo após limpeza.</p>
+    </div>
+    <div class="format-card">
+      <div class="icone">💥</div>
+      <h4>Erros frequentes</h4>
+      <p>Telas azuis (BSOD) ou travamentos aleatórios que não desaparecem com reparos.</p>
+    </div>
+    <div class="format-card">
+      <div class="icone">🔐</div>
+      <h4>Infecção persistente</h4>
+      <p>Malware ou vírus que não são removidos mesmo com scanners avançados.</p>
+    </div>
+    <div class="format-card">
+      <div class="icone">📦</div>
+      <h4>Atualizações falham</h4>
+      <p>Windows Update não consegue instalar atualizações mesmo após DISM e SFC.</p>
+    </div>
+  </div>
+  <!-- OVERLAY POST-IT -->
   <div class="postit-overlay" id="postitOverlay">
     <div class="postit" id="postitContent">
       <button class="close-btn" id="closePostit">✕</button>
-      <div class="command" id="postitCommand"></div>
-      <div class="description" id="postitDescription"></div>
+      <div class="cmd-text" id="postitCmd"></div>
+      <div class="desc-text" id="postitDesc"></div>
     </div>
   </div>
-
-  <!-- Footer via bloco-incluir.js + autoridade + tracking -->
   <div id="footer"></div>
+  <div class="authority">
+    <a href="https://edusidegum.github.io/edusidegum/sobre.html">Desenvolvido em 2026 por e_Sid</a>
+  </div>
   <div id="cookies"></div>
   <div id="ga4-gtm"></div>
 
-  <div class="authority-footer">
-    Desenvolvido em 2026 por <a href="https://edusidegum.github.io/edusidegum/sobre.html" target="_blank">e_Sid</a>
-  </div>
-
   <script>
-    // Dados dos comandos
+    // Script para baixar .bat
+    function baixarScript() {
+      const conteudo = `@echo off
+chcp 65001 >nul
+echo ============================================
+echo  MANUTENÇÃO PREVENTIVA WINDOWS 11
+echo  Execute como Administrador!
+echo ============================================
+echo.
+
+REM Verificar se está como administrador
+net session >nul 2>&1
+if %errorlevel% neq 0 (
+    echo ⚠️  Este script precisa ser executado como Administrador.
+    echo    Clique com botão direito e escolha "Executar como administrador".
+    pause
+    exit /b 1
+)
+
+echo [1/8] CHKDSK - Verificando disco...
+chkdsk C: /f /r
+echo.
+
+echo [2/8] SFC - Verificando integridade do sistema...
+sfc /scannow
+echo.
+
+echo [3/8] DISM - Reparando imagem do Windows...
+DISM /Online /Cleanup-Image /RestoreHealth
+echo.
+
+echo [4/8] Limpando arquivos temporários...
+del /q/f/s %TEMP%\* >nul 2>&1
+del /q/f/s C:\Windows\Temp\* >nul 2>&1
+echo Temporários removidos.
+echo.
+
+echo [5/8] CleanMgr - Limpeza de disco...
+cleanmgr /sageset:1 >nul 2>&1
+cleanmgr /sagerun:1
+echo.
+
+echo [6/8] Reparando boot...
+bootrec /fixmbr >nul 2>&1
+bootrec /fixboot >nul 2>&1
+bootrec /rebuildbcd >nul 2>&1
+echo Boot reparado.
+echo.
+
+echo [7/8] Desfragmentando disco...
+defrag C: /O
+echo.
+
+echo [8/8] Resetando rede...
+netsh int ip reset >nul 2>&1
+ipconfig /release >nul 2>&1
+ipconfig /renew >nul 2>&1
+ipconfig /flushdns >nul 2>&1
+echo Rede resetada.
+echo.
+
+echo ============================================
+echo  MANUTENÇÃO CONCLUÍDA!
+echo  Reinicie o computador para aplicar todas as alterações.
+echo ============================================
+pause`;
+      const blob = new Blob([conteudo], { type: 'application/x-msdos-program' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Manutencao_Windows11.bat';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Checklist com LocalStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkboxes = document.querySelectorAll('#checklist-container input[type="checkbox"]');
+      checkboxes.forEach(cb => {
+        const id = cb.closest('.checklist-item').dataset.id;
+        const saved = localStorage.getItem('checklist_' + id);
+        if (saved === 'true') {
+          cb.checked = true;
+          cb.closest('.checklist-item').classList.add('checked');
+        }
+        cb.addEventListener('change', function() {
+          const item = this.closest('.checklist-item');
+          const id = item.dataset.id;
+          if (this.checked) {
+            localStorage.setItem('checklist_' + id, 'true');
+            item.classList.add('checked');
+          } else {
+            localStorage.removeItem('checklist_' + id);
+            item.classList.remove('checked');
+          }
+        });
+      });
+    });
+      <script>
     const commands = [
-      {
-        title: "CHKDSK",
-        command: "chkdsk C: /f /r /x",
-        description: "Verifica e repara erros no disco rígido, setores defeituosos e problemas de sistema de arquivos. Necessita reinicialização."
-      },
-      {
-        title: "SFC",
-        command: "sfc /scannow",
-        description: "Escaneia e restaura arquivos corrompidos ou ausentes do sistema."
-      },
-      {
-        title: "DISM",
-        command: "DISM /Online /Cleanup-Image /RestoreHealth",
-        description: "Repara a imagem do sistema operacional e o componente de instalação."
-      },
-      {
-        title: "Temporários",
-        command: "del /q /f /s %TEMP%\\*",
-        description: "Remove arquivos temporários que acumulam e ocupam espaço."
-      },
-      {
-        title: "CleanMgr",
-        command: "cleanmgr /sagerun:1",
-        description: "Executa a limpeza de disco com configurações pré-definidas."
-      },
-      {
-        title: "Boot Repair",
-        command: "bootrec /fixboot & bootrec /fixmbr",
-        description: "Corrige problemas no registro de inicialização e no MBR."
-      },
-      {
-        title: "Desfragmentação",
-        command: "defrag C: /O",
-        description: "Otimiza o disco rígido reorganizando arquivos fragmentados (apenas HDD, SSDs não precisam)."
-      },
-      {
-        title: "Rede",
-        command: "ipconfig /flushdns & netsh winsock reset",
-        description: "Limpa o cache DNS e redefine as configurações de rede."
-      }
+      { title: "CHKDSK", command: "chkdsk C: /f /r /x", description: "Verifica e repara erros no disco rígido, setores defeituosos e problemas de sistema de arquivos. Necessita reinicialização." },
+      { title: "SFC", command: "sfc /scannow", description: "Escaneia e restaura arquivos corrompidos ou ausentes do sistema." },
+      { title: "DISM", command: "DISM /Online /Cleanup-Image /RestoreHealth", description: "Repara a imagem do sistema operacional e o componente de instalação." },
+      { title: "Temporários", command: "del /q /f /s %TEMP%\*", description: "Remove arquivos temporários que acumulam e ocupam espaço." },
+      { title: "CleanMgr", command: "cleanmgr /sagerun:1", description: "Executa a limpeza de disco com configurações pré-definidas." },
+      { title: "Boot Repair", command: "bootrec /fixboot & bootrec /fixmbr", description: "Corrige problemas no registro de inicialização e no MBR." },
+      { title: "Desfragmentação", command: "defrag C: /O", description: "Otimiza o disco rígido reorganizando arquivos fragmentados (apenas HDD, SSDs não precisam)." },
+      { title: "Rede", command: "ipconfig /flushdns & netsh winsock reset", description: "Limpa o cache DNS e redefine as configurações de rede." }
     ];
 
-    // Elementos
     const overlay = document.getElementById('postitOverlay');
     const postit = document.getElementById('postitContent');
-    const cmdEl = document.getElementById('postitCommand');
-    const descEl = document.getElementById('postitDescription');
+    const cmdEl = document.getElementById('postitCmd');
+    const descEl = document.getElementById('postitDesc');
     const closeBtn = document.getElementById('closePostit');
 
-    // Função para abrir post-it
     function openPostIt(index) {
       const data = commands[index];
       cmdEl.textContent = data.command;
       descEl.textContent = data.description;
-      // Rotação aleatória entre -3deg e 3deg
       const rot = (Math.random() * 6 - 3).toFixed(1);
       postit.style.setProperty('--rot', rot + 'deg');
       overlay.classList.add('active');
     }
 
-    // Fechar post-it
     function closePostIt() {
       overlay.classList.remove('active');
     }
 
-    // Event listeners nos cards
     document.querySelectorAll('.card-item').forEach(card => {
       card.addEventListener('click', function() {
-        const index = parseInt(this.dataset.index);
-        openPostIt(index);
+        openPostIt(parseInt(this.dataset.index));
       });
     });
 
-    // Fechar ao clicar no overlay (fora do post-it)
     overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) {
-        closePostIt();
-      }
+      if (e.target === overlay) closePostIt();
     });
 
-    // Fechar com botão X
     closeBtn.addEventListener('click', closePostIt);
 
-    // Fechar com tecla ESC
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closePostIt();
     });
-
-    // Checklist com LocalStorage
-    document.querySelectorAll('.checklist-item').forEach(item => {
-      const checkbox = item.querySelector('input[type="checkbox"]');
-      const key = item.dataset.key;
-      // Restaurar estado salvo
-      const saved = localStorage.getItem('win11_checklist_' + key);
-      if (saved === 'true') {
-        checkbox.checked = true;
-        item.classList.add('checked');
-      }
-      checkbox.addEventListener('change', function() {
-        if (this.checked) {
-          item.classList.add('checked');
-          localStorage.setItem('win11_checklist_' + key, 'true');
-        } else {
-          item.classList.remove('checked');
-          localStorage.setItem('win11_checklist_' + key, 'false');
-        }
-      });
-    });
+  </script>
   </script>
 </body>
 </html>
