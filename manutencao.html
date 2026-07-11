@@ -183,9 +183,12 @@
   </section>
   <!-- tag </div> extra removida -->
 
-  <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/_34GTJKnWNo" title="Tutorial de Manutenção Preventiva Windows 11" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
+  <div class="video-wrapper" style="position:relative;cursor:pointer;" onclick="this.innerHTML='<iframe style=\"position:absolute;top:0;left:0;width:100%;height:100%;\" src=\"https://www.youtube.com/embed/_34GTJKnWNo?autoplay=1\" title=\"Tutorial\" allow=\"autoplay\" allowfullscreen></iframe>'">
+  <img src="https://img.youtube.com/vi/_34GTJKnWNo/hqdefault.jpg" 
+       alt="Tutorial de Manutenção Windows 11" 
+       style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:12px;">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:4rem;">▶️</div>
+</div>
 
   <div class="download-box">
     <h2>📥 Executar Manutenção</h2>
